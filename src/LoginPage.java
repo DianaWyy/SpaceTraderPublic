@@ -100,7 +100,7 @@ public class LoginPage {
         l3.setForeground(Color.white);
         f.add(l3);
 
-        // Check which difficulty for number of alloted skills
+        // Check which difficulty for number of allocated skills
 
         switch(difficulty) {
             case "Easy": skills = 16; break;
