@@ -45,14 +45,38 @@ public class SkillsPage {
         l3.setForeground(Color.white);
         f.add(l3);
 
+        // Create Label
+        JLabel pilot = new JLabel("Pilot");
+        JLabel fighter = new JLabel("Fighter");
+        JLabel merchant = new JLabel("Merchant");
+        JLabel engineer = new JLabel("Engineer");
+        pilot.setBounds(150, 130, 100, 30);
+        fighter.setBounds(150, 160, 100, 30);
+        merchant.setBounds(150, 190, 100, 30);
+        engineer.setBounds(150, 220, 100, 30);
+        pilot.setFont(new Font("Serif", Font.BOLD, 18));
+        fighter.setFont(new Font("Serif", Font.BOLD, 18));
+        merchant.setFont(new Font("Serif", Font.BOLD, 18));
+        engineer.setFont(new Font("Serif", Font.BOLD, 18));
+        pilot.setForeground(Color.WHITE);
+        fighter.setForeground(Color.WHITE);
+        merchant.setForeground(Color.WHITE);
+        engineer.setForeground(Color.WHITE);
+        f.add(pilot);
+        f.add(fighter);
+        f.add(merchant);
+        f.add(engineer);
+
+
+        // Create TextFields
         JTextField t1 = new JTextField();
         JTextField t2 = new JTextField();
         JTextField t3 = new JTextField();
         JTextField t4 = new JTextField();
-        t1.setBounds(140, 130, 100, 30);
-        t2.setBounds(140, 160, 100, 30);
-        t3.setBounds(140, 190, 100, 30);
-        t4.setBounds(140, 220, 100, 30);
+        t1.setBounds(250, 130, 100, 30);
+        t2.setBounds(250, 160, 100, 30);
+        t3.setBounds(250, 190, 100, 30);
+        t4.setBounds(250, 220, 100, 30);
         t1.setFont(new Font("Serif", Font.BOLD, 14));
         t1.setForeground(Color.black);
         t2.setFont(new Font("Serif", Font.BOLD, 14));
@@ -77,23 +101,6 @@ public class SkillsPage {
 
         f.add(b2);
 
-        t1.addActionListener(l -> {
-                String s = t1.getText();
-                pilotSkill = Integer.parseInt(s);});
-
-        t2.addActionListener(l -> {
-            String s = t2.getText();
-            fighterSkill = Integer.parseInt(s);});
-
-        t3.addActionListener(l -> {
-            String s = t3.getText();
-            merchantSkill = Integer.parseInt(s);});
-
-        t4.addActionListener(l -> {
-            String s = t4.getText();
-            engineerSkill = Integer.parseInt(s);});
-
-
 
         b.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
@@ -103,6 +110,11 @@ public class SkillsPage {
                     f.dispose();
                 }
 
+                //check TextField
+                pilotSkill = Integer.parseInt(t1.getText());
+                fighterSkill = Integer.parseInt(t2.getText());
+                merchantSkill = Integer.parseInt(t3.getText());
+                engineerSkill = Integer.parseInt(t4.getText());
             }
         });
 
