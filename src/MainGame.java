@@ -17,23 +17,23 @@ import javax.swing.*;
 import java.awt.event.*;
 
 import javax.swing.*;
+
 public class MainGame {
     public static void main(String[] args) {
-        JFrame f=new JFrame();//creating instance of JFrame
-
+        JFrame f = new JFrame();//creating instance of JFrame
 
 
         JLabel l1;
-        l1=new JLabel("Space Trader");
-        l1.setBounds(130,100, 400,100);
-        l1.setFont( new Font("Serif",Font.BOLD, 48));
+        l1 = new JLabel("Space Trader");
+        l1.setBounds(130, 100, 400, 100);
+        l1.setFont(new Font("Serif", Font.BOLD, 48));
         l1.setForeground(Color.white);
 
         f.add(l1);
-        f.setSize(300,300);
+        f.setSize(300, 300);
 
-        JButton b=new JButton("Start Game");//creating instance of JButton
-        b.setBounds(130,200,100, 40);
+        JButton b = new JButton("Start Game");//creating instance of JButton
+        b.setBounds(130, 200, 100, 40);
 
         f.add(b);
 
@@ -46,16 +46,7 @@ public class MainGame {
         });
 
 
-
-
-
-
-
-
-
-
-
-        f.setSize(900,500);//400 width and 500 height
+        f.setSize(900, 500);//400 width and 500 height
         f.setLayout(null);//using no layout managers
         f.setVisible(true);//making the frame visible
         f.getContentPane().setForeground(new Color(25, 25, 25));
@@ -77,7 +68,6 @@ public class MainGame {
         }*/
 
 
-
-        }
+    }
 
 }  
