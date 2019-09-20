@@ -32,7 +32,7 @@ public class DiffPage {
         f.getContentPane().setBackground(new Color(25, 25, 25));
 
 
-        JLabel l2 = new JLabel("Please select your difficulty");
+        JLabel l2 = new JLabel(LoginPage.name + ", please select your difficulty");
         l2.setBounds(130, 40, 400, 100);
         l2.setFont(new Font("Serif", Font.BOLD, 24));
         l2.setForeground(Color.white);
