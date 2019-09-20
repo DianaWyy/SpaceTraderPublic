@@ -24,6 +24,7 @@ public class LoginPage {
 
     public LoginPage() {
 
+        // get width and height of screen
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int width = screenSize.width;
         int height = screenSize.height;
@@ -48,7 +49,7 @@ public class LoginPage {
         t1.setFont(new Font("Serif", Font.PLAIN, 40));
         t1.setBounds(125, 170, 350, 75);
         f.add(t1);
-        
+
         JButton b = new JButton("Next ->");//creating instance of JButton
         b.setFont(new Font("Serif", Font.BOLD, 40));
         b.setBounds(width - 250, height - 200, 200, 75);
