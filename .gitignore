@@ -1,6 +1,7 @@
 # Ignore files
 
 .idea
-./out/
+out/
 *.iml
 .DS_Store
+*.class
