@@ -65,7 +65,18 @@ public class MainGame {
                 JLabel label = new JLabel(imageIcon);
                 add(label);
             }
-        }*/
+        }
+
+
+        ImageIcon background = new ImageIcon("../pic/welcomepic.png");
+        JLabel label = new JLabel();
+        label.setBounds(130, 100, 600, 600);
+        label.setIcon(background);*/
+
+
+        BufferedImage mypic = ImageIO.read(new File("./pic/welcomepic.png"));
+        f.add(new JLabel(new ImageIcon(mypic)));
+
 
 
     }
