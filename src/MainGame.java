@@ -40,8 +40,8 @@ public class MainGame {
 
         b.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                f.dispose();
                 new LoginPage();
+                f.dispose();
             }
         });
 

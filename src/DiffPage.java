@@ -83,15 +83,15 @@ public class DiffPage {
 
         b.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                f.dispose();
                 new DisplayPage();
+                f.dispose();
             }
         });
 
         b2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                f.dispose();
                 new LoginPage();
+                f.dispose();
             }
         });
 

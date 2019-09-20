@@ -19,13 +19,13 @@ public class DisplayPage{
 
 
         JLabel l2=new JLabel("Your selected username: "  + LoginPage.name);
-        l2.setBounds(130,40, 400,100);
+        l2.setBounds(150,40, 400,100);
         l2.setFont( new Font("Serif",Font.BOLD, 24));
         l2.setForeground(Color.white);
         f.add(l2);
 
         JLabel l3=new JLabel("Your selected difficulty: " + DiffPage.difficulty);
-        l3.setBounds(130,80, 400,100);
+        l3.setBounds(150,80, 400,100);
         l3.setFont( new Font("Serif",Font.BOLD, 24));
         l3.setForeground(Color.white);
         f.add(l3);
