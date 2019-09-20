@@ -17,11 +17,6 @@ public class LoginPage {
     private JFrame f = new JFrame("Second");
     public static String name;
     public static String difficulty = "N/A";
-    public static int pilotSkill;
-    public static int fighterSkill;
-    public static int merchantSkill;
-    public static int engineerSkill;
-    private int skills;
 
 
     public LoginPage() {
@@ -91,108 +86,13 @@ public class LoginPage {
 
         f.setLayout(null);
 
-
-
-        // Attribute skill points
-        JLabel l3 = new JLabel("Please select your skills");
-        l3.setBounds(130, height/2, 550, 100);
-        l3.setFont(new Font("Serif", Font.BOLD, 42));
-        l3.setForeground(Color.white);
-        f.add(l3);
-
-        // Check which difficulty for number of alloted skills
-
-        switch(difficulty) {
-            case "Easy": skills = 16; break;
-            case "Medium": skills = 12; break;
-            case "Hard": skills = 8; break;
-            default: skills = 0;
-        }
-
-
-        JLabel l4 = new JLabel("You have " + skills + " skill points to distribute");
-        l4.setBounds(130, height/2 + 75, 550, 100);
-        l4.setFont(new Font("Serif", Font.BOLD, 32));
-        l4.setForeground(Color.white);
-        f.add(l4);
-
-        // Create Label
-        JLabel pilot = new JLabel("Pilot");
-        JLabel fighter = new JLabel("Fighter");
-        JLabel merchant = new JLabel("Merchant");
-        JLabel engineer = new JLabel("Engineer");
-        pilot.setBounds(150, height/2 + 150, 200, 50);
-        fighter.setBounds(150, height/2 + 200, 200, 50);
-        merchant.setBounds(150, height/2 + 250, 200, 50);
-        engineer.setBounds(150, height/2 + 300, 200, 50);
-        pilot.setFont(new Font("Serif", Font.BOLD, 32));
-        fighter.setFont(new Font("Serif", Font.BOLD, 32));
-        merchant.setFont(new Font("Serif", Font.BOLD, 32));
-        engineer.setFont(new Font("Serif", Font.BOLD, 32));
-        pilot.setForeground(Color.WHITE);
-        fighter.setForeground(Color.WHITE);
-        merchant.setForeground(Color.WHITE);
-        engineer.setForeground(Color.WHITE);
-        f.add(pilot);
-        f.add(fighter);
-        f.add(merchant);
-        f.add(engineer);
-
-
-        // Create TextFields
-        JTextField t2 = new JTextField();
-        JTextField t3 = new JTextField();
-        JTextField t4 = new JTextField();
-        JTextField t5 = new JTextField();
-        t2.setBounds(350, height/2 + 150, 100, 50);
-        t3.setBounds(350, height/2 + 200, 100, 50);
-        t4.setBounds(350, height/2 + 250, 100, 50);
-        t5.setBounds(350, height/2 + 300, 100, 50);
-        t2.setFont(new Font("Serif", Font.BOLD, 32));
-        t2.setForeground(Color.black);
-        t3.setFont(new Font("Serif", Font.BOLD, 32));
-        t3.setForeground(Color.black);
-        t4.setFont(new Font("Serif", Font.BOLD, 32));
-        t4.setForeground(Color.black);
-        t5.setFont(new Font("Serif", Font.BOLD, 32));
-        t5.setForeground(Color.black);
-        f.add(t2);
-        f.add(t3);
-        f.add(t4);
-        f.add(t5);
-
-
-        r1.addActionListener(l -> {
-            difficulty = "Easy";
-            skills = 16;
-            l4.setText("You have " + skills + " skill points to distribute");
-        });
-        r2.addActionListener(l -> {
-            difficulty = "Medium";
-            skills = 12;
-            l4.setText("You have " + skills + " skill points to distribute");
-        });
-        r3.addActionListener(l -> {
-            difficulty = "Hard";
-            skills = 8;
-            l4.setText("You have " + skills + " skill points to distribute");
-        });
-
-
-        b.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-
-                //check TextField
-                pilotSkill = Integer.parseInt(t2.getText());
-                fighterSkill = Integer.parseInt(t3.getText());
-                merchantSkill = Integer.parseInt(t4.getText());
-                engineerSkill = Integer.parseInt(t5.getText());
-
-                if(pilotSkill + fighterSkill + merchantSkill + engineerSkill == skills) {
-                    new DisplayPage();
-                    f.dispose();
-                }
-            }
-        });
+        r1.addActionListener(l ->
+                difficulty = "Easy");
+        r2.addActionListener(l ->
+                difficulty = "Medium");
+        r3.addActionListener(l ->
+                difficulty = "Hard");
     }
+
+
 }
