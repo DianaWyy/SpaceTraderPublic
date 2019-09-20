@@ -19,6 +19,7 @@ import java.awt.event.*;
 import javax.swing.*;
 public class DiffPage{
     private JFrame f = new JFrame("Select your difficulties");
+    public static String difficulty = "N/A";
 
 
 
@@ -31,7 +32,7 @@ public class DiffPage{
         f.getContentPane().setBackground(new Color(25, 25, 25));
 
 
-        JLabel l2=new JLabel("please select your difficulties");
+        JLabel l2=new JLabel("Please select your difficulty");
         l2.setBounds(130,40, 400,100);
         l2.setFont( new Font("Serif",Font.BOLD, 24));
         l2.setForeground(Color.white);
@@ -67,12 +68,20 @@ public class DiffPage{
 
         f.add(b2);
 
+        r1.addActionListener(l ->
+                difficulty = "Easy");
+
+        r2.addActionListener(l ->
+                difficulty = "Medium");
+
+        r3.addActionListener(l ->
+                difficulty = "Hard");
 
 
         b.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 f.dispose();
-                new DiffPage();
+                new DisplayPage();
             }
         });
 

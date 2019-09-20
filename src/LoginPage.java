@@ -59,9 +59,9 @@ public class LoginPage {
 
         b.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
+                name = t1.getText();
                 f.dispose();
                 new DiffPage();
-                name = t1.getText();
             }
 
 
