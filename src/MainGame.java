@@ -14,6 +14,9 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 
 import javax.swing.*;
+import java.awt.event.*;
+
+import javax.swing.*;
 public class MainGame {
     public static void main(String[] args) {
         JFrame f=new JFrame();//creating instance of JFrame
@@ -30,9 +33,20 @@ public class MainGame {
         f.setSize(300,300);
 
         JButton b=new JButton("Start Game");//creating instance of JButton
-        b.setBounds(130,200,100, 40);//x axis, y axis, width, height
+        b.setBounds(130,200,100, 40);
 
-        f.add(b);//adding button in JFrame
+        f.add(b);
+
+
+        b.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                f.dispose();
+                new LoginPage();
+            }
+        });
+
+
+
 
 
 
@@ -53,14 +67,14 @@ public class MainGame {
 
 
 
-        class ExImage extends JPanel {
+        /*class ExImage extends JPanel {
 
             public ExImage() {
                 ImageIcon imageIcon = new ImageIcon(this.getClass().getResource("download.jpeg"));
                 JLabel label = new JLabel(imageIcon);
                 add(label);
             }
-        }
+        }*/
 
 
 
