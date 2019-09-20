@@ -17,8 +17,10 @@ import javax.swing.*;
 import java.awt.event.*;
 
 import javax.swing.*;
-public class DiffPage {
+public class DiffPage{
     private JFrame f = new JFrame("Select your difficulties");
+
+
 
     public DiffPage() {
 
@@ -29,20 +31,42 @@ public class DiffPage {
         f.getContentPane().setBackground(new Color(25, 25, 25));
 
 
-        JLabel l2=new JLabel("Select your difficulties");
+        JLabel l2=new JLabel("please select your difficulties");
         l2.setBounds(130,40, 400,100);
         l2.setFont( new Font("Serif",Font.BOLD, 24));
         l2.setForeground(Color.white);
         f.add(l2);
+
+        JRadioButton r1=new JRadioButton("Easy");
+        JRadioButton r2=new JRadioButton("Medium");
+        JRadioButton r3=new JRadioButton("Hard");
+        r1.setBounds(140,130,100,30);
+        r2.setBounds(140,160,100,30);
+        r3.setBounds(140,190,100,30);
+        ButtonGroup bg=new ButtonGroup();
+        r1.setFont( new Font("Serif",Font.BOLD, 14));
+        r1.setForeground(Color.white);
+        r2.setFont( new Font("Serif",Font.BOLD, 14));
+        r2.setForeground(Color.white);
+        r3.setFont( new Font("Serif",Font.BOLD, 14));
+        r3.setForeground(Color.white);
+        bg.add(r1);bg.add(r2);bg.add(r3);
+        f.add(r1);f.add(r2);f.add(r3);
 
 
 
         f.setLayout(null);
 
         JButton b=new JButton("Next ->");//creating instance of JButton
-        b.setBounds(200,200,100, 40);
+        b.setBounds(250,250,100, 40);
 
         f.add(b);
+
+        JButton b2=new JButton("<-- Prev");//creating instance of JButton
+        b2.setBounds(150,250,100, 40);
+
+        f.add(b2);
+
 
 
         b.addActionListener(new ActionListener() {
@@ -51,6 +75,15 @@ public class DiffPage {
                 new DiffPage();
             }
         });
+
+        b2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                f.dispose();
+                new LoginPage();
+            }
+        });
+
+
 
 
     }
@@ -63,4 +96,7 @@ public class DiffPage {
 
 
 
-}
+
+
+
+    }

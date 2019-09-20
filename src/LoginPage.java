@@ -19,6 +19,8 @@ import java.awt.event.*;
 import javax.swing.*;
 public class LoginPage {
     private JFrame f = new JFrame("Second");
+    public static String name;
+
 
     public LoginPage() {
 
@@ -36,9 +38,14 @@ public class LoginPage {
         f.add(l2);
 
         JTextField t1;
-        t1=new JTextField("Name");
+        t1=new JTextField();
         t1.setBounds(150,100, 200,30);
         f.add(t1);
+
+
+
+
+
 
         f.setLayout(null);
 
@@ -48,12 +55,19 @@ public class LoginPage {
         f.add(b);
 
 
+
+
         b.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 f.dispose();
                 new DiffPage();
+                name = t1.getText();
             }
+
+
         });
+
+
 
 
     }
