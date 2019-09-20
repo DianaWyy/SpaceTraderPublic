@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.*;
 import java.awt.event.*;
 
-import javax.swing.*;
 public class MainGame {
 
     public static void main(String[] args) {

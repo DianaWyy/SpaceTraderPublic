@@ -11,8 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.*;
 import java.awt.event.*;
 
-import javax.swing.*;
-
 public class LoginPage {
     private JFrame f = new JFrame("Second");
     public static String name;
