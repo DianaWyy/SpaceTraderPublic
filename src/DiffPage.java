@@ -83,7 +83,7 @@ public class DiffPage {
 
         b.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                new DisplayPage();
+                new SkillsPage();
                 f.dispose();
             }
         });
