@@ -1,4 +1,4 @@
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -6,32 +6,24 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
-import java.awt.Image;
-import java.awt.Dimension;
-import java.awt.Toolkit;
 
-
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.Font;
 
 import javax.swing.*;
 import java.awt.event.*;
 
 import javax.swing.*;
 public class MainGame {
-    public static Dimension screenSize;
 
     public static void main(String[] args) {
 
-        screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-
         JFrame f = new JFrame();//creating instance of JFrame
-
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int width = screenSize.width;
+        int height = screenSize.height;
 
         JLabel l1;
         l1 = new JLabel("Space Trader");
-        l1.setBounds(screenSize.width/2 - 225, screenSize.height/2 - 200, 500, 100);
+        l1.setBounds(width/2 - 225, height/2 - 200, 500, 100);
         l1.setFont(new Font("Serif", Font.BOLD, 80));
         l1.setForeground(Color.white);
 
@@ -40,7 +32,7 @@ public class MainGame {
 
         JButton b = new JButton("Start Game");//creating instance of JButton
         b.setFont(new Font("Serif", Font.BOLD, 30));
-        b.setBounds(screenSize.width/2 - 100, screenSize.height/2 - 50, 200, 65);
+        b.setBounds(width/2 - 100, height/2 - 50, 200, 65);
 
         f.add(b);
 
