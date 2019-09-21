@@ -90,7 +90,11 @@ public class DiffPage {
 
         b2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                new LoginPage();
+                try {
+                    new LoginPage();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 f.dispose();
             }
         });
