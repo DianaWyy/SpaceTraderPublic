@@ -82,7 +82,7 @@ public class MainGame extends JFrame{
 
     public static void main(String[] args) throws IOException {
         MainGame mg = new MainGame();
-        mg.setVisible(true);
+    
 
 
     }
