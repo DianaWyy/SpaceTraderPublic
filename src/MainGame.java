@@ -11,12 +11,13 @@ import javax.swing.JPanel;
 import javax.swing.*;
 import java.awt.event.*;
 
-import javax.swing.*;
 public class MainGame {
 
     public static void main(String[] args) {
 
         JFrame f = new JFrame();//creating instance of JFrame
+
+        // get width and height of screen
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int width = screenSize.width;
         int height = screenSize.height;

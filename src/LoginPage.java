@@ -11,8 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.*;
 import java.awt.event.*;
 
-import javax.swing.*;
-
 public class LoginPage {
     private JFrame f = new JFrame("Config");
     public static String name;
@@ -27,6 +25,7 @@ public class LoginPage {
 
     public LoginPage() {
 
+        // get width and height of screen
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int width = screenSize.width;
         int height = screenSize.height;
@@ -51,9 +50,6 @@ public class LoginPage {
         t1.setFont(new Font("Serif", Font.PLAIN, 40));
         t1.setBounds(125, 170, 350, 75);
         f.add(t1);
-
-
-        f.setLayout(null);
 
         JButton b = new JButton("Next ->");//creating instance of JButton
         b.setFont(new Font("Serif", Font.BOLD, 40));
