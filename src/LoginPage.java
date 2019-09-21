@@ -11,8 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class LoginPage {
-    private JFrame f = new JFrame("Second");
+public class LoginPage extends JFrame{
+
     public static String name;
     public static String difficulty = "N/A";
     public static int pilotSkill;
@@ -22,19 +22,31 @@ public class LoginPage {
     private int skills;
 
 
-    public LoginPage() {
+    public LoginPage() throws IOException {
+        JFrame f = new JFrame("Second");
 
         // get width and height of screen
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int width = screenSize.width;
         int height = screenSize.height;
 
+        f.setSize(width, height);
+
+        BufferedImage bf = ImageIO.read(new File("pic/loginpic.jpg"));
+
+
+// adding created component to the JFrame using my backImage class
+
+
+        f.setContentPane(new backImage(bf));
+
+
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setExtendedState(JFrame.MAXIMIZED_BOTH);
         f.setUndecorated(true); // full screen
         f.setVisible(true);
-        f.getContentPane().setForeground(new Color(25, 25, 25));
-        f.getContentPane().setBackground(new Color(25, 25, 25));
+        //f.getContentPane().setForeground(new Color(25, 25, 25));
+        //f.getContentPane().setBackground(new Color(25, 25, 25));
 
 
         // Enter name
@@ -192,3 +204,5 @@ public class LoginPage {
         });
     }
 }
+
+

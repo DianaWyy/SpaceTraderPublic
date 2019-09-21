@@ -62,7 +62,11 @@ public class MainGame extends JFrame{
 
         b.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                new LoginPage();
+                try {
+                    new LoginPage();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 f.dispose();
             }
         });
@@ -103,7 +107,7 @@ class backImage extends JComponent {
     @Override
     public void paintComponent(Graphics g) {
 
-        g.drawImage(i, 0, 0, this);  // Drawing image using drawImage method
+        g.drawImage(i, 0, 0,getWidth(), getHeight(), this);  // Drawing image using drawImage method
 
     }
 }
