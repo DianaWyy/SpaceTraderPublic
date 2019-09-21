@@ -36,7 +36,7 @@ public class MainGame extends JFrame{
 // adding created component to the JFrame using my backImage class
 
 
-        this.setContentPane(new backImage(bf));
+        f.setContentPane(new backImage(bf));
 
 
 
@@ -50,14 +50,14 @@ public class MainGame extends JFrame{
         l1.setFont(new Font("Serif", Font.BOLD, 80));
         l1.setForeground(Color.white);
 
-        this.add(l1);
+        f.add(l1);
 
 
         JButton b = new JButton("Start Game");//creating instance of JButton
         b.setFont(new Font("Serif", Font.BOLD, 30));
         b.setBounds(width/2 - 100, height/2 - 50, 200, 65);
 
-        this.add(b);
+        f.add(b);
 
 
         b.addActionListener(new ActionListener() {
