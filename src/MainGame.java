@@ -28,7 +28,7 @@ public class MainGame {
         l1.setForeground(Color.white);
 
         f.add(l1);
-        f.setSize(300, 300);
+//        f.setSize(300, 300);
 
         JButton b = new JButton("Start Game");//creating instance of JButton
         b.setFont(new Font("Serif", Font.BOLD, 30));

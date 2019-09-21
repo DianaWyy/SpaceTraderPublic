@@ -14,14 +14,15 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class LoginPage {
-    private JFrame f = new JFrame("Second");
+    private JFrame f = new JFrame("Config");
     public static String name;
-    public static String difficulty = "N/A";
+    public static String difficulty;
+    public static int credits;
     public static int pilotSkill;
     public static int fighterSkill;
     public static int merchantSkill;
     public static int engineerSkill;
-    private int skills;
+    private int skills = 0;
 
 
     public LoginPage() {
@@ -95,23 +96,23 @@ public class LoginPage {
 
         // Attribute skill points
         JLabel l3 = new JLabel("Please select your skills");
-        l3.setBounds(130, height/2, 550, 100);
+        l3.setBounds(130, height/2 - 50, 550, 100);
         l3.setFont(new Font("Serif", Font.BOLD, 42));
         l3.setForeground(Color.white);
         f.add(l3);
 
         // Check which difficulty for number of allocated skills
-
-        switch(difficulty) {
-            case "Easy": skills = 16; break;
-            case "Medium": skills = 12; break;
-            case "Hard": skills = 8; break;
-            default: skills = 0;
-        }
+//
+//        switch(difficulty) {
+//            case "Easy": skills = 16; break;
+//            case "Medium": skills = 12; break;
+//            case "Hard": skills = 8; break;
+//            default: skills = 0;
+//        }
 
 
         JLabel l4 = new JLabel("You have " + skills + " skill points to distribute");
-        l4.setBounds(130, height/2 + 75, 550, 100);
+        l4.setBounds(130, height/2 + 25, 550, 100);
         l4.setFont(new Font("Serif", Font.BOLD, 32));
         l4.setForeground(Color.white);
         f.add(l4);
@@ -121,10 +122,10 @@ public class LoginPage {
         JLabel fighter = new JLabel("Fighter");
         JLabel merchant = new JLabel("Merchant");
         JLabel engineer = new JLabel("Engineer");
-        pilot.setBounds(150, height/2 + 150, 200, 50);
-        fighter.setBounds(150, height/2 + 200, 200, 50);
-        merchant.setBounds(150, height/2 + 250, 200, 50);
-        engineer.setBounds(150, height/2 + 300, 200, 50);
+        pilot.setBounds(150, height/2 + 100, 200, 50);
+        fighter.setBounds(150, height/2 + 150, 200, 50);
+        merchant.setBounds(150, height/2 + 200, 200, 50);
+        engineer.setBounds(150, height/2 + 250, 200, 50);
         pilot.setFont(new Font("Serif", Font.BOLD, 32));
         fighter.setFont(new Font("Serif", Font.BOLD, 32));
         merchant.setFont(new Font("Serif", Font.BOLD, 32));
@@ -144,10 +145,10 @@ public class LoginPage {
         JTextField t3 = new JTextField();
         JTextField t4 = new JTextField();
         JTextField t5 = new JTextField();
-        t2.setBounds(350, height/2 + 150, 100, 50);
-        t3.setBounds(350, height/2 + 200, 100, 50);
-        t4.setBounds(350, height/2 + 250, 100, 50);
-        t5.setBounds(350, height/2 + 300, 100, 50);
+        t2.setBounds(350, height/2 + 100, 100, 50);
+        t3.setBounds(350, height/2 + 150, 100, 50);
+        t4.setBounds(350, height/2 + 200, 100, 50);
+        t5.setBounds(350, height/2 + 250, 100, 50);
         t2.setFont(new Font("Serif", Font.BOLD, 32));
         t2.setForeground(Color.black);
         t3.setFont(new Font("Serif", Font.BOLD, 32));
@@ -165,32 +166,51 @@ public class LoginPage {
         r1.addActionListener(l -> {
             difficulty = "Easy";
             skills = 16;
+            credits = 1000;
             l4.setText("You have " + skills + " skill points to distribute");
         });
         r2.addActionListener(l -> {
             difficulty = "Medium";
             skills = 12;
+            credits = 500;
             l4.setText("You have " + skills + " skill points to distribute");
         });
         r3.addActionListener(l -> {
             difficulty = "Hard";
             skills = 8;
+            credits = 100;
             l4.setText("You have " + skills + " skill points to distribute");
         });
 
+
+        JLabel l5 = new JLabel("");
+        l5.setBounds(width/2 + 50, height/2 + 150, 550, 100);
+        l5.setFont(new Font("Serif", Font.BOLD, 32));
+        l5.setForeground(Color.white);
+        f.add(l5);
 
         b.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
 
                 //check TextField
-                pilotSkill = Integer.parseInt(t2.getText());
-                fighterSkill = Integer.parseInt(t3.getText());
-                merchantSkill = Integer.parseInt(t4.getText());
-                engineerSkill = Integer.parseInt(t5.getText());
+                name = t1.getText();
+                try {
+                    pilotSkill = Integer.parseInt(t2.getText());
+                    fighterSkill = Integer.parseInt(t3.getText());
+                    merchantSkill = Integer.parseInt(t4.getText());
+                    engineerSkill = Integer.parseInt(t5.getText());
+                } catch (Exception e) {
+                    l5.setText("Integer only plz...");
+                }
 
-                if(pilotSkill + fighterSkill + merchantSkill + engineerSkill == skills) {
+                int sum = pilotSkill + fighterSkill + merchantSkill + engineerSkill;
+                if(!name.equals("") && (r1.isSelected() || r2.isSelected() || r3.isSelected()) && sum == skills) {
                     new DisplayPage();
                     f.dispose();
+                } else if (sum < skills){
+                    l5.setText("You still have " + (skills - sum) + " points to distribute");
+                } else {
+                    l5.setText("You gREedY lil boi!");
                 }
             }
         });
