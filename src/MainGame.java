@@ -29,7 +29,7 @@ public class MainGame extends JFrame{
 
 
 
-        f.setSize(300, 300);
+        f.setSize(width, height);
 
         BufferedImage bf = ImageIO.read(new File("pic/welcomepig.png"));
 
@@ -82,7 +82,7 @@ public class MainGame extends JFrame{
 
     public static void main(String[] args) throws IOException {
         MainGame mg = new MainGame();
-    
+
 
 
     }
