@@ -2,25 +2,47 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.swing.JPanel;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+
 
 
 import javax.swing.*;
 import java.awt.event.*;
 
-public class MainGame {
+public class MainGame extends JFrame{
 
-    public static void main(String[] args) {
+    public MainGame() throws IOException {
 
         JFrame f = new JFrame();//creating instance of JFrame
 
-        // get width and height of screen
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int width = screenSize.width;
         int height = screenSize.height;
+
+
+
+
+        f.setSize(width, height);
+
+        BufferedImage bf = ImageIO.read(new File("pic/welcomepig.png"));
+
+// adding created component to the JFrame using my backImage class
+
+
+        f.setContentPane(new backImage(bf));
+
+
+
+
+
+
 
         JLabel l1;
         l1 = new JLabel("Space Trader");
@@ -39,36 +61,53 @@ public class MainGame {
 
         b.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                new LoginPage();
+                try {
+                    new LoginPage();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 f.dispose();
             }
         });
 
-        // full screen
+         //full screen
         f.setExtendedState(JFrame.MAXIMIZED_BOTH);
         f.setUndecorated(true);
 
         f.setLayout(null);//using no layout managers
         f.setVisible(true);//making the frame visible
-        f.getContentPane().setForeground(new Color(25, 25, 25));
-        f.getContentPane().setBackground(new Color(25, 25, 25));
+        //f.getContentPane().setForeground(new Color(25, 25, 25));
+        //f.getContentPane().setBackground(new Color(25, 25, 25));
 
-
-
-
-
-
-
-        /*class ExImage extends JPanel {
-
-            public ExImage() {
-                ImageIcon imageIcon = new ImageIcon(this.getClass().getResource("download.jpeg"));
-                JLabel label = new JLabel(imageIcon);
-                add(label);
-            }
-        }*/
 
 
     }
 
-}  
+    public static void main(String[] args) throws IOException {
+        MainGame mg = new MainGame();
+
+
+
+    }
+
+}
+
+class backImage extends JComponent {
+
+    Image i;
+
+    //Creating Constructer
+    public backImage(Image i) {
+        this.i = i;
+
+    }
+
+    //Overriding the paintComponent method
+    @Override
+    public void paintComponent(Graphics g) {
+
+        g.drawImage(i, 0, 0,getWidth(), getHeight(), this);  // Drawing image using drawImage method
+
+    }
+}
+
