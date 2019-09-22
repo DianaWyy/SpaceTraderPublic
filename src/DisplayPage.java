@@ -62,13 +62,26 @@ public class DisplayPage{
         merchant.setForeground(Color.white);
         f.add(merchant);
 
-        JLabel engineer = new JLabel("Your Engineer skill points: " + LoginPage.engineerSkill);
+        JLabel engineer = new JLabel("Your Engineering skill points: " + LoginPage.engineerSkill);
         engineer.setAlignmentX(Component.CENTER_ALIGNMENT);
-        engineer.setBounds(width/2, height - 50, 400,50);
+        engineer.setBounds(width/2, height/4 + 300, 400,50);
         engineer.setFont( new Font("Serif", Font.BOLD, 24));
         engineer.setForeground(Color.white);
         f.add(engineer);
 
+        JLabel dummy = new JLabel();
+        dummy.setAlignmentX(Component.CENTER_ALIGNMENT);
+        dummy.setBounds(0, 0, 400,50);
+        dummy.setFont( new Font("Serif", Font.BOLD, 24));
+        dummy.setForeground(Color.white);
+        f.add(dummy);
+
+
+
+    }
+
+    public static void main(String[] args) {
+        DisplayPage p = new DisplayPage();
     }
 
 }
