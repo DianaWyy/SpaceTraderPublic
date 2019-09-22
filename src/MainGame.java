@@ -52,7 +52,6 @@ public class MainGame extends JFrame{
 
         f.add(l1);
 
-
         JButton b = new JButton("Start Game");//creating instance of JButton
         b.setFont(new Font("Serif", Font.BOLD, 30));
         b.setBounds(width/2 - 100, height/2 - 50, 200, 65);

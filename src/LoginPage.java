@@ -14,16 +14,18 @@ import java.awt.event.*;
 public class LoginPage extends JFrame{
 
     public static String name;
-    public static String difficulty = "N/A";
+    public static String difficulty;
+    public static int credits;
     public static int pilotSkill;
     public static int fighterSkill;
     public static int merchantSkill;
     public static int engineerSkill;
-    private int skills;
+    private int skills = 0;
 
 
     public LoginPage() throws IOException {
-        JFrame f = new JFrame("Second");
+
+        JFrame f = new JFrame("Config");
 
         // get width and height of screen
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -40,33 +42,26 @@ public class LoginPage extends JFrame{
 
         f.setContentPane(new backImage(bf));
 
-
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setExtendedState(JFrame.MAXIMIZED_BOTH);
         f.setUndecorated(true); // full screen
         f.setVisible(true);
-        //f.getContentPane().setForeground(new Color(25, 25, 25));
-        //f.getContentPane().setBackground(new Color(25, 25, 25));
-
+        f.getContentPane().setForeground(new Color(25, 25, 25));
+        f.getContentPane().setBackground(new Color(25, 25, 25));
+        f.setLayout(null);
 
         // Enter name
-        JLabel l2 = new JLabel("What is your name?");
-        l2.setBounds(125, 70, 550, 100);
-        l2.setFont(new Font("Serif", Font.BOLD, 50));
-        l2.setForeground(Color.white);
-        f.add(l2);
+        JLabel askName = new JLabel("What is your name?");
+        askName.setBounds(125, 70, 550, 100);
+        askName.setFont(new Font("Serif", Font.BOLD, 50));
+        askName.setForeground(Color.white);
+        f.add(askName);
 
-        JTextField t1;
-        t1 = new JTextField();
-        t1.setFont(new Font("Serif", Font.PLAIN, 40));
-        t1.setBounds(125, 170, 350, 75);
-        f.add(t1);
-
-        JButton b = new JButton("Next ->");//creating instance of JButton
-        b.setFont(new Font("Serif", Font.BOLD, 40));
-        b.setBounds(width - 250, height - 200, 200, 75);
-
-        f.add(b);
+        JTextField tfName;
+        tfName = new JTextField();
+        tfName.setFont(new Font("Serif", Font.PLAIN, 40));
+        tfName.setBounds(125, 170, 350, 75);
+        f.add(tfName);
 
 
         // Select difficulty
@@ -76,133 +71,134 @@ public class LoginPage extends JFrame{
         diff.setForeground(Color.white);
         f.add(diff);
 
-        JRadioButton r1 = new JRadioButton("Easy");
-        JRadioButton r2 = new JRadioButton("Medium");
-        JRadioButton r3 = new JRadioButton("Hard");
-        r1.setBounds(width/2 + 50, 180, 150, 50);
-        r2.setBounds(width/2 + 50, 230, 150, 50);
-        r3.setBounds(width/2 + 50, 280, 150, 50);
+        JRadioButton easy = new JRadioButton("Easy");
+        JRadioButton medium = new JRadioButton("Medium");
+        JRadioButton hard = new JRadioButton("Hard");
+        easy.setBounds(width/2 + 50, 180, 150, 50);
+        medium.setBounds(width/2 + 50, 230, 150, 50);
+        hard.setBounds(width/2 + 50, 280, 150, 50);
+
         ButtonGroup bg = new ButtonGroup();
-        r1.setFont(new Font("Serif", Font.BOLD, 32));
-        r1.setForeground(Color.white);
-        r2.setFont(new Font("Serif", Font.BOLD, 32));
-        r2.setForeground(Color.white);
-        r3.setFont(new Font("Serif", Font.BOLD, 32));
-        r3.setForeground(Color.white);
-        bg.add(r1);
-        bg.add(r2);
-        bg.add(r3);
-        f.add(r1);
-        f.add(r2);
-        f.add(r3);
+        JRadioButton[] bts = new JRadioButton[]{easy, medium, hard};
 
 
-        f.setLayout(null);
-
-
-
-        // Attribute skill points
-        JLabel l3 = new JLabel("Please select your skills");
-        l3.setBounds(130, height/2, 550, 100);
-        l3.setFont(new Font("Serif", Font.BOLD, 42));
-        l3.setForeground(Color.white);
-        f.add(l3);
-
-        // Check which difficulty for number of alloted skills
-
-        switch(difficulty) {
-            case "Easy": skills = 16; break;
-            case "Medium": skills = 12; break;
-            case "Hard": skills = 8; break;
-            default: skills = 0;
+        for (JRadioButton bt: bts) {
+            bg.add(bt);
+            bt.setFont(new Font("Serif", Font.BOLD, 32));
+            bt.setForeground(Color.white);
+            f.add(bt);
         }
 
+        // Distribute skill points
+        JLabel askDis = new JLabel("Please select your skills");
+        askDis.setBounds(130, height/2 - 50, 550, 100);
+        askDis.setFont(new Font("Serif", Font.BOLD, 42));
+        askDis.setForeground(Color.white);
+        f.add(askDis);
 
-        JLabel l4 = new JLabel("You have " + skills + " skill points to distribute");
-        l4.setBounds(130, height/2 + 75, 550, 100);
-        l4.setFont(new Font("Serif", Font.BOLD, 32));
-        l4.setForeground(Color.white);
-        f.add(l4);
 
-        // Create Label
+        JLabel showPts = new JLabel("You have " + skills + " skill points to distribute");
+        showPts.setBounds(130, height/2 + 25, 550, 100);
+        showPts.setFont(new Font("Serif", Font.BOLD, 32));
+        showPts.setForeground(Color.white);
+        f.add(showPts);
+
         JLabel pilot = new JLabel("Pilot");
         JLabel fighter = new JLabel("Fighter");
         JLabel merchant = new JLabel("Merchant");
         JLabel engineer = new JLabel("Engineer");
-        pilot.setBounds(150, height/2 + 150, 200, 50);
-        fighter.setBounds(150, height/2 + 200, 200, 50);
-        merchant.setBounds(150, height/2 + 250, 200, 50);
-        engineer.setBounds(150, height/2 + 300, 200, 50);
-        pilot.setFont(new Font("Serif", Font.BOLD, 32));
-        fighter.setFont(new Font("Serif", Font.BOLD, 32));
-        merchant.setFont(new Font("Serif", Font.BOLD, 32));
-        engineer.setFont(new Font("Serif", Font.BOLD, 32));
-        pilot.setForeground(Color.WHITE);
-        fighter.setForeground(Color.WHITE);
-        merchant.setForeground(Color.WHITE);
-        engineer.setForeground(Color.WHITE);
-        f.add(pilot);
-        f.add(fighter);
-        f.add(merchant);
-        f.add(engineer);
+        pilot.setBounds(150, height/2 + 100, 200, 50);
+        fighter.setBounds(150, height/2 + 150, 200, 50);
+        merchant.setBounds(150, height/2 + 200, 200, 50);
+        engineer.setBounds(150, height/2 + 250, 200, 50);
+
+        JLabel[] attrLb = new JLabel[]{pilot, fighter, merchant, engineer};
+        for (JLabel attr: attrLb) {
+            attr.setFont(new Font("Serif", Font.BOLD, 32));
+            attr.setForeground(Color.WHITE);
+            f.add(attr);
+        }
 
 
         // Create TextFields
-        JTextField t2 = new JTextField();
-        JTextField t3 = new JTextField();
-        JTextField t4 = new JTextField();
-        JTextField t5 = new JTextField();
-        t2.setBounds(350, height/2 + 150, 100, 50);
-        t3.setBounds(350, height/2 + 200, 100, 50);
-        t4.setBounds(350, height/2 + 250, 100, 50);
-        t5.setBounds(350, height/2 + 300, 100, 50);
-        t2.setFont(new Font("Serif", Font.BOLD, 32));
-        t2.setForeground(Color.black);
-        t3.setFont(new Font("Serif", Font.BOLD, 32));
-        t3.setForeground(Color.black);
-        t4.setFont(new Font("Serif", Font.BOLD, 32));
-        t4.setForeground(Color.black);
-        t5.setFont(new Font("Serif", Font.BOLD, 32));
-        t5.setForeground(Color.black);
-        f.add(t2);
-        f.add(t3);
-        f.add(t4);
-        f.add(t5);
+        JTextField tfPilot = new JTextField();
+        JTextField tfFighter = new JTextField();
+        JTextField tfMerchant = new JTextField();
+        JTextField tfEngineer = new JTextField();
+        tfPilot.setBounds(350, height/2 + 100, 100, 50);
+        tfFighter.setBounds(350, height/2 + 150, 100, 50);
+        tfMerchant.setBounds(350, height/2 + 200, 100, 50);
+        tfEngineer.setBounds(350, height/2 + 250, 100, 50);
+
+        JTextField[] attrTf = new JTextField[]{tfPilot, tfFighter, tfMerchant, tfEngineer};
+        for (JTextField attr: attrTf) {
+            attr.setFont(new Font("Serif", Font.BOLD, 32));
+            attr.setForeground(Color.black);
+            f.add(attr);
+        }
 
 
-        r1.addActionListener(l -> {
+        easy.addActionListener(l -> {
             difficulty = "Easy";
             skills = 16;
-            l4.setText("You have " + skills + " skill points to distribute");
+            credits = 1000;
+            showPts.setText("You have " + skills + " skill points to distribute");
         });
-        r2.addActionListener(l -> {
+        medium.addActionListener(l -> {
             difficulty = "Medium";
             skills = 12;
-            l4.setText("You have " + skills + " skill points to distribute");
+            credits = 500;
+            showPts.setText("You have " + skills + " skill points to distribute");
         });
-        r3.addActionListener(l -> {
+        hard.addActionListener(l -> {
             difficulty = "Hard";
             skills = 8;
-            l4.setText("You have " + skills + " skill points to distribute");
+            credits = 100;
+            showPts.setText("You have " + skills + " skill points to distribute");
         });
 
 
-        b.addActionListener(new ActionListener() {
+        JLabel showError = new JLabel("");
+        showError.setBounds(width/2 + 50, height/2 + 150, 550, 100);
+        showError.setFont(new Font("Serif", Font.BOLD, 32));
+        showError.setForeground(Color.white);
+        f.add(showError);
+
+        // Add Next Button
+        JButton next = new JButton("Next ->");//creating instance of JButton
+        next.setFont(new Font("Serif", Font.BOLD, 40));
+        next.setBounds(width - 250, height - 200, 200, 75);
+
+        next.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
 
                 //check TextField
-                pilotSkill = Integer.parseInt(t2.getText());
-                fighterSkill = Integer.parseInt(t3.getText());
-                merchantSkill = Integer.parseInt(t4.getText());
-                engineerSkill = Integer.parseInt(t5.getText());
+                name = tfName.getText();
+                try {
+                    pilotSkill = Integer.parseInt(tfPilot.getText());
+                    fighterSkill = Integer.parseInt(tfFighter.getText());
+                    merchantSkill = Integer.parseInt(tfMerchant.getText());
+                    engineerSkill = Integer.parseInt(tfEngineer.getText());
+                } catch (Exception e) {
+                    showError.setText("Integer only plz...");
+                }
 
-                if(pilotSkill + fighterSkill + merchantSkill + engineerSkill == skills) {
+                int sum = pilotSkill + fighterSkill + merchantSkill + engineerSkill;
+
+                // check if all fields are filled
+                if (name.equals("") || (!easy.isSelected() && !medium.isSelected() && !hard.isSelected())) {
+                    showError.setText("You lAzY lil boi!");
+                } else if (sum < skills) {
+                    showError.setText("You still have " + (skills - sum) + " points to distribute");
+                } else if (sum > skills) {
+                    showError.setText("You gREedY lil boi!");
+                } else {
                     new DisplayPage();
                     f.dispose();
                 }
             }
         });
+        f.add(next);
+
     }
 }
-
-
