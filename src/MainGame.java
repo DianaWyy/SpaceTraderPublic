@@ -51,10 +51,6 @@ public class MainGame extends JFrame{
         l1.setForeground(Color.white);
 
         f.add(l1);
-<<<<<<< HEAD
-
-=======
->>>>>>> master
 
         JButton b = new JButton("Start Game");//creating instance of JButton
         b.setFont(new Font("Serif", Font.BOLD, 30));

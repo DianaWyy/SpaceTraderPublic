@@ -11,13 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.*;
 import java.awt.event.*;
 
-<<<<<<< HEAD
 public class LoginPage extends JFrame{
 
-=======
-public class LoginPage {
-    private JFrame f = new JFrame("Config");
->>>>>>> master
     public static String name;
     public static String difficulty;
     public static int credits;
@@ -29,7 +24,8 @@ public class LoginPage {
 
 
     public LoginPage() throws IOException {
-        JFrame f = new JFrame("Second");
+
+        JFrame f = new JFrame("Config");
 
         // get width and height of screen
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -46,20 +42,13 @@ public class LoginPage {
 
         f.setContentPane(new backImage(bf));
 
-
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setExtendedState(JFrame.MAXIMIZED_BOTH);
         f.setUndecorated(true); // full screen
         f.setVisible(true);
-<<<<<<< HEAD
-        //f.getContentPane().setForeground(new Color(25, 25, 25));
-        //f.getContentPane().setBackground(new Color(25, 25, 25));
-
-=======
         f.getContentPane().setForeground(new Color(25, 25, 25));
         f.getContentPane().setBackground(new Color(25, 25, 25));
         f.setLayout(null);
->>>>>>> master
 
         // Enter name
         JLabel askName = new JLabel("What is your name?");
@@ -213,5 +202,3 @@ public class LoginPage {
 
     }
 }
-
-
