@@ -15,9 +15,9 @@ import javax.swing.*;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class MainGame extends JFrame {
+public class WelcomePage extends JFrame {
 
-    public MainGame() throws IOException {
+    public WelcomePage() throws IOException {
 
         JFrame f = new JFrame();//creating instance of JFrame
 
@@ -75,7 +75,7 @@ public class MainGame extends JFrame {
     }
 
     public static void main(String[] args) throws IOException {
-        MainGame mg = new MainGame();
+        WelcomePage mg = new WelcomePage();
 
 
     }
