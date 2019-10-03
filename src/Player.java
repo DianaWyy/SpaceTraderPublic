@@ -7,12 +7,12 @@ public class Player {
     private int credits;
 
 
-    public Player(){
-        username = LoginPage.name;
-        fullSkills.put("Pilot",LoginPage.pilotSkill);
-        fullSkills.put("Fighter", LoginPage.fighterSkill);
-        fullSkills.put("Merchant", LoginPage.merchantSkill);
-        fullSkills.put("Engineer", LoginPage.engineerSkill);
+    public Player(String name, int pilotSkill, int fighterSkill, int merchantSkill, int engineerSkill){
+        username = name;
+        fullSkills.put("Pilot", pilotSkill);
+        fullSkills.put("Fighter", fighterSkill);
+        fullSkills.put("Merchant", merchantSkill);
+        fullSkills.put("Engineer", engineerSkill);
         Region myRegion = Universe.allRegion.get((int)(Math.random() * Universe.getNum()));
         credits = 0;
     }

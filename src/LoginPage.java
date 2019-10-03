@@ -13,13 +13,13 @@ import java.awt.event.*;
 
 public class LoginPage extends JFrame {
 
-    public static String name;
-    public static String difficulty;
-    public static int credits;
-    public static int pilotSkill;
-    public static int fighterSkill;
-    public static int merchantSkill;
-    public static int engineerSkill;
+    private static String name;
+    private static String difficulty;
+    private static int credits;
+    private static int pilotSkill;
+    private static int fighterSkill;
+    private static int merchantSkill;
+    private static int engineerSkill;
     private int skills = 0;
 
 
@@ -193,7 +193,7 @@ public class LoginPage extends JFrame {
                 } else if (sum > skills) {
                     showError.setText("You gREedY lil boi!");
                 } else {
-                    new DisplayPage();
+                    new DisplayPage(name, difficulty, credits, pilotSkill, fighterSkill, merchantSkill, engineerSkill);
                     f.dispose();
                 }
             }
