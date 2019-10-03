@@ -6,8 +6,12 @@
  */
 public enum TechLevel {
 
-    PREAG("Pre-Agriculture", 1), AGRICULTURE("Agriculture", 2), MEDIEVAL("Medieval", 3),
-    RENAISSANCE("Renaissance", 4), INDUSTRIAL("Industrial", 5), MODERN("Modern", 6),
+    PREAG("Pre-Agriculture", 1),
+    AGRICULTURE("Agriculture", 2),
+    MEDIEVAL("Medieval", 3),
+    RENAISSANCE("Renaissance", 4),
+    INDUSTRIAL("Industrial", 5),
+    MODERN("Modern", 6),
     FUTURISTIC("Futuristic", 7);
 
 

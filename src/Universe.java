@@ -1,21 +1,29 @@
 import java.util.ArrayList;
 
 public class Universe {
-    public static ArrayList<Region> allRegion = new ArrayList<>();
-    public static int num;
+    private ArrayList<Region> regions = new ArrayList<>();
 
-    public Universe(int num){
-        if (num <=9) {
-            throw new IllegalArgumentException(
-                    "10 Religion or more is required"
-            );
-        }
-        for(int i = 0; i < 15; i++) {
-            allRegion.add(new Region((int)(Math.random()*401-200), (int)(Math.random()*401-200), "region" + i));
+    private static Universe onlyUniverse;
+
+    public Universe(String[] regionNames){
+
+        for(String regionName: regionNames) {
+            regions.add(new Region((int)(Math.random()*401-200), (int)(Math.random()*401-200), regionName));
         }
     }
 
-    public static int getNum() {
-        return num;
+    public static Universe createUniverse(String[] regionNames) {
+        if(onlyUniverse == null) {
+            onlyUniverse = new Universe(regionNames);
+        }
+        return onlyUniverse;
+    }
+
+    public ArrayList<Region> getRegions() {
+        return this.regions;
+    }
+
+    public Region getRandomRegion() {
+        return regions.get( (int) (Math.random() * regions.size()));
     }
 }
