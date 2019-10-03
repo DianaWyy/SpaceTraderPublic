@@ -5,6 +5,7 @@ public class Game {
     private static String[] names = {"A", "B", "C", "D", "E",
                                     "F", "G", "H", "I", "J"};
     private Universe u;
+    private Player p;
 
     public Game(String difficulty, String name, int pilotSkill, int fighterSkill, int merchantSkill,
                 int engineerSkill, int credits) {
@@ -18,11 +19,11 @@ public class Game {
                           int engineerSkill, int credits){
         this.difficulity = difficulty;
         // Creates Universe with list of names
-        Universe u = Universe.createUniverse(names);
+        u = Universe.createUniverse(names);
 
-        // Create Money and Allocate money to player
+        // Create Player Object with random location
         Region r = u.getRandomRegion();
-        Player myPlayer = new Player(name, pilotSkill, fighterSkill, merchantSkill, engineerSkill, r, credits );
+        p = new Player(name, pilotSkill, fighterSkill, merchantSkill, engineerSkill, r, credits );
 
     }
 

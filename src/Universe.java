@@ -9,6 +9,8 @@ public class Universe {
 
         for(String regionName: regionNames) {
             regions.add(new Region((int)(Math.random()*401-200), (int)(Math.random()*401-200), regionName));
+            // TODO
+            // Make sure Regions are not too close
         }
     }
 
@@ -24,6 +26,6 @@ public class Universe {
     }
 
     public Region getRandomRegion() {
-        return regions.get( (int) (Math.random() * regions.size()));
+        return regions.get((int) (Math.random() * regions.size()));
     }
 }
