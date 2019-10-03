@@ -19,7 +19,7 @@ public class WelcomePage extends JFrame {
 
     public WelcomePage() throws IOException {
 
-        JFrame f = new JFrame();//creating instance of JFrame
+        JFrame f = new JFrame();
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int width = screenSize.width;
