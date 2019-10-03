@@ -1,3 +1,4 @@
+
 /**
  * This enum represents all the 7 possible TechLevels for a region
  * @author Haorong She
@@ -36,4 +37,13 @@ public enum TechLevel {
     public int getLevel() {
         return this.level;
     }
+}
+
+enum TechLevel {
+    PRE_AG, AGRICULTURE, MEDIEVAL, RENAISSANCE, INDUSTRIAL, MODERN, FUTURISTIC;
+
+    public static TechLevel getRandomTechLevel() {
+        return values()[(int)(Math.random()*8)];
+    }
+
 }
