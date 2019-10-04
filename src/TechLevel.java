@@ -42,6 +42,10 @@ public enum TechLevel {
         return this.level;
     }
 
+    /**
+     * TechLevel random level getter
+     * @return a random level in the enum
+     */
     public static TechLevel getRandomTechLevel() {
         return values()[(int)(Math.random()*8)];
     }
