@@ -71,7 +71,19 @@ public class DisplayPage {
         engineer.setForeground(Color.white);
         f.add(engineer);
 
-        JLabel dummy = new JLabel();
+        // Add Confirm Button
+        JButton confirm = new JButton("CONFIRM");//creating instance of JButton
+        confirm.setFont(new Font("Serif", Font.BOLD, 40));
+        confirm.setBounds(width / 2, height / 4 + 400, 200, 75);
+
+        confirm.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                new Game(difficulty, userName, pilotSkill, fighterSkill, merchantSkill, engineerSkill, credits);
+                f.dispose();
+            }
+        });
+
+                JLabel dummy = new JLabel();
         dummy.setAlignmentX(Component.CENTER_ALIGNMENT);
         dummy.setBounds(0, 0, 400, 50);
         dummy.setFont(new Font("Serif", Font.BOLD, 24));

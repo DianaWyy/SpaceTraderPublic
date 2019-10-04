@@ -15,7 +15,7 @@ import javax.swing.*;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class WelcomePage extends JFrame {
+public class  WelcomePage extends JFrame {
 
     public WelcomePage() throws IOException {
 

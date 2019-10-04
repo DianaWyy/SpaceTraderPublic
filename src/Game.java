@@ -7,11 +7,12 @@ public class Game {
     private Universe u;
     private Player p;
 
-    public Game(String difficulty, String name, int pilotSkill, int fighterSkill, int merchantSkill,
+    public Game(String difficulty, String userName, int pilotSkill, int fighterSkill, int merchantSkill,
                 int engineerSkill, int credits) {
-        startGame(difficulty, name, pilotSkill, fighterSkill, merchantSkill, engineerSkill, credits);
+        startGame(difficulty, userName, pilotSkill, fighterSkill, merchantSkill, engineerSkill, credits);
 
         // Create Map page
+        new MapPage()
     }
 
 
