@@ -12,6 +12,10 @@ public class Region {
         name = n;
     }
 
+    public boolean tooClose(Region r ){
+        return (Math.abs(xCoordinate - r.getXCoordinate()) < 5 || Math.abs(yCoordinate - r.getYCoordinate()) < 5);
+    }
+
 
     public void setxCoordinate(int x) {
         xCoordinate = x;

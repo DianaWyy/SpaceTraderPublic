@@ -8,10 +8,29 @@ public class Universe {
     public Universe(String[] regionNames){
 
         for(String regionName: regionNames) {
-            regions.add(new Region((int)(Math.random()*401-200), (int)(Math.random()*401-200), regionName));
-            // TODO
-            // Make sure Regions are not too close
+
+            int x = (int)(Math.random()*401-200);
+            int y = (int)(Math.random()*401-200);
+            Region newRegion = new Region(x , y , regionName);
+
+            while(compareTooClose(newRegion)) {
+                x = (int)(Math.random()*401-200);
+                y = (int)(Math.random()*401-200);
+                newRegion = new Region(x , y , regionName);
+            }
+
+            regions.add(newRegion);
+
         }
+    }
+
+    private boolean compareTooClose(Region newRegion) {
+        for (Region r: regions) {
+            if(newRegion.tooClose(r)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static Universe createUniverse(String[] regionNames) {
