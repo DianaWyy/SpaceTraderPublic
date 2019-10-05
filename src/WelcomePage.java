@@ -3,8 +3,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import java.awt.Graphics;
-import java.awt.Image;
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -23,10 +21,10 @@ public class  WelcomePage extends JFrame {
 
         BufferedImage bf = ImageIO.read(new File("pic/welcomepig.png"));
 
-        // adding created component to the JFrame using my backImage class
+        // adding created component to the JFrame using my Backimage class
 
 
-        f.setContentPane(new backImage(bf));
+        f.setContentPane(new Backimage(bf));
 
 
         JLabel l1;
@@ -76,22 +74,22 @@ public class  WelcomePage extends JFrame {
 
 
 }
-
-class backImage extends JComponent {
-
-    private Image i;
-
-    //Creating Constructer
-    public backImage(Image i) {
-        this.i = i;
-    }
-
-    //Overriding the paintComponent method
-    @Override
-    public void paintComponent(Graphics g) {
-
-        g.drawImage(i, 0, 0, getWidth(), getHeight(), this);
-        // Drawing image using drawImage method
-    }
-}
+//
+//class backImage extends JComponent {
+//
+//    private Image i;
+//
+//    //Creating Constructer
+//    public backImage(Image i) {
+//        this.i = i;
+//    }
+//
+//    //Overriding the paintComponent method
+//    @Override
+//    public void paintComponent(Graphics g) {
+//
+//        g.drawImage(i, 0, 0, getWidth(), getHeight(), this);
+//        // Drawing image using drawImage method
+//    }
+//}
 
