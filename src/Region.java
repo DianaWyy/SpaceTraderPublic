@@ -12,9 +12,8 @@ public class Region {
         name = n;
     }
 
-    public boolean tooClose(Region r) {
-        return (Math.abs(xCoordinate - r.getXCoordinate()) < 5
-                || Math.abs(yCoordinate - r.getYCoordinate()) < 5);
+    public boolean tooClose(Region r ){
+        return (Math.abs(xCoordinate - r.getXCoordinate()) < 5 || Math.abs(yCoordinate - r.getYCoordinate()) < 5);
     }
 
 
@@ -22,7 +21,7 @@ public class Region {
         xCoordinate = x;
     }
 
-    public int getXCoordinate() {
+    public int getXCoordinate(){
         return xCoordinate;
     }
 
@@ -30,7 +29,7 @@ public class Region {
         yCoordinate = y;
     }
 
-    public int getYCoordinate() {
+    public int getYCoordinate(){
         return yCoordinate;
     }
 

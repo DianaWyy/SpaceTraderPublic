@@ -9,8 +9,7 @@ public class Player {
     private Region currentRegion;
 
 
-    public Player(String name, int pilotSkill, int fighterSkill,
-                  int merchantSkill, int engineerSkill, Region r, int credits) {
+    public Player(String name, int pilotSkill, int fighterSkill, int merchantSkill, int engineerSkill, Region r, int credits){
         username = name;
         fullSkills = new HashMap<>();
         fullSkills.put("Pilot", pilotSkill);
