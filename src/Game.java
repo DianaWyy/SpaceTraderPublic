@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Game {
@@ -11,13 +12,12 @@ public class Game {
                 int engineerSkill, int credits) {
         startGame(difficulty, userName, pilotSkill, fighterSkill, merchantSkill, engineerSkill, credits);
 
-        // Create Map page
-        new MapPage()
+
     }
 
 
     public void startGame(String difficulty, String name, int pilotSkill, int fighterSkill, int merchantSkill,
-                          int engineerSkill, int credits){
+                          int engineerSkill, int credits) {
         this.difficulity = difficulty;
         // Creates Universe with list of names
         u = Universe.createUniverse(names);
@@ -26,6 +26,8 @@ public class Game {
         Region r = u.getRandomRegion();
         p = new Player(name, pilotSkill, fighterSkill, merchantSkill, engineerSkill, r, credits );
 
+        // Create Map page
+        new MapPage(u.getRegions(), p);
     }
 
 }
