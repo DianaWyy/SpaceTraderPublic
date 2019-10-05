@@ -37,7 +37,7 @@ public class LoginPage extends JFrame {
         BufferedImage bf = ImageIO.read(new File("pic/loginpic.jpg"));
 
 
-// adding created component to the JFrame using my backImage class
+        // adding created component to the JFrame using my backImage class
 
 
         f.setContentPane(new backImage(bf));

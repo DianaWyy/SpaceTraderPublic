@@ -2,15 +2,16 @@ import java.awt.*;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.io.IOException;
 
 import javax.swing.*;
 
-public class DisplayPage {
-    private JFrame f = new JFrame("Confirm");
+public class DisplayPage extends JFrame {
 
     public DisplayPage(String userName, String difficulty, int credits, int pilotSkill,
                        int fighterSkill, int merchantSkill, int engineerSkill) {
 
+        JFrame f = new JFrame("Confirm");
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int width = screenSize.width;
         int height = screenSize.height;
@@ -70,6 +71,21 @@ public class DisplayPage {
         engineer.setFont(new Font("Serif", Font.BOLD, 24));
         engineer.setForeground(Color.white);
         f.add(engineer);
+
+        // Add Confirm Button
+        JButton confirm = new JButton("Confirm");//creating instance of JButton
+        confirm.setAlignmentX(Component.CENTER_ALIGNMENT);
+        confirm.setFont(new Font("Serif", Font.BOLD, 40));
+        confirm.setBounds(width / 2, height / 4 + 400, 300, 75);
+        f.add(confirm);
+
+        confirm.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                new Game(difficulty, userName, pilotSkill, fighterSkill, merchantSkill, engineerSkill, credits);
+                f.dispose();
+            }
+        });
+
 
         JLabel dummy = new JLabel();
         dummy.setAlignmentX(Component.CENTER_ALIGNMENT);
