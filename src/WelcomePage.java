@@ -5,6 +5,13 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+
+
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -23,7 +30,7 @@ public class  WelcomePage extends JFrame {
 
         BufferedImage bf = ImageIO.read(new File("pic/welcomepig.png"));
 
-        // adding created component to the JFrame using my backImage class
+// adding created component to the JFrame using my backImage class
 
 
         f.setContentPane(new backImage(bf));
@@ -37,7 +44,7 @@ public class  WelcomePage extends JFrame {
 
         f.add(l1);
 
-        JButton b = new JButton("Start Game"); //creating instance of JButton
+        JButton b = new JButton("Start Game");//creating instance of JButton
         b.setFont(new Font("Serif", Font.BOLD, 30));
         b.setBounds(width / 2 - 100, height / 2 - 50, 200, 65);
 
@@ -59,8 +66,8 @@ public class  WelcomePage extends JFrame {
         f.setExtendedState(JFrame.MAXIMIZED_BOTH);
         f.setUndecorated(true);
 
-        f.setLayout(null); //using no layout managers
-        f.setVisible(true); //making the frame visible
+        f.setLayout(null);//using no layout managers
+        f.setVisible(true);//making the frame visible
         //f.getContentPane().setForeground(new Color(25, 25, 25));
         //f.getContentPane().setBackground(new Color(25, 25, 25));
 
@@ -79,19 +86,20 @@ public class  WelcomePage extends JFrame {
 
 class backImage extends JComponent {
 
-    private Image i;
+    Image i;
 
     //Creating Constructer
     public backImage(Image i) {
         this.i = i;
+
     }
 
     //Overriding the paintComponent method
     @Override
     public void paintComponent(Graphics g) {
 
-        g.drawImage(i, 0, 0, getWidth(), getHeight(), this);
-        // Drawing image using drawImage method
+        g.drawImage(i, 0, 0, getWidth(), getHeight(), this);  // Drawing image using drawImage method
+
     }
 }
 
