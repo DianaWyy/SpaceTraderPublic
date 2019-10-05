@@ -29,7 +29,7 @@ public class LoginPage extends JFrame {
         f.setSize(width, height);
         BufferedImage bf = ImageIO.read(new File("pic/loginpic.jpg"));
         // adding created component to the JFrame using my backImage class
-        f.setContentPane(new backImage(bf));
+        f.setContentPane(new Backimage(bf));
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setExtendedState(JFrame.MAXIMIZED_BOTH);
         f.setUndecorated(true); // full screen
