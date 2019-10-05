@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class RegionPage extends JFrame {
     public RegionPage(Region r, Player p) {
@@ -36,7 +35,8 @@ public class RegionPage extends JFrame {
         techLevel.setForeground(Color.white);
         f.add(techLevel);
 
-        JLabel coord = new JLabel(String.format("(%d, %d)", r.getXCoordinate(), r.getYCoordinate()));
+        JLabel coord = new JLabel(String.format("(%d, %d)", r.getXCoordinate(),
+                r.getYCoordinate()));
         coord.setAlignmentX(Component.CENTER_ALIGNMENT);
         coord.setBounds(width / 2, height / 4 + 100, 400, 50);
         coord.setFont(new Font("Serif", Font.BOLD, 24));
@@ -44,7 +44,7 @@ public class RegionPage extends JFrame {
         f.add(coord);
 
         // Add Confirm Button
-        JButton back = new JButton("Back");//creating instance of JButton
+        JButton back = new JButton("Back"); //creating instance of JButton
         back.setAlignmentX(Component.CENTER_ALIGNMENT);
         back.setFont(new Font("Serif", Font.BOLD, 20));
         back.setBounds(width / 2, height / 4 + 400, 100, 50);
