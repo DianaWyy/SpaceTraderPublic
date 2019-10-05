@@ -20,6 +20,8 @@ public enum TechLevel {
 
     /**
      * Constructor for TechLevel, private only
+     * @param name name of techlevel
+     * @param level level selected
      */
     private TechLevel(String name, int level) {
         this.name = name;
@@ -47,7 +49,7 @@ public enum TechLevel {
      * @return a random level in the enum
      */
     public static TechLevel getRandomTechLevel() {
-        return values()[(int)(Math.random() * 7)];
+        return values()[(int) (Math.random() * 7)];
     }
 }
 

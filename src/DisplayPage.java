@@ -2,9 +2,6 @@ import java.awt.*;
 
 import javax.swing.*;
 import java.awt.event.*;
-import java.io.IOException;
-
-import javax.swing.*;
 
 public class DisplayPage extends JFrame {
 
@@ -73,7 +70,7 @@ public class DisplayPage extends JFrame {
         f.add(engineer);
 
         // Add Confirm Button
-        JButton confirm = new JButton("Confirm");//creating instance of JButton
+        JButton confirm = new JButton("Confirm"); //creating instance of JButton
         confirm.setAlignmentX(Component.CENTER_ALIGNMENT);
         confirm.setFont(new Font("Serif", Font.BOLD, 40));
         confirm.setBounds(width / 2, height / 4 + 400, 300, 75);
@@ -81,7 +78,8 @@ public class DisplayPage extends JFrame {
 
         confirm.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                new Game(difficulty, userName, pilotSkill, fighterSkill, merchantSkill, engineerSkill, credits);
+                new Game(difficulty, userName, pilotSkill,
+                        fighterSkill, merchantSkill, engineerSkill, credits);
                 f.dispose();
             }
         });

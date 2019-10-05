@@ -5,18 +5,18 @@ public class Universe {
 
     private static Universe onlyUniverse;
 
-    public Universe(String[] regionNames){
+    public Universe(String[] regionNames) {
 
-        for(String regionName: regionNames) {
+        for (String regionName: regionNames) {
 
-            int x = (int)(Math.random()*401-200);
-            int y = (int)(Math.random()*401-200);
-            Region newRegion = new Region(x , y , regionName);
+            int x = (int) (Math.random() * 401 - 200);
+            int y = (int) (Math.random() * 401 - 200);
+            Region newRegion = new Region(x, y, regionName);
 
-            while(compareTooClose(newRegion)) {
-                x = (int)(Math.random()*401-200);
-                y = (int)(Math.random()*401-200);
-                newRegion = new Region(x , y , regionName);
+            while (compareTooClose(newRegion)) {
+                x = (int) (Math.random() * 401 - 200);
+                y = (int) (Math.random() * 401 - 200);
+                newRegion = new Region(x, y, regionName);
             }
 
             regions.add(newRegion);
@@ -26,7 +26,7 @@ public class Universe {
 
     private boolean compareTooClose(Region newRegion) {
         for (Region r: regions) {
-            if(newRegion.tooClose(r)) {
+            if (newRegion.tooClose(r)) {
                 return true;
             }
         }
@@ -34,7 +34,7 @@ public class Universe {
     }
 
     public static Universe createUniverse(String[] regionNames) {
-        if(onlyUniverse == null) {
+        if (onlyUniverse == null) {
             onlyUniverse = new Universe(regionNames);
         }
         return onlyUniverse;
