@@ -45,6 +45,6 @@ public class Universe {
     }
 
     public Region getRandomRegion() {
-        return regions.get((int) (Math.random() * (regions.size() + 1)));
+        return regions.get((int) (Math.random() * (regions.size())));
     }
 }
