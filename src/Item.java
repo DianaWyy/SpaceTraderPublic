@@ -2,33 +2,33 @@ public enum Item {
    
 
     //PREAG
-    Stone("Stone", 5, TechLevel.PREAG),
-    Plant("Plant", 7, TechLevel.PREAG),
-    PureWater("Pure Water", 10, TechLevel.PREAG),
+    STONE("Stone", 5, TechLevel.PREAG),
+    PLANT("Plant", 7, TechLevel.PREAG),
+    PUREWATER("Pure Water", 10, TechLevel.PREAG),
     //AGRICULTURE
-    Rice("Rice", 20, TechLevel.AGRICULTURE),
-    Flour("Flour", 20, TechLevel.AGRICULTURE),
-    Wood("Wood", 30, TechLevel.AGRICULTURE),
+    RICE("Rice", 20, TechLevel.AGRICULTURE),
+    FLOUR("Flour", 20, TechLevel.AGRICULTURE),
+    WOOD("Wood", 30, TechLevel.AGRICULTURE),
     //MEDIEVAL
-    Paper("Paper", 50, TechLevel.MEDIEVAL),
-    Tea("Tea", 70, TechLevel.MEDIEVAL),
-    Medicine("Medicine", 90, TechLevel.MEDIEVAL),
-    Gold("Gold", 100, TechLevel.MEDIEVAL),
+    PAPER("Paper", 50, TechLevel.MEDIEVAL),
+    TEA("Tea", 70, TechLevel.MEDIEVAL),
+    MEDICINE("Medicine", 90, TechLevel.MEDIEVAL),
+    GOLD("Gold", 100, TechLevel.MEDIEVAL),
     //RENAISSANCE
-    Painting("Painting", 120, TechLevel.RENAISSANCE),
-    Bible("Bible", 150, TechLevel.RENAISSANCE),
-    Poetry("Poetry", 120, TechLevel.RENAISSANCE),
+    PAINTING("Painting", 120, TechLevel.RENAISSANCE),
+    BIBLE("Bible", 150, TechLevel.RENAISSANCE),
+    POETRY("Poetry", 120, TechLevel.RENAISSANCE),
     //INDUSTRIAL
-    Compass("Compass", 300, TechLevel.INDUSTRIAL),
-    Bomb("Bomb", 400, TechLevel.INDUSTRIAL),
-    Weapon("Weapon", 500, TechLevel.INDUSTRIAL),
+    COMPASS("Compass", 300, TechLevel.INDUSTRIAL),
+    BOMB("Bomb", 400, TechLevel.INDUSTRIAL),
+    WEAPON("Weapon", 500, TechLevel.INDUSTRIAL),
     //MODERN
-    SmartPhone("Smart Phone", 800, TechLevel.MODERN),
-    Computers("Computers", 1500, TechLevel.MODERN),
-    Pad("Pad", 2500, TechLevel.MODERN),
+    SMARTPHONE("Smart Phone", 800, TechLevel.MODERN),
+    COMPUTERS("Computers", 1500, TechLevel.MODERN),
+    PAD("Pad", 2500, TechLevel.MODERN),
     //FUTURISTIC
-    Doraemon("Doraemon", 5000, TechLevel.FUTURISTIC),
-    GlassScreeen("GlassScreen", 5000, TechLevel.FUTURISTIC);
+    DORAEMONn("Doraemon", 5000, TechLevel.FUTURISTIC),
+    GLASSSCREEN("GlassScreen", 5000, TechLevel.FUTURISTIC);
 
 
 
