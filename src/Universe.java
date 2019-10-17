@@ -18,27 +18,14 @@ public class Universe {
 
         for (String regionName: regionNames) {
 
-            BufferedImage image = null;
-            // Assign picture to region on map
-            try {
-                image = ImageIO.read(pics[i]);
-                i++;
-                if(i == pics.length ) {
-                    i = 0;
-                }
-
-            } catch (IOException e) {
-                System.out.println("Picture was missing!");
-            }
-
             int x = (int) (Math.random() * 401 - 200);
             int y = (int) (Math.random() * 401 - 200);
-            Region newRegion = new Region(x, y, regionName, image);
+            Region newRegion = new Region(x, y, regionName);
 
             while (compareTooClose(newRegion)) {
                 x = (int) (Math.random() * 401 - 200);
                 y = (int) (Math.random() * 401 - 200);
-                newRegion = new Region(x, y, regionName, image);
+                newRegion = new Region(x, y, regionName);
             }
 
 

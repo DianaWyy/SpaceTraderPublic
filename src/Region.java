@@ -6,16 +6,16 @@ public class Region {
     private int yCoordinate;
     private TechLevel techlevel;
     private String name;
-    private BufferedImage image;
 
 
-    public Region(int x, int y, String n, BufferedImage image) {
+    public Region(int x, int y, String n) {
         xCoordinate = x;
         yCoordinate = y;
         techlevel = TechLevel.getRandomTechLevel();
         name = n;
-        this.image = image;
     }
+
+
 
     public boolean tooClose(Region r) {
         return (Math.abs(xCoordinate - r.getXCoordinate()) < 5
@@ -51,7 +51,4 @@ public class Region {
         return techlevel;
     }
 
-    public BufferedImage getImage() {
-        return image;
-    }
 }
