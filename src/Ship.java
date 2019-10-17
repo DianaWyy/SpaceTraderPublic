@@ -8,7 +8,7 @@
  */
 public class Ship {
 
-    private String type;  //ship type, assult/trade/travel etc.
+    private String type;  //ship type, Battle/Trade/Explorer
 
     private int cargoSpace;      //total
     private int currCargoSpace;  //current available
