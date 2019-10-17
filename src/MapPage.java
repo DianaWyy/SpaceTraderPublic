@@ -3,8 +3,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.io.File;
 
 public class MapPage extends JFrame {
     private Region selected;
@@ -29,6 +32,10 @@ public class MapPage extends JFrame {
         //BufferedImage bf = ImageIO.read(new File("pic/loginpic.jpg"));
         //adding created component to the JFrame using my backImage class
         //f.setContentPane(new backImage(bf));
+//
+//        BufferedImage myPicture = ImageIO.read(new File("path-to-file"));
+//        JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+//        add(picLabel);
 
 
         //Add all regions to the Map
@@ -37,18 +44,34 @@ public class MapPage extends JFrame {
                     reg.getTechlevel().getName(), reg.getXCoordinate(), reg.getYCoordinate());
             regNames.add(spec);
             if (reg.equals(p.getCurrentRegion())) {
-                JLabel star = new JLabel("(-。-)", SwingConstants.CENTER);
+                JLabel star = new JLabel();
                 star.setBounds(width / 2 + reg.getXCoordinate(),
-                        height / 2 - reg.getYCoordinate(), 50, 25);
-                star.setFont(new Font("Serif", Font.BOLD, 20));
-                star.setForeground(Color.white);
+                        height / 2 - reg.getYCoordinate(), 200, 200);
+
+                // Create scaled image
+                Image dimg = reg.getImage().getScaledInstance(star.getWidth(), star.getHeight(),
+                        Image.SCALE_SMOOTH);
+
+                star.setIcon(new ImageIcon(dimg));
+                //JLabel star = new JLabel("(-。-)", SwingConstants.CENTER);
+
+                //star.setFont(new Font("Serif", Font.BOLD, 20));
+                //star.setForeground(Color.white);
                 f.add(star);
             } else {
-                JLabel star = new JLabel("*", SwingConstants.CENTER);
+
+                JLabel star = new JLabel();
                 star.setBounds(width / 2 + reg.getXCoordinate(),
-                        height / 2 - reg.getYCoordinate(), 50, 25);
-                star.setFont(new Font("Serif", Font.BOLD, 20));
-                star.setForeground(Color.white);
+                        height / 2 - reg.getYCoordinate(), 200, 200);
+
+                // Create scaled image
+                Image dimg = reg.getImage().getScaledInstance(star.getWidth(), star.getHeight(),
+                        Image.SCALE_SMOOTH);
+
+                star.setIcon(new ImageIcon(dimg));
+                //JLabel star = new JLabel("*", SwingConstants.CENTER);
+                //star.setFont(new Font("Serif", Font.BOLD, 20));
+                //star.setForeground(Color.white);
                 f.add(star);
             }
 

@@ -44,13 +44,13 @@ public class RegionPage extends JFrame {
         f.add(coord);
 
         // Add Confirm Button
-        JButton back = new JButton("Back"); //creating instance of JButton
-        back.setAlignmentX(Component.CENTER_ALIGNMENT);
-        back.setFont(new Font("Serif", Font.BOLD, 20));
-        back.setBounds(width / 2, height / 4 + 400, 100, 50);
-        f.add(back);
+        JButton map = new JButton("View Map"); //creating instance of JButton
+        map.setAlignmentX(Component.CENTER_ALIGNMENT);
+        map.setFont(new Font("Serif", Font.BOLD, 20));
+        map.setBounds(width / 2, height / 4 + 400, 100, 50);
+        f.add(map);
 
-        back.addActionListener(new ActionListener() {
+        map.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 f.dispose();
             }

@@ -1,15 +1,20 @@
+import java.awt.image.BufferedImage;
+
+
 public class Region {
     private int xCoordinate;
     private int yCoordinate;
     private TechLevel techlevel;
     private String name;
+    private BufferedImage image;
 
 
-    public Region(int x, int y, String n) {
+    public Region(int x, int y, String n, BufferedImage image) {
         xCoordinate = x;
         yCoordinate = y;
         techlevel = TechLevel.getRandomTechLevel();
         name = n;
+        this.image = image;
     }
 
     public boolean tooClose(Region r) {
@@ -44,5 +49,9 @@ public class Region {
 
     public TechLevel getTechlevel() {
         return techlevel;
+    }
+
+    public BufferedImage getImage() {
+        return image;
     }
 }
