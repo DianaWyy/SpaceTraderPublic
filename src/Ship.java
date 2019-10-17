@@ -19,7 +19,7 @@ public class Ship {
     private int health;
     private int currHealth;
 
-    private ArrayList<Cargo> cargoList;  //TODO: in future implement a Cargo class to represent cargo objects
+    private ArrayList<Item> cargoList;  //TODO: in future implement a Item class to represent cargo objects
 
 
     //constructor
@@ -31,7 +31,7 @@ public class Ship {
         this.currFuelCapacity = fuelCapacity;
         this.health = health;
         this.currHealth = health;
-        this.cargoList = new ArrayList<Cargo>();
+        this.cargoList = new ArrayList<Item>();
     }
 
 
@@ -84,21 +84,21 @@ public class Ship {
         return this.currHealth;
     }
 
-    public ArrayList<Cargo> getCargoList() {
+    public ArrayList<Item> getCargoList() {
         return cargoList;
     }
 
 
     //add, remove, clear cargolist
-    public void addCargo(Cargo item) {
+    public void addCargo(Item item) {
         cargoList.add(item);
     }
 
-    public void removeCargo(Cargo item) {
+    public void removeCargo(Item item) {
         cargoList.remove(item);
     }
 
     public void clearCargo() {
-        cargoList = new ArrayList<Cargo>();
+        cargoList = new ArrayList<Item>();
     }
 }
