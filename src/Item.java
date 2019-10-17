@@ -44,5 +44,27 @@ public enum Item {
         this.techlevel = techlevel;
     }
 
+    public TechLevel getTechlevel() {
+        return techlevel;
+    }
 
+    public int getPrice() {
+        return price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setTechlevel(TechLevel techlevel) {
+        this.techlevel = techlevel;
+    }
 }
