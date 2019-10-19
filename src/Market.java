@@ -14,7 +14,7 @@ public class Market {
     }
 
 
-    public void buy(Item item, Player player, Region region){
+    public void buy(Item item, Player player, Region region) {
         int newPrice = region.priceCalculator(item);
         newPrice = (int) (newPrice - player.getMerchantSkill() * 0.25);
         if(player.getCredits() < newPrice) {
