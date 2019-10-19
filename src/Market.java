@@ -14,27 +14,13 @@ public class Market {
     }
 
 
-    public void buy(Item item, Player player){
-        if(player.getCredits() < item.getPrice()) {
+    public void buy(Item item, Player player, Region region){
+        int newPrice = region.priceCalculator(item);
+        newPrice = (int) (newPrice - player.getMerchantSkill() * 0.25);
+        if(player.getCredits() < newPrice) {
             throw new IllegalArgumentException("Could not afford");
         }
 
-        player.setCredits(player.getCredits() - item.getPrice());
+        player.setCredits(player.getCredits() - newPrice);
     }
-
-    /**
-     * Should be affected based on the Player’s Merchant skill.
-     * You should be able to explain and demonstrate the effect of the Player’s Merchant skill on prices.
-     * Can start a new game with a different Merchant skill to demonstrate.
-     * The effect should be noticeable.
-     * Use a price calculator service here - you would need to create this.
-     * In case of Python, an appropriate utility function would fulfill this requirement.
-     * In case of Java Swing, an instance method for the Region class would fulfil this requirement.
-     */
-
-
-
-
-
-
 }
