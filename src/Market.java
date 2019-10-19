@@ -22,5 +22,10 @@ public class Market {
         }
 
         player.setCredits(player.getCredits() - newPrice);
+        int currCargoSpace = player.getPlayerShip().getCurrCargoSpace();
+        if (currCargoSpace == player.getPlayerShip().getCargoSpace()) {
+            throw new IllegalArgumentException("Your cargo is full.");
+        }
+        player.getPlayerShip().setCurrCargoSpace(currCargoSpace - 1);
     }
 }
