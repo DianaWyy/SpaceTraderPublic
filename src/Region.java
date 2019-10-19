@@ -51,4 +51,7 @@ public class Region {
         return techlevel;
     }
 
+    public int priceCalculator(Item item) {
+        return (int) (item.getPrice() * techlevel.getLevel() * 0.25);
+    }
 }
