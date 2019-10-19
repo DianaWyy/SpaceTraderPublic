@@ -7,10 +7,11 @@ public class Player {
     private Region location;
     private int credits;
     private Region currentRegion;
+    private Ship playerShip;
 
 
     public Player(String name, int pilotSkill, int fighterSkill,
-                  int merchantSkill, int engineerSkill, Region r, int credits) {
+                  int merchantSkill, int engineerSkill, Region r, int credits, Ship ship) {
         username = name;
         fullSkills = new HashMap<>();
         fullSkills.put("Pilot", pilotSkill);
@@ -19,6 +20,7 @@ public class Player {
         fullSkills.put("Engineer", engineerSkill);
         currentRegion = r;
         this.credits = credits;
+        this.playerShip = ship;
     }
 
     public String getUsername() {
@@ -79,5 +81,13 @@ public class Player {
 
     public void setCurrentRegion(Region currentRegion) {
         this.currentRegion = currentRegion;
+    }
+
+    public Ship getPlayerShip() {
+        return playerShip;
+    }
+
+    public void setPlayerShip(Ship ship) {
+        this.playerShip = ship;
     }
 }
