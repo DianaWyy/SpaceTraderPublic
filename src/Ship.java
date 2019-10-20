@@ -17,8 +17,8 @@ public class Ship {
     private int cargoSpace;      //total
     private int currCargoSpace;  //current available
 
-    private int fuelCapacity;
-    private int currFuelCapacity;
+    private double fuelCapacity;
+    private double currFuelCapacity;
 
     private int health;
     private int currHealth;
@@ -47,9 +47,32 @@ public class Ship {
         this.cargoList = new ArrayList<Item>();
     }
 
+    //Gets Basic Ship
+    public static Ship getBasicShip() {
+        return ships[0];
+    }
+
+    //Gets Basic Ship
+    public static Ship getBattleShip() {
+        return ships[1];
+    }
+
+    //Gets Basic Ship
+    public static Ship getExplorerShip() {
+        return ships[2];
+    }
+
+    //Gets Basic Ship
+    public static Ship getTradeShip() {
+        return ships[3];
+    }
 
 
     //getters and setters
+    public String getType() {
+        return this.type;
+    }
+
     public void setCargoSpace(int cargoSpace) {
         this.cargoSpace = cargoSpace;
     }
@@ -66,19 +89,19 @@ public class Ship {
         return this.currCargoSpace;
     }
 
-    public void setFuelCapacity(int fuelCapacity) {
+    public void setFuelCapacity(double fuelCapacity) {
         this.fuelCapacity = fuelCapacity;
     }
 
-    public int getFuelCapacity() {
+    public double getFuelCapacity() {
         return this.fuelCapacity;
     }
 
-    public void setCurrFuelCapacity(int currFuelCapacity) {
-        this.currFuelCapacity = currFuelCapacity;
+    public void decreaseCurrFuelCapacity(double currFuelCapacity) {
+        this.currFuelCapacity -= currFuelCapacity;
     }
 
-    public int getCurrFuelCapacity() {
+    public double getCurrFuelCapacity() {
         return this.currFuelCapacity;
     }
 
