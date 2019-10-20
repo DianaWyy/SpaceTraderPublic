@@ -15,6 +15,10 @@ public class Region {
         name = n;
     }
 
+    public double computeDistance(Region r) {
+        return Math.pow(Math.pow(this.getXCoordinate() - r.getXCoordinate(), 2)
+                + Math.pow(this.getYCoordinate() - r.getYCoordinate(), 2), 0.5);
+    }
 
 
     public boolean tooClose(Region r) {

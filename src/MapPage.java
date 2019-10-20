@@ -89,11 +89,9 @@ public class MapPage extends JFrame {
         JComboBox regList = new JComboBox(regNames.toArray());
         regList.setSelectedIndex(0);
 
-        distance = Math.pow(Math.pow(selected.getXCoordinate() - curr.getXCoordinate(), 2)
-                + Math.pow(selected.getYCoordinate() - curr.getYCoordinate(), 2), 0.5);
+        distance = selected.computeDistance(curr);
 
-        fuel = distance /20 * (100 - p.getPilotSkill() ) /100.0;
-        fuel = Math.round(fuel *100) / 100.0;
+        fuel = p.calcTravelCost(distance);
 
         JLabel travelCost = new JLabel(String.format("Distance: %.2f  Fuel Cost: %.2f", distance, fuel));
         travelCost.setBounds(width / 2 - 200, 175, 400, 25);
@@ -106,15 +104,14 @@ public class MapPage extends JFrame {
                     @Override
                     public void itemStateChanged(ItemEvent e) {
                         if (e.getStateChange() == ItemEvent.SELECTED) {
+                            // Update Selection
                             selected = regions.get(regList.getSelectedIndex());
                             Region curr = p.getCurrentRegion();
 
-                            // Update Selection
-                            distance = Math.pow(Math.pow(selected.getXCoordinate() - curr.getXCoordinate(), 2)
-                                    + Math.pow(selected.getYCoordinate() - curr.getYCoordinate(), 2), 0.5);
 
-                            fuel = distance /20 * (100 - p.getPilotSkill() ) /100.0;
-                            fuel = Math.round(fuel *100) / 100.0;
+                            distance = selected.computeDistance(curr);
+
+                            fuel = p.calcTravelCost(distance);
 
                             travelCost.setText(String.format("Distance: %.2f  Fuel Cost: %.2f", distance, fuel));
 

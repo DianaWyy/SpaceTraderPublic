@@ -23,6 +23,16 @@ public class Player {
         this.playerShip = ship;
     }
 
+    public double calcTravelCost(double distance) {
+        double fuel;
+
+        // Formula for calculating fuel costs
+        fuel = distance /20 * (100 - getPilotSkill() * 4 ) /100.0;
+        fuel = Math.round(fuel *100) / 100.0;
+
+        return fuel;
+    }
+
     public String getUsername() {
         return username;
     }
