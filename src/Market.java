@@ -8,10 +8,11 @@ public class Market {
 
     public Market(TechLevel techLevel, Player p) {
         this.p = p;
-        for(int i = 0; i < allItems.length; i++) {
+        for (int i = 0; i < allItems.length; i++) {
             Item item = allItems[i];
             if (item.getTechlevel() == techLevel) {
-                int newPrice = (int) (item.getPrice() * techLevel.getLevel() * 0.25 - p.getMerchantSkill() * 0.25);
+                int newPrice = (int) (item.getPrice() * techLevel.getLevel() * 0.25
+                        - p.getMerchantSkill() * 0.25);
                 item.setPrice(newPrice);
                 effectiveItems.add(item);
             }
@@ -25,7 +26,7 @@ public class Market {
     public ArrayList<String> getItemNameList() {
         ArrayList<String> nameList = new ArrayList<>();
         for (Item i: effectiveItems) {
-            nameList.add(String.format("$%d %s",i.getPrice(), i.getName()));
+            nameList.add(String.format("$%d %s", i.getPrice(), i.getName()));
         }
         return nameList;
     }
