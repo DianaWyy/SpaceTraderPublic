@@ -1,4 +1,6 @@
 import java.awt.image.BufferedImage;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 
 public class Region {
@@ -6,7 +8,7 @@ public class Region {
     private int yCoordinate;
     private TechLevel techlevel;
     private String name;
-
+    private Market market;
 
     public Region(int x, int y, String n) {
         xCoordinate = x;
@@ -20,12 +22,10 @@ public class Region {
                 + Math.pow(this.getYCoordinate() - r.getYCoordinate(), 2), 0.5);
     }
 
-
     public boolean tooClose(Region r) {
         return (Math.abs(xCoordinate - r.getXCoordinate()) < 5
                 || Math.abs(yCoordinate - r.getYCoordinate()) < 5);
     }
-
 
     public void setxCoordinate(int x) {
         xCoordinate = x;
@@ -58,4 +58,8 @@ public class Region {
     public int priceCalculator(Item item) {
         return (int) (item.getPrice() * techlevel.getLevel() * 0.25);
     }
+
+    public Market getMarket() { return market; }
+
+
 }

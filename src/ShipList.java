@@ -7,6 +7,7 @@ public enum ShipList {
 
 
     //ship models, can create more if needed
+
     SIDEWINDER("Battle", 12, 8, 100),
     EAGLEMKII("Battle", 8, 12, 120),
     HAULER("Trade", 30, 16, 80),
@@ -30,7 +31,6 @@ public enum ShipList {
         this.fuelCapacity = fuelCapacity;
         this.health = health;
     }
-
 
     //getters
     public String getType() {

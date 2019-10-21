@@ -19,11 +19,11 @@ public class Game {
         this.difficulity = difficulty;
         // Creates Universe with list of names
         u = Universe.createUniverse(names);
-
         // Create Player Object with random location
         Region r = u.getRandomRegion();
         Ship s = Ship.getBasicShip();
         p = new Player(name, pilotSkill, fighterSkill, merchantSkill, engineerSkill, r, credits, s);
+
 
         // Create Map page
         new MapPage(u.getRegions(), p);

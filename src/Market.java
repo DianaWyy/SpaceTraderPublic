@@ -1,31 +1,36 @@
 import java.util.ArrayList;
 
 public class Market {
-    public Item[] allItems = Item.values();
-    ArrayList<Item> effectiveItems = new ArrayList<>();
-    TechLevel techLevel;
+    private Item[] allItems = Item.values();
+    private ArrayList<Item> effectiveItems = new ArrayList<>();
+    private TechLevel techLevel;
+    private Player p;
 
-    public Market(TechLevel techLevel) {
+    public Market(TechLevel techLevel, Player p) {
+        this.p = p;
         for(int i = 0; i < allItems.length; i++) {
-            if (allItems[i].getTechlevel() == techLevel) {
-                effectiveItems.add(allItems[i]);
+            Item item = allItems[i];
+            if (item.getTechlevel() == techLevel) {
+                int newPrice = (int) (item.getPrice() * techLevel.getLevel() * 0.25 - p.getMerchantSkill() * 0.25);
+                item.setPrice(newPrice);
+                effectiveItems.add(item);
             }
         }
     }
 
+    public ArrayList<Item> getItemList() {
+        return effectiveItems;
+    }
 
-    public void buy(Item item, Player player, Region region) {
-        int newPrice = region.priceCalculator(item);
-        newPrice = (int) (newPrice - player.getMerchantSkill() * 0.25);
-        if(player.getCredits() < newPrice) {
-            throw new IllegalArgumentException("Could not afford");
+    public ArrayList<String> getItemNameList() {
+        ArrayList<String> nameList = new ArrayList<>();
+        for (Item i: effectiveItems) {
+            nameList.add(String.format("$%d %s",i.getPrice(), i.getName()));
         }
+        return nameList;
+    }
 
-        player.setCredits(player.getCredits() - newPrice);
-        int currCargoSpace = player.getPlayerShip().getCurrCargoSpace();
-        if (currCargoSpace == player.getPlayerShip().getCargoSpace()) {
-            throw new IllegalArgumentException("Your cargo is full.");
-        }
-        player.getPlayerShip().setCurrCargoSpace(currCargoSpace - 1);
+    public void buy(Item item) {
+
     }
 }

@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 public class Universe {
     private ArrayList<Region> regions = new ArrayList<>();
-
     private static Universe onlyUniverse;
 
     public Universe(String[] regionNames) {
@@ -27,8 +26,6 @@ public class Universe {
                 y = (int) (Math.random() * 401 - 200);
                 newRegion = new Region(x, y, regionName);
             }
-
-
 
             regions.add(newRegion);
 

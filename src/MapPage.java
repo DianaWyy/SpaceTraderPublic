@@ -8,9 +8,13 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MapPage extends JFrame {
     private Region selected;
+    private Region currRegion;
+    private Map<Region, JLabel> stars;
     private int width;
     private int height;
 
@@ -19,7 +23,7 @@ public class MapPage extends JFrame {
 
     private JFrame f;
     private Player p;
-
+    private Ship s;
 
     // instance Variables representing Labels
 
@@ -33,12 +37,18 @@ public class MapPage extends JFrame {
     private JLabel currCoords;
 
     private JLabel warning;
-
+    private MapPage mp = this;
+    private JButton travel;
+    private JButton shipFact;
 
     public MapPage(ArrayList<Region> regions, Player p) {
         f = new JFrame("Map");
         this.p = p;
+        s = p.getShip();
         ArrayList<String> regNames = new ArrayList<>();
+        stars = new HashMap<>();
+        currRegion = p.getCurrentRegion();
+        RegionPage currRegPage;
 
         // get width and height of screen
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -71,8 +81,14 @@ public class MapPage extends JFrame {
             star.setBounds(width / 2 + reg.getXCoordinate(),
                     height / 2 - reg.getYCoordinate(), 50, 25);
             star.setFont(new Font("Serif", Font.BOLD, 20));
-            star.setForeground(Color.white);
+            if (reg == currRegion) {
+                star.setForeground(Color.red);
+            } else {
+                star.setForeground(Color.white);
+            }
+
             f.add(star);
+            stars.put(reg, star);
 
             JLabel starName = new JLabel(reg.getName(), SwingConstants.CENTER);
             starName.setBounds(width / 2 + reg.getXCoordinate(),
@@ -82,14 +98,10 @@ public class MapPage extends JFrame {
             f.add(starName);
         }
 
-        //Add Drop-down list
+        // Distance and Fuel Cost
 
-        Region curr = p.getCurrentRegion();
         selected = regions.get(0);
-        JComboBox regList = new JComboBox(regNames.toArray());
-        regList.setSelectedIndex(0);
-
-        distance = selected.computeDistance(curr);
+        distance = selected.computeDistance(currRegion);
 
         fuel = p.calcTravelCost(distance);
 
@@ -99,6 +111,10 @@ public class MapPage extends JFrame {
         travelCost.setForeground(Color.white);
         f.add(travelCost);
 
+        //Add Drop-down list
+
+        JComboBox regList = new JComboBox(regNames.toArray());
+        regList.setSelectedIndex(0);
         regList.addItemListener(
                 new ItemListener() {
                     @Override
@@ -106,10 +122,7 @@ public class MapPage extends JFrame {
                         if (e.getStateChange() == ItemEvent.SELECTED) {
                             // Update Selection
                             selected = regions.get(regList.getSelectedIndex());
-                            Region curr = p.getCurrentRegion();
-
-
-                            distance = selected.computeDistance(curr);
+                            distance = selected.computeDistance(currRegion);
 
                             fuel = p.calcTravelCost(distance);
 
@@ -123,7 +136,7 @@ public class MapPage extends JFrame {
         f.add(regList);
 
 
-        JButton travel = new JButton("Travel");
+        travel = new JButton("Travel");
         travel.setFont(new Font("Serif", Font.BOLD, 20));
         travel.setBounds(width / 2 + 100, 125, 100, 40);
         f.add(travel);
@@ -137,13 +150,6 @@ public class MapPage extends JFrame {
         travel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
 
-                if(p.getCurrentRegion() == selected) {
-                    warning.setText("You're currently in this region!");
-                    return;
-                }
-
-
-                Ship s = p.getPlayerShip();
                 double currFuel = s.getCurrFuelCapacity();
 
                 if(fuel > currFuel) {
@@ -152,11 +158,10 @@ public class MapPage extends JFrame {
 
                 } else {
                     p.setCurrentRegion(selected);
-
-                    p.getPlayerShip().decreaseCurrFuelCapacity(fuel);
+                    s.decreaseCurrFuelCapacity(fuel);
                     warning.setText("");
 
-                    new RegionPage(selected, p);
+                    new RegionPage(selected, p, mp);
 
                     updateStats();
                     ItemEvent event = new ItemEvent(regList, 0, null, ItemEvent.SELECTED);
@@ -165,12 +170,19 @@ public class MapPage extends JFrame {
 
                     f.repaint();
                 }
-
-
-                
             }
         });
 
+        shipFact = new JButton("Ship Factory");
+        shipFact.setFont(new Font("Serif", Font.BOLD, 20));
+        shipFact.setBounds(width - 300, 175, 200, 40);
+        f.add(shipFact);
+
+        shipFact.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                new ShipFactoryPage(p, mp);
+            }
+        });
 
     }
 
@@ -178,7 +190,6 @@ public class MapPage extends JFrame {
 
         // Add the ship and stats to the Map
 
-        Ship s = p.getPlayerShip();
         JLabel shipStats = new JLabel("Ship Stats:");
         shipStats.setBounds(200, 125, 400, 25);
         shipStats.setFont(new Font("Serif", Font.BOLD, 24));
@@ -191,7 +202,7 @@ public class MapPage extends JFrame {
         shipType.setForeground(Color.white);
         f.add(shipType);
 
-        shipSpace = new JLabel("Current Capacity: " + s.getCurrCargoSpace() + "/" + s.getCargoSpace());
+        shipSpace = new JLabel("Cargo Space: " + s.getCurrCargoSpace() + "/" + s.getCargoSpace());
         shipSpace.setBounds(250, 225, 400, 25);
         shipSpace.setFont(new Font("Serif", Font.BOLD, 24));
         shipSpace.setForeground(Color.white);
@@ -218,9 +229,8 @@ public class MapPage extends JFrame {
         f.add(showCredits);
 
         // Display Current Location
-        Region currRegion = p.getCurrentRegion();
 
-        currLocation = new JLabel("Current Location： " + currRegion.getName());
+        currLocation = new JLabel("Current Location： " + this.currRegion.getName());
         currLocation.setBounds(200, 400, 400, 25);
         currLocation.setFont(new Font("Serif", Font.BOLD, 24));
         currLocation.setForeground(Color.white);
@@ -232,7 +242,6 @@ public class MapPage extends JFrame {
         currTech.setForeground(Color.white);
         f.add(currTech);
 
-
         currCoords = new JLabel("Coordinates: (" + currRegion.getXCoordinate() + ", " + currRegion.getYCoordinate() + ")");
         currCoords.setBounds(225, 500, 400, 25);
         currCoords.setFont(new Font("Serif", Font.BOLD, 24));
@@ -241,24 +250,34 @@ public class MapPage extends JFrame {
 
     }
 
-    private void updateStats() {
-        Ship s = p.getPlayerShip();
-
+    public void updateStats() {
         shipType.setText("Type: " + s.getType());
-        shipSpace.setText("Current Capacity: " + s.getCurrCargoSpace() + "/" + s.getCargoSpace());
+        shipSpace.setText("Cargo Space: " + s.getCurrCargoSpace() + "/" + s.getCargoSpace());
         shipFuel.setText(String.format("Fuel: %.2f/ %.2f", s.getCurrFuelCapacity(), s.getFuelCapacity()));
         shipHealth.setText("Health: " + s.getCurrHealth() + "/" + s.getHealth());
 
         showCredits.setText("Credits： " + p.getCredits());
 
-        Region currRegion = p.getCurrentRegion();
+        currRegion = p.getCurrentRegion();
 
         currLocation.setText("Current Location： " + currRegion.getName());
         currTech.setText("Tech Level: " + currRegion.getTechlevel().getName());
         currCoords.setText("Coordinates: (" + currRegion.getXCoordinate() + ", " + currRegion.getYCoordinate() + ")");
 
-        // TODO
-        // Make selected planet Red?
+        // Update red planet
+        for (Region reg: stars.keySet()) {
+            JLabel star = stars.get(reg);
+            if (star.getForeground() == Color.red) {
+                star.setForeground(Color.white);
+            }
+
+            if (reg == currRegion) {
+                star.setForeground(Color.red);
+            }
+        }
+
+        showCredits.setText("Credits： " + p.getCredits());
+
     }
 
 

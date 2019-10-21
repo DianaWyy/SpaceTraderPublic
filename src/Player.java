@@ -93,7 +93,7 @@ public class Player {
         this.currentRegion = currentRegion;
     }
 
-    public Ship getPlayerShip() {
+    public Ship getShip() {
         return playerShip;
     }
 

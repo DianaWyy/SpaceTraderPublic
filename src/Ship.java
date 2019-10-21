@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+import java.lang.reflect.Array;
+import java.util.*;
 
 //please add a ship reference in Player class.
 //so we can assign a Ship object to a player
@@ -39,7 +40,7 @@ public class Ship {
     public Ship(String type, int cargoSpace, int fuelCapacity, int health) {
         this.type = type;
         this.cargoSpace = cargoSpace;
-        this.currCargoSpace = cargoSpace;
+        this.currCargoSpace = 0;
         this.fuelCapacity = fuelCapacity;
         this.currFuelCapacity = fuelCapacity;
         this.health = health;
@@ -67,6 +68,20 @@ public class Ship {
         return ships[3];
     }
 
+    public ArrayList<Ship> getShipList() {
+        ArrayList<Ship> shiplist = new ArrayList<>();
+        Collections.addAll(shiplist, ships);
+        return shiplist;
+    }
+
+    public ArrayList<String> getShipNameList() {
+        ArrayList<String> nameList = new ArrayList<>();
+        for (Ship s: ships) {
+            nameList.add(String.format("%s | Cargo Space: %d, Fuel Capacity: %.2f, Health: %d",
+                    s.getType(), s.getCargoSpace(), s.getFuelCapacity(), s.getHealth()));
+        }
+        return nameList;
+    }
 
     //getters and setters
     public String getType() {
@@ -81,9 +96,9 @@ public class Ship {
         return this.cargoSpace;
     }
 
-    public void setCurrCargoSpace(int currCargoSpace) {
-        this.currCargoSpace = currCargoSpace;
-    }
+//    public void setCurrCargoSpace(int currCargoSpace) {
+//        this.currCargoSpace = currCargoSpace;
+//    }
 
     public int getCurrCargoSpace() {
         return this.currCargoSpace;
@@ -125,14 +140,24 @@ public class Ship {
         return cargoList;
     }
 
+    public ArrayList<String> getCargoNameList() {
+        ArrayList<String> nameList = new ArrayList<>();
+        for (Item item: cargoList) {
+            nameList.add(String.format("$%d %s", item.getPrice(), item.getName()));
+        }
+        return nameList;
+    }
+
 
     //add, remove, clear cargolist
     public void addCargo(Item item) {
         cargoList.add(item);
+        currCargoSpace++;
     }
 
     public void removeCargo(Item item) {
         cargoList.remove(item);
+        currCargoSpace--;
     }
 
     public void clearCargo() {
