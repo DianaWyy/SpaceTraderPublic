@@ -4,4 +4,7 @@
 out/
 *.iml
 .DS_Store
-*.class
+*.classcheckstyle-*.jar
+checkstyle-*.jar
+*.xml
+*.py
