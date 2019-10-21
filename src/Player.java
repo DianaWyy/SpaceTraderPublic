@@ -27,7 +27,7 @@ public class Player {
         double fuel;
 
         // Formula for calculating fuel costs
-        fuel = distance / 20 * (100 - getPilotSkill() * 4) / 100.0;
+        fuel = distance / 20 * (100 - getPilotSkill() * 5) / 100.0;
         fuel = Math.round(fuel * 100) / 100.0;
 
         return fuel;
