@@ -1,4 +1,4 @@
-import java.lang.reflect.Array;
+
 import java.util.*;
 
 //please add a ship reference in Player class.
@@ -25,15 +25,15 @@ public class Ship {
     private int currHealth;
 
     private static Ship[] ships = {
-            new Ship("Basic", 15, 20, 50),
-            new Ship("Battle", 15, 20,100),
-            new Ship("Explorer", 15, 40, 50),
-            new Ship("Trade", 30, 20, 50)
+        new Ship("Basic", 15, 20, 50),
+        new Ship("Battle", 15, 20, 100),
+        new Ship("Explorer", 15, 40, 50),
+        new Ship("Trade", 30, 20, 50)
     };
 
 
 
-    private ArrayList<Item> cargoList;  //TODO: in future implement a Item class to represent cargo objects
+    private ArrayList<Item> cargoList;
 
 
     //constructor
@@ -96,9 +96,9 @@ public class Ship {
         return this.cargoSpace;
     }
 
-//    public void setCurrCargoSpace(int currCargoSpace) {
-//        this.currCargoSpace = currCargoSpace;
-//    }
+    //    public void setCurrCargoSpace(int currCargoSpace) {
+    //        this.currCargoSpace = currCargoSpace;
+    //    }
 
     public int getCurrCargoSpace() {
         return this.currCargoSpace;
