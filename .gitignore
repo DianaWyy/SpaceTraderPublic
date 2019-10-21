@@ -5,3 +5,6 @@ out/
 *.iml
 .DS_Store
 *.classcheckstyle-*.jar
+checkstyle-*.jar
+*.xml
+*.py
