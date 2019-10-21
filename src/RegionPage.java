@@ -68,14 +68,14 @@ public class RegionPage extends JFrame {
         f.add(message);
         buyDD = new JComboBox(market.getItemNameList().toArray());
         buyDD.setSelectedIndex(0);
-        selectedItem = marketItemList.get(buyDD.getSelectedIndex());
+        selectedItem = market.getItemList().get(buyDD.getSelectedIndex());
         buyDD.addItemListener(
                 new ItemListener() {
                     @Override
                     public void itemStateChanged(ItemEvent e) {
                         if (e.getStateChange() == ItemEvent.SELECTED) {
                             // Update Selection
-                            selectedItem = marketItemList.get(buyDD.getSelectedIndex());
+                            selectedItem = market.getItemList().get(buyDD.getSelectedIndex());
                         }
                     }
                 }
@@ -163,9 +163,6 @@ public class RegionPage extends JFrame {
                 mp.updateStats();
             }
         });
-    }
-    private void updateCargoList() {
-
     }
 
 }

@@ -23,7 +23,6 @@ public class Game {
         Region r = u.getRandomRegion();
         p = new Player(name, pilotSkill, fighterSkill, merchantSkill, engineerSkill, r, credits);
 
-
         // Create Map page
         new MapPage(u.getRegions(), p);
     }
