@@ -1,7 +1,3 @@
-import java.awt.image.BufferedImage;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-
 
 public class Region {
     private int xCoordinate;
@@ -59,7 +55,9 @@ public class Region {
         return (int) (item.getPrice() * techlevel.getLevel() * 0.25);
     }
 
-    public Market getMarket() { return market; }
+    public Market getMarket() {
+        return market;
+    }
 
 
 }
