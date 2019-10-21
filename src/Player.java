@@ -11,7 +11,7 @@ public class Player {
 
 
     public Player(String name, int pilotSkill, int fighterSkill,
-                  int merchantSkill, int engineerSkill, Region r, int credits, Ship ship) {
+                  int merchantSkill, int engineerSkill, Region r, int credits) {
         username = name;
         fullSkills = new HashMap<>();
         fullSkills.put("Pilot", pilotSkill);
@@ -20,7 +20,7 @@ public class Player {
         fullSkills.put("Engineer", engineerSkill);
         currentRegion = r;
         this.credits = credits;
-        this.playerShip = ship;
+        this.playerShip = Ship.getBasicShip();
     }
 
     public double calcTravelCost(double distance) {

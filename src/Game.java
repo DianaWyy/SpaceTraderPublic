@@ -21,8 +21,7 @@ public class Game {
         u = Universe.createUniverse(names);
         // Create Player Object with random location
         Region r = u.getRandomRegion();
-        Ship s = Ship.getBasicShip();
-        p = new Player(name, pilotSkill, fighterSkill, merchantSkill, engineerSkill, r, credits, s);
+        p = new Player(name, pilotSkill, fighterSkill, merchantSkill, engineerSkill, r, credits);
 
 
         // Create Map page
