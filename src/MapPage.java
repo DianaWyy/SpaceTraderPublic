@@ -3,11 +3,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -105,7 +102,8 @@ public class MapPage extends JFrame {
 
         fuel = p.calcTravelCost(distance);
 
-        JLabel travelCost = new JLabel(String.format("Distance: %.2f  Fuel Cost: %.2f", distance, fuel));
+        JLabel travelCost = new JLabel(String.format(
+                "Distance: %.2f  Fuel Cost: %.2f", distance, fuel));
         travelCost.setBounds(width / 2 - 200, 175, 400, 25);
         travelCost.setFont(new Font("Serif", Font.BOLD, 20));
         travelCost.setForeground(Color.white);
@@ -126,7 +124,8 @@ public class MapPage extends JFrame {
 
                             fuel = p.calcTravelCost(distance);
 
-                            travelCost.setText(String.format("Distance: %.2f  Fuel Cost: %.2f", distance, fuel));
+                            travelCost.setText(String.format(
+                                    "Distance: %.2f  Fuel Cost: %.2f", distance, fuel));
 
                         }
                     }
@@ -152,7 +151,7 @@ public class MapPage extends JFrame {
 
                 double currFuel = s.getCurrFuelCapacity();
 
-                if(fuel > currFuel) {
+                if (fuel > currFuel) {
                     warning.setText("You don't have enough fuel!");
                     f.repaint();
 
@@ -236,13 +235,14 @@ public class MapPage extends JFrame {
         currLocation.setForeground(Color.white);
         f.add(currLocation);
 
-        currTech = new JLabel("Tech Level: " + currRegion.getTechlevel().getName() );
+        currTech = new JLabel("Tech Level: " + currRegion.getTechlevel().getName());
         currTech.setBounds(225, 450, 400, 25);
         currTech.setFont(new Font("Serif", Font.BOLD, 24));
         currTech.setForeground(Color.white);
         f.add(currTech);
 
-        currCoords = new JLabel("Coordinates: (" + currRegion.getXCoordinate() + ", " + currRegion.getYCoordinate() + ")");
+        currCoords = new JLabel("Coordinates: (" + currRegion.getXCoordinate()
+                + ", " + currRegion.getYCoordinate() + ")");
         currCoords.setBounds(225, 500, 400, 25);
         currCoords.setFont(new Font("Serif", Font.BOLD, 24));
         currCoords.setForeground(Color.white);
@@ -253,7 +253,8 @@ public class MapPage extends JFrame {
     public void updateStats() {
         shipType.setText("Type: " + s.getType());
         shipSpace.setText("Cargo Space: " + s.getCurrCargoSpace() + "/" + s.getCargoSpace());
-        shipFuel.setText(String.format("Fuel: %.2f/ %.2f", s.getCurrFuelCapacity(), s.getFuelCapacity()));
+        shipFuel.setText(String.format("Fuel: %.2f/ %.2f",
+                s.getCurrFuelCapacity(), s.getFuelCapacity()));
         shipHealth.setText("Health: " + s.getCurrHealth() + "/" + s.getHealth());
 
         showCredits.setText("Credits： " + p.getCredits());
@@ -262,7 +263,8 @@ public class MapPage extends JFrame {
 
         currLocation.setText("Current Location： " + currRegion.getName());
         currTech.setText("Tech Level: " + currRegion.getTechlevel().getName());
-        currCoords.setText("Coordinates: (" + currRegion.getXCoordinate() + ", " + currRegion.getYCoordinate() + ")");
+        currCoords.setText("Coordinates: (" + currRegion.getXCoordinate()
+                + ", " + currRegion.getYCoordinate() + ")");
 
         // Update red planet
         for (Region reg: stars.keySet()) {
