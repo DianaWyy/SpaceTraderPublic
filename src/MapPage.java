@@ -157,7 +157,27 @@ public class MapPage extends JFrame {
 
                 } else {
                     if (g.getDiffLevel()*Math.random() > 0.5) { // bandit encounter
-                        new BanditEncounterController();
+                        double trash = Math.random();
+
+                        if (trash < 1.0) { //TODO debug only, change back to 0.33 after debug
+                            new BanditPage(p, s);
+
+                            warning.setText("");
+
+                            new RegionPage(p.getCurrentRegion(), p, mp);
+
+                            updateStats();
+                            ItemEvent event = new ItemEvent(regList, 0, null, ItemEvent.SELECTED);
+                            ItemListener l = regList.getItemListeners()[0];
+                            l.itemStateChanged(event);
+
+                            f.repaint();
+                        } else if (trash > 0.66) {
+                            //new TraderPage();  //TODO create TraderPage like above
+                        } else {
+                            //new PolicePage();  //TODO create PolicePage like above
+                        }
+
                     } else { //no bandit encounter
                         p.setCurrentRegion(selected);
                         s.decreaseCurrFuelCapacity(fuel);
