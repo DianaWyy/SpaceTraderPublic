@@ -1,6 +1,7 @@
 
 public class Game {
     private String difficulity;
+    private int diffLevel;
     private static String[] names = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
     private Universe u;
     private Player p;
@@ -23,8 +24,28 @@ public class Game {
         Region r = u.getRandomRegion();
         p = new Player(name, pilotSkill, fighterSkill, merchantSkill, engineerSkill, r, credits);
 
+        // changes difficulty into int
+        switch (difficulty) {
+            case "Easy":
+                diffLevel = 1;
+                break;
+            case "Medium":
+                diffLevel = 2;
+                break;
+            case "Hard":
+                diffLevel = 3;
+                break;
+            default:
+                diffLevel = 2;
+                break;
+        }
+
         // Create Map page
-        new MapPage(u.getRegions(), p);
+        new MapPage(u.getRegions(), p, this);
+    }
+
+    public int getDiffLevel() {
+        return diffLevel;
     }
 
 }

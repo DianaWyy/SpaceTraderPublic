@@ -22,6 +22,18 @@ public class MapPage extends JFrame {
     private Player p;
     private Ship s;
 
+    //getter setters for regions and games
+    public ArrayList<Region> getRegions() {
+        return regions;
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    private ArrayList<Region> regions;
+    private Game game;
+
     // instance Variables representing Labels
 
     private JLabel shipType;
@@ -38,7 +50,9 @@ public class MapPage extends JFrame {
     private JButton travel;
     private JButton shipFact;
 
-    public MapPage(ArrayList<Region> regions, Player p) {
+    public MapPage(ArrayList<Region> regions, Player p, Game g) {
+        this.regions = regions;
+        this.game = g;
         f = new JFrame("Map");
         this.p = p;
         s = p.getShip();
@@ -156,18 +170,33 @@ public class MapPage extends JFrame {
                     f.repaint();
 
                 } else {
-                    p.setCurrentRegion(selected);
-                    s.decreaseCurrFuelCapacity(fuel);
-                    warning.setText("");
+                    if (g.getDiffLevel()*Math.random() > 0.5) { // bandit encounter
+                        double trash = Math.random();
 
-                    new RegionPage(selected, p, mp);
+                        if (trash < 0.33) {
+                            //pops up bandit encounter page
+                            //BannditPage creates new MapPage and new RegionPage, original MapPage is disposed
+                            new BanditPage(p, s, selected, fuel, mp);
+                        } else if (trash > 0.66) {
+                            //new TraderPage();  //TODO create TraderPage like above
+                        } else {
+                            //new PolicePage();  //TODO create PolicePage like above
+                        }
 
-                    updateStats();
-                    ItemEvent event = new ItemEvent(regList, 0, null, ItemEvent.SELECTED);
-                    ItemListener l = regList.getItemListeners()[0];
-                    l.itemStateChanged(event);
+                    } else { //no bandit encounter
+                        p.setCurrentRegion(selected);
+                        s.decreaseCurrFuelCapacity(fuel);
+                        warning.setText("");
 
-                    f.repaint();
+                        new RegionPage(selected, p, mp);
+
+                        updateStats();
+                        ItemEvent event = new ItemEvent(regList, 0, null, ItemEvent.SELECTED);
+                        ItemListener l = regList.getItemListeners()[0];
+                        l.itemStateChanged(event);
+
+                        f.repaint();
+                    }
                 }
             }
         });
