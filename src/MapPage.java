@@ -22,6 +22,18 @@ public class MapPage extends JFrame {
     private Player p;
     private Ship s;
 
+    //getter setters for regions and games
+    public ArrayList<Region> getRegions() {
+        return regions;
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    private ArrayList<Region> regions;
+    private Game game;
+
     // instance Variables representing Labels
 
     private JLabel shipType;
@@ -39,6 +51,8 @@ public class MapPage extends JFrame {
     private JButton shipFact;
 
     public MapPage(ArrayList<Region> regions, Player p, Game g) {
+        this.regions = regions;
+        this.game = g;
         f = new JFrame("Map");
         this.p = p;
         s = p.getShip();
@@ -159,19 +173,10 @@ public class MapPage extends JFrame {
                     if (g.getDiffLevel()*Math.random() > 0.5) { // bandit encounter
                         double trash = Math.random();
 
-                        if (trash < 1.0) { //TODO debug only, change back to 0.33 after debug
-                            new BanditPage(p, s);
-
-                            warning.setText("");
-
-                            new RegionPage(p.getCurrentRegion(), p, mp);
-
-                            updateStats();
-                            ItemEvent event = new ItemEvent(regList, 0, null, ItemEvent.SELECTED);
-                            ItemListener l = regList.getItemListeners()[0];
-                            l.itemStateChanged(event);
-
-                            f.repaint();
+                        if (trash < 0.33) {
+                            //pops up bandit encounter page
+                            //BannditPage creates new MapPage and new RegionPage, original MapPage is disposed
+                            new BanditPage(p, s, selected, fuel, mp);
                         } else if (trash > 0.66) {
                             //new TraderPage();  //TODO create TraderPage like above
                         } else {
