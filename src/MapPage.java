@@ -38,7 +38,7 @@ public class MapPage extends JFrame {
     private JButton travel;
     private JButton shipFact;
 
-    public MapPage(ArrayList<Region> regions, Player p) {
+    public MapPage(ArrayList<Region> regions, Player p, Game g) {
         f = new JFrame("Map");
         this.p = p;
         s = p.getShip();
@@ -156,18 +156,22 @@ public class MapPage extends JFrame {
                     f.repaint();
 
                 } else {
-                    p.setCurrentRegion(selected);
-                    s.decreaseCurrFuelCapacity(fuel);
-                    warning.setText("");
+                    if (g.getDiffLevel()*Math.random() > 0.5) { // bandit encounter
+                        new BanditEncounterController();
+                    } else { //no bandit encounter
+                        p.setCurrentRegion(selected);
+                        s.decreaseCurrFuelCapacity(fuel);
+                        warning.setText("");
 
-                    new RegionPage(selected, p, mp);
+                        new RegionPage(selected, p, mp);
 
-                    updateStats();
-                    ItemEvent event = new ItemEvent(regList, 0, null, ItemEvent.SELECTED);
-                    ItemListener l = regList.getItemListeners()[0];
-                    l.itemStateChanged(event);
+                        updateStats();
+                        ItemEvent event = new ItemEvent(regList, 0, null, ItemEvent.SELECTED);
+                        ItemListener l = regList.getItemListeners()[0];
+                        l.itemStateChanged(event);
 
-                    f.repaint();
+                        f.repaint();
+                    }
                 }
             }
         });
