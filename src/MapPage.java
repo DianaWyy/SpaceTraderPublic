@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class MapPage extends JFrame {
     private Region selected;
@@ -178,9 +179,45 @@ public class MapPage extends JFrame {
                             //BannditPage creates new MapPage and new RegionPage, original MapPage is disposed
                             new BanditPage(p, s, selected, fuel, mp);
                         } else if (trash > 0.66) {
-                            //new TraderPage();  //TODO create TraderPage like above
+                            new TraderPage(p, s, selected, fuel, mp);
                         } else {
-                            //new PolicePage();  //TODO create PolicePage like above
+                            int numItems = s.getCurrCargoSpace();
+                            Random rand = new Random();
+                            if(numItems == 0) {
+                                p.setCurrentRegion(selected);
+                                s.decreaseCurrFuelCapacity(fuel);
+                                warning.setText("");
+
+                                new RegionPage(selected, p, mp);
+
+                                updateStats();
+                                ItemEvent event = new ItemEvent(regList, 0, null, ItemEvent.SELECTED);
+                                ItemListener l = regList.getItemListeners()[0];
+                                l.itemStateChanged(event);
+
+                                f.repaint();
+                            } else {
+
+                                int selectedItem = rand.nextInt(numItems);
+
+                                if (selectedItem != 0) {
+                                    new PolicePage(p, s, selected, fuel, mp, selectedItem);
+                                } else { // Continue along way
+                                    p.setCurrentRegion(selected);
+                                    s.decreaseCurrFuelCapacity(fuel);
+                                    warning.setText("");
+
+                                    new RegionPage(selected, p, mp);
+
+                                    updateStats();
+                                    ItemEvent event = new ItemEvent(regList, 0, null, ItemEvent.SELECTED);
+                                    ItemListener l = regList.getItemListeners()[0];
+                                    l.itemStateChanged(event);
+
+                                    f.repaint();
+                                }
+                            }
+
                         }
 
                     } else { //no bandit encounter

@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public enum Item {
    
 
@@ -111,5 +113,14 @@ public enum Item {
 
     public void setTechlevel(TechLevel techlevel) {
         this.techlevel = techlevel;
+    }
+
+    public static Item getRandomItem() {
+        Item[] items = Item.values();
+
+        int num = items.length;
+        Random rand = new Random();
+
+        return items[rand.nextInt(num)];
     }
 }
