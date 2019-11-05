@@ -18,13 +18,14 @@ public class BanditPage extends JFrame {
         frame.setLayout(new BorderLayout());
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setUndecorated(true); // full screen
-
+        //frame.getContentPane().setForeground(new Color(25, 25, 25));
+        //frame.getContentPane().setBackground(new Color(25, 25, 25));
 
         JPanel jp=new JPanel();
 
         int demand = (int) (Math.random() * 900 + 100);  //Somewhere between 100 and 1000 credits
 
-        Box b = new Box(BoxLayout.PAGE_AXIS);
+        Box b = new Box(BoxLayout.Y_AXIS);
 
 
         // TODO
@@ -42,9 +43,9 @@ public class BanditPage extends JFrame {
         JButton leave=new JButton("Keep Traveling..");
 
 
-        b.add(message,BorderLayout.CENTER);
+        b.add(message, BorderLayout.CENTER);
         b.add(message2, BorderLayout.CENTER);
-        b.add(message3,BorderLayout.CENTER);
+        b.add(message3, BorderLayout.CENTER);
         b.add(message4, BorderLayout.CENTER);
 
         frame.add(banditIcon, BorderLayout.NORTH);
@@ -56,7 +57,7 @@ public class BanditPage extends JFrame {
         negotiate.setEnabled(false);
 
         frame.add(jp, BorderLayout.SOUTH);
-        frame.setBounds(300, 200, 600, 300);
+        //frame.setBounds(300, 200, 600, 300);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 

@@ -34,7 +34,7 @@ public class PolicePage {
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setUndecorated(true); // full screen
 
-        Box b = new Box(BoxLayout.PAGE_AXIS);
+        Box b = new Box(BoxLayout.Y_AXIS);
 
 
         // TODO

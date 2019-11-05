@@ -171,7 +171,7 @@ public class MapPage extends JFrame {
                     f.repaint();
 
                 } else {
-                    if (g.getDiffLevel()*Math.random() > 0.5) { // bandit encounter
+                    if (selected != p.getCurrentRegion() && g.getDiffLevel()*Math.random() > 0.5) { // bandit encounter
                         double trash = Math.random();
 
                         if (trash < 0.33) {
@@ -220,7 +220,7 @@ public class MapPage extends JFrame {
 
                         }
 
-                    } else { //no bandit encounter
+                    } else { //no encounter
                         p.setCurrentRegion(selected);
                         s.decreaseCurrFuelCapacity(fuel);
                         warning.setText("");

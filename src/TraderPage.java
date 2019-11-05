@@ -25,7 +25,7 @@ public class TraderPage {
         int num = (int) (Math.random() * 5 + 1); // Number of said item
         price = item.getPrice() * num;
 
-        Box b = new Box(BoxLayout.PAGE_AXIS);
+        Box b = new Box(BoxLayout.Y_AXIS);
 
 
         // TODO
