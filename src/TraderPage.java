@@ -18,6 +18,8 @@ public class TraderPage {
         frame.setSize(1280, 720);
         frame.setLayout(new BorderLayout());
         JPanel jp = new JPanel();
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setUndecorated(true); // full screen
 
         Item item = Item.getRandomItem();  // Gets Random Item
         int num = (int) (Math.random() * 5 + 1); // Number of said item
@@ -66,7 +68,7 @@ public class TraderPage {
         frame.add(jp, BorderLayout.SOUTH);
         frame.setBounds(300, 200, 600, 300);
         frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
         //action events
         buy.addActionListener(l -> {
