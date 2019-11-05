@@ -31,6 +31,8 @@ public class PolicePage {
         frame.setSize(1280, 720);
         frame.setLayout(new BorderLayout());
         JPanel jp = new JPanel();
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setUndecorated(true); // full screen
 
         Box b = new Box(BoxLayout.PAGE_AXIS);
 
@@ -65,7 +67,7 @@ public class PolicePage {
         frame.add(jp, BorderLayout.SOUTH);
         frame.setBounds(300, 200, 600, 300);
         frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
         //action events
         forfeit.addActionListener(l -> {
