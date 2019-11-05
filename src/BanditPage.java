@@ -16,6 +16,8 @@ public class BanditPage extends JFrame {
         //UI layout
         frame=new JFrame("Bandit Encountered!");
         frame.setLayout(new BorderLayout());
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setUndecorated(true); // full screen
 
 
         JPanel jp=new JPanel();
@@ -56,7 +58,7 @@ public class BanditPage extends JFrame {
         frame.add(jp, BorderLayout.SOUTH);
         frame.setBounds(300, 200, 600, 300);
         frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
         //action events
         pay.addActionListener(l -> {
