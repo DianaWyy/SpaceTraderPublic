@@ -5,9 +5,9 @@ import java.util.*;
 //so we can assign a Ship object to a player
 
 
-
 /**
  * This class represents a ship object
+ *
  * @author Haorong She
  * @version 0.1
  */
@@ -30,7 +30,6 @@ public class Ship {
         new Ship("Explorer", 15, 40, 50),
         new Ship("Trade", 30, 20, 50)
     };
-
 
 
     private ArrayList<Item> cargoList;
@@ -76,7 +75,7 @@ public class Ship {
 
     public ArrayList<String> getShipNameList() {
         ArrayList<String> nameList = new ArrayList<>();
-        for (Ship s: ships) {
+        for (Ship s : ships) {
             nameList.add(String.format("%s | Cargo Space: %d, Fuel Capacity: %.2f, Health: %d",
                     s.getType(), s.getCargoSpace(), s.getFuelCapacity(), s.getHealth()));
         }
@@ -142,7 +141,7 @@ public class Ship {
 
     public ArrayList<String> getCargoNameList() {
         ArrayList<String> nameList = new ArrayList<>();
-        for (Item item: cargoList) {
+        for (Item item : cargoList) {
             nameList.add(String.format("$%d %s", item.getPrice(), item.getName()));
         }
         return nameList;

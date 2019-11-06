@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public enum Item {
-   
+
 
     //PREAG
     STONE("Stone", 5, TechLevel.PREAG),

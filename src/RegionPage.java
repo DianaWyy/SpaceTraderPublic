@@ -20,6 +20,7 @@ public class RegionPage extends JFrame {
     private JComboBox sellDD;
     private JButton sell;
     private JButton map;
+
     public RegionPage(Region r, Player p, MapPage mp) {
         this.p = p;
         ship = p.getShip();

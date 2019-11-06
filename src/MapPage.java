@@ -171,19 +171,21 @@ public class MapPage extends JFrame {
                     f.repaint();
 
                 } else {
-                    if (selected != p.getCurrentRegion() && g.getDiffLevel()*Math.random() > 0.5) { // bandit encounter
+                    if (selected != p.getCurrentRegion()
+                            && g.getDiffLevel() * Math.random() > 0.5) { // bandit encounter
                         double trash = Math.random();
 
                         if (trash < 0.33) {
                             //pops up bandit encounter page
-                            //BannditPage creates new MapPage and new RegionPage, original MapPage is disposed
+                            //BannditPage creates new MapPage
+                            // and new RegionPage, original MapPage is disposed
                             new BanditPage(p, s, selected, fuel, mp);
                         } else if (trash > 0.66) {
                             new TraderPage(p, s, selected, fuel, mp);
                         } else {
                             int numItems = s.getCurrCargoSpace();
                             Random rand = new Random();
-                            if(numItems == 0) {
+                            if (numItems == 0) {
                                 p.setCurrentRegion(selected);
                                 s.decreaseCurrFuelCapacity(fuel);
                                 warning.setText("");
@@ -191,7 +193,8 @@ public class MapPage extends JFrame {
                                 new RegionPage(selected, p, mp);
 
                                 updateStats();
-                                ItemEvent event = new ItemEvent(regList, 0, null, ItemEvent.SELECTED);
+                                ItemEvent event =
+                                        new ItemEvent(regList, 0, null, ItemEvent.SELECTED);
                                 ItemListener l = regList.getItemListeners()[0];
                                 l.itemStateChanged(event);
 
@@ -210,7 +213,8 @@ public class MapPage extends JFrame {
                                     new RegionPage(selected, p, mp);
 
                                     updateStats();
-                                    ItemEvent event = new ItemEvent(regList, 0, null, ItemEvent.SELECTED);
+                                    ItemEvent event =
+                                            new ItemEvent(regList, 0, null, ItemEvent.SELECTED);
                                     ItemListener l = regList.getItemListeners()[0];
                                     l.itemStateChanged(event);
 
@@ -333,7 +337,7 @@ public class MapPage extends JFrame {
                 + ", " + currRegion.getYCoordinate() + ")");
 
         // Update red planet
-        for (Region reg: stars.keySet()) {
+        for (Region reg : stars.keySet()) {
             JLabel star = stars.get(reg);
             if (star.getForeground() == Color.red) {
                 star.setForeground(Color.white);

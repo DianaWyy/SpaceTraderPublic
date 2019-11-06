@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.Collections;
 
 public class PolicePage {
@@ -44,7 +43,7 @@ public class PolicePage {
         JLabel message3 = new JLabel("The following goods are marked as stolen: ");
         JLabel message4 = new JLabel(stolenList);
 
-        JLabel banditIcon = new JLabel(new ImageIcon("pic/bandit.png"));
+        JLabel banditIcon = new JLabel(new ImageIcon("pic/police.png"));
         JButton forfeit = new JButton("FORFEIT");
         JButton flee = new JButton("FLEE");
         JButton fight = new JButton("FIGHT");
@@ -90,11 +89,11 @@ public class PolicePage {
             if (p.getPilotSkill() / 20.0 > Math.random()) {
                 s.decreaseCurrFuelCapacity(fuel);
                 message.setText("You ran away! Not so lucky next time!");
-                message2.setText("You decide to head back to region " + p.getCurrentRegion().getName());
+                message2.setText(
+                        "You decide to head back to region " + p.getCurrentRegion().getName());
                 frame.remove(jp);
                 frame.add(leave, BorderLayout.SOUTH);
             } else {
-                p.setCurrentRegion(selected);
                 s.decreaseCurrFuelCapacity(fuel);
 
                 int beforeHealth = s.getCurrHealth();
@@ -109,7 +108,9 @@ public class PolicePage {
                     s.getCargoList().remove(i);
                 }
 
-                message.setText("You failed to run away! The police fined you half of your credits and hit your ship!");
+                message.setText(
+                        "You failed to run away!"
+                                + " The police fined you half of your credits and hit your ship!");
                 message2.setText("Credits: " + beforeCredits + " -----> " + afterCredits);
                 message3.setText("Health: " + beforeHealth + " -----> " + afterHealth);
                 message4.setText("The following items have been confiscated: " + stolenList);
@@ -144,7 +145,9 @@ public class PolicePage {
                     s.getCargoList().remove(i);
                 }
 
-                message.setText("You failed to beat the POPO! The police fined you half of your credits and hit your ship!");
+                message.setText(
+                        "You failed to beat the POPO!"
+                                + " The police fined you half of your credits and hit your ship!");
                 message2.setText("Credits: " + beforeCredits + " -----> " + afterCredits);
                 message3.setText("Health: " + beforeHealth + " -----> " + afterHealth);
                 message4.setText("The following items have been confiscated: " + stolenList);

@@ -1,11 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 public class TraderPage {
     private Player p;
     private Ship s;
-    int price;
+    private int price;
 
 
     public TraderPage(Player p, Ship s, Region selected, double fuel, MapPage mp) {
@@ -30,11 +29,12 @@ public class TraderPage {
 
         // TODO
         // Fix the Orientation somehow
-        JLabel message = new JLabel("A trader has appeared! " );
-        JLabel message2 = new JLabel("He wants to sell you " + num + " " + item.getName() + ".");
+        JLabel message = new JLabel("A trader has appeared! ");
+        JLabel message2 = new JLabel(
+                "He wants to sell you " + num + " " + item.getName() + ".");
         JLabel message3 = new JLabel("He demands a price of " + price);
         JLabel message4 = new JLabel();
-        JLabel banditIcon = new JLabel(new ImageIcon("pic/bandit.png"));
+        JLabel banditIcon = new JLabel(new ImageIcon("pic/trader.png"));
         JButton buy = new JButton("BUY");
         JButton ignore = new JButton("IGNORE");
         JButton rob = new JButton("ROB");
@@ -154,7 +154,8 @@ public class TraderPage {
                 price *= 2;
 
                 message.setText("Your bargaining skills were terrible and prices rose!");
-                message2.setText("The Trader wants to sell you " + num + " " + item.getName() + ".");
+                message2.setText(
+                        "The Trader wants to sell you " + num + " " + item.getName() + ".");
                 message3.setText("His new price is " + price);
                 message4.setText("");
                 negotiate.setEnabled(false);

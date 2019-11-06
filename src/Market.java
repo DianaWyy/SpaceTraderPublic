@@ -34,7 +34,7 @@ public class Market {
 
     public ArrayList<String> getItemNameList() {
         ArrayList<String> nameList = new ArrayList<>();
-        for (Item i: effectiveItems) {
+        for (Item i : effectiveItems) {
             nameList.add(String.format("$%d %s", i.getPrice(), i.getName()));
         }
         return nameList;
