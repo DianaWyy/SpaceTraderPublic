@@ -8,27 +8,15 @@ public class BanditPage extends JFrame {
 
 
     public BanditPage(Player p, Ship s, Region selected, double fuel, MapPage mp) {
-        //put into instance variables
         this.p = p;
         this.s = s;
-
-        //UI layout
         JFrame frame = new JFrame("Bandit Encountered!");
         frame.setLayout(new BorderLayout());
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setUndecorated(true); // full screen
-        //frame.getContentPane().setForeground(new Color(25, 25, 25));
-        //frame.getContentPane().setBackground(new Color(25, 25, 25));
-
         JPanel jp = new JPanel();
-
         int demand = (int) (Math.random() * 900 + 100);  //Somewhere between 100 and 1000 credits
-
         Box b = new Box(BoxLayout.Y_AXIS);
-
-
-        // TODO
-        // Fix the Orientation somehow
         JLabel message = new JLabel("A wild bandit has appeared!"
                 + "They demand a tribute of " + demand + " credits", JLabel.CENTER);
         JLabel message2 = new JLabel();
@@ -40,13 +28,10 @@ public class BanditPage extends JFrame {
         JButton fight = new JButton("FIGHT");
         JButton negotiate = new JButton("NEGOTIATE");
         JButton leave = new JButton("Keep Traveling..");
-
-
         b.add(message, BorderLayout.CENTER);
         b.add(message2, BorderLayout.CENTER);
         b.add(message3, BorderLayout.CENTER);
         b.add(message4, BorderLayout.CENTER);
-
         frame.add(banditIcon, BorderLayout.NORTH);
         frame.add(b, BorderLayout.CENTER);
         jp.add(pay);
@@ -54,23 +39,17 @@ public class BanditPage extends JFrame {
         jp.add(fight);
         jp.add(negotiate);
         negotiate.setEnabled(false);
-
         frame.add(jp, BorderLayout.SOUTH);
-        //frame.setBounds(300, 200, 600, 300);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-
-        //action events
         pay.addActionListener(l -> {
             if (p.getCredits() < demand) {
                 if (s.getCargoList().size() == 0) {
                     int beforeHealth = s.getCurrHealth();
                     s.setCurrHealth(Math.max(s.getCurrHealth() - 20, 0));
                     int afterHealth = s.getCurrHealth();
-
                     int beforeCredits = p.getCredits();
                     p.setCredits(0);
-
                     message.setText("You don't have enough money or any cargo!");
                     message2.setText(
                             "The robbers took your credits and damaged your ship in anger!");
@@ -81,23 +60,18 @@ public class BanditPage extends JFrame {
                     p.setCurrentRegion(selected);
                     s.decreaseCurrFuelCapacity(fuel);
                 } else {
-
                     ArrayList<Item> cargo = s.getCargoList();
                     s.clearCargo();
-
                     int beforeCredits = p.getCredits();
                     p.setCredits(0);
-
                     message.setText(
                             "You don't have enough money! The robbers took all your inventory!");
                     message2.setText("Credits: " + beforeCredits + " -----> " + 0);
                     message3.setText("Items Lost: ");
-
                     String items = "";
                     for (Item item : cargo) {
                         items += item.getName() + ", ";
                     }
-
                     message4.setText(items);
                     frame.remove(jp);
                     frame.add(leave, BorderLayout.SOUTH);
@@ -126,14 +100,11 @@ public class BanditPage extends JFrame {
                 frame.add(leave, BorderLayout.SOUTH);
             } else {
                 s.decreaseCurrFuelCapacity(fuel);
-
                 int beforeHealth = s.getCurrHealth();
                 s.setCurrHealth(Math.max(s.getCurrHealth() - 30, 0));
                 int afterHealth = s.getCurrHealth();
-
                 int beforeCredits = p.getCredits();
                 p.setCredits(0);
-
                 message.setText(
                         "You failed to run away!"
                                 + " The bandits took all your credits and hit your ship!");
@@ -147,7 +118,6 @@ public class BanditPage extends JFrame {
             if (p.getFighterSkill() / 20.0 > Math.random()) {
                 p.setCurrentRegion(selected);
                 s.decreaseCurrFuelCapacity(fuel);
-
                 int reward = demand * 2;
                 int beforeCredits = p.getCredits();
                 p.setCredits(p.getCredits() + demand * 2);
@@ -159,14 +129,11 @@ public class BanditPage extends JFrame {
                 frame.remove(jp);
                 frame.add(leave, BorderLayout.SOUTH);
             } else {
-
                 int beforeHealth = s.getCurrHealth();
                 s.setCurrHealth(Math.max(s.getCurrHealth() - 30, 0));
                 int afterHealth = s.getCurrHealth();
-
                 int beforeCredits = p.getCredits();
                 p.setCredits(0);
-
                 message.setText(
                         "The bandits completely destroyed you!"
                                 + " They took all your credits and hit your ship!");
