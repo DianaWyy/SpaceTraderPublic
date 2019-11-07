@@ -127,10 +127,10 @@ public class MapPage extends JFrame {
                     f.repaint();
                 } else {
                     if (selected != p.getCurrentRegion()
-                            && g.getDiffLevel() * Math.random() > 0.5) { // bandit encounter
+                            && g.getDiffLevel() * Math.random() > 0.5) {
                         double trash = Math.random();
                         if (trash < 0.33) {
-                            new BanditPage(p, s, selected, fuel, mp);
+                            new BanditPage(p, s, selected, fuel, mp);// bandit encounter
                         } else if (trash > 0.66) {
                             new TraderPage(p, s, selected, fuel, mp);
                         } else {

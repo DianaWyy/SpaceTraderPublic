@@ -19,11 +19,15 @@ public class PolicePage {
             stolenList += stolen[i] + ", ";
         }
         JFrame frame = new JFrame("Police Encountered!");
-        frame.setSize(1280, 720);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        frame.setSize(screenSize.width / 3, screenSize.height / 3);
+        frame.setLocation(screenSize.width / 2 - frame.getWidth() / 2,
+                screenSize.height / 2 - frame.getHeight() / 2);
+//        frame.setSize(1280, 720);
         frame.setLayout(new BorderLayout());
         JPanel jp = new JPanel();
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        frame.setUndecorated(true); // full screen
+//        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+//        frame.setUndecorated(true); // full screen
         Box b = new Box(BoxLayout.Y_AXIS);
         JLabel message = new JLabel("A police squadron has appeared!");
         JLabel message2 = new JLabel("The chief demands you hand over some stolen goods");
@@ -33,7 +37,7 @@ public class PolicePage {
         JButton forfeit = new JButton("FORFEIT");
         JButton flee = new JButton("FLEE");
         JButton fight = new JButton("FIGHT");
-        JButton negotiate = new JButton("negotiate");
+        JButton negotiate = new JButton("NEGOTIATE");
         JButton leave = new JButton("Keep Traveling..");
         b.add(message, BorderLayout.CENTER);
         b.add(message2, BorderLayout.CENTER);
@@ -126,8 +130,9 @@ public class PolicePage {
         });
         leave.addActionListener(l -> {
             frame.dispose();
-            MapPage bruh = new MapPage(mp.getRegions(), p, mp.getGame());
-            new RegionPage(p.getCurrentRegion(), p, bruh);
+//            MapPage bruh = new MapPage(mp.getRegions(), p, mp.getGame());
+//            new RegionPage(p.getCurrentRegion(), p, bruh);
+            mp.updateStats();
         });
     }
 }
