@@ -16,8 +16,8 @@ public class BanditPage extends JFrame {
         frame.setLayout(new BorderLayout());
         frame.setLocation(screenSize.width / 2 - frame.getWidth() / 2,
                 screenSize.height / 2 - frame.getHeight() / 2);
-//        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-//        frame.setUndecorated(true); // full screen
+        //        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //        frame.setUndecorated(true); // full screen
         JPanel jp = new JPanel();
         int demand = (int) (Math.random() * 900 + 100);  //Somewhere between 100 and 1000 credits
         Box b = new Box(BoxLayout.Y_AXIS);
@@ -149,8 +149,8 @@ public class BanditPage extends JFrame {
         });
         leave.addActionListener(l -> {
             frame.dispose();
-//            MapPage bruh = new MapPage(mp.getRegions(), p, mp.getGame());
-//            new RegionPage(p.getCurrentRegion(), p, bruh);
+            //            MapPage bruh = new MapPage(mp.getRegions(), p, mp.getGame());
+            //            new RegionPage(p.getCurrentRegion(), p, bruh);
             mp.updateStats();
         });
     }
