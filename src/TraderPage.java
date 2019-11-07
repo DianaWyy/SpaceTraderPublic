@@ -17,8 +17,8 @@ public class TraderPage {
         frame.setLocation(screenSize.width / 2 - frame.getWidth() / 2,
                 screenSize.height / 2 - frame.getHeight() / 2);
         JPanel jp = new JPanel();
-//        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-//        frame.setUndecorated(true); // full screen
+        //        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //        frame.setUndecorated(true); // full screen
         Item item = Item.getRandomItem();  // Gets Random Item
         int num = (int) (Math.random() * 5 + 1); // Number of said item
         price = item.getPrice() * num;
@@ -133,8 +133,8 @@ public class TraderPage {
         });
         leave.addActionListener(l -> {
             frame.dispose();
-//            MapPage bruh = new MapPage(mp.getRegions(), p, mp.getGame());
-////            new RegionPage(p.getCurrentRegion(), p, bruh);
+            //            MapPage bruh = new MapPage(mp.getRegions(), p, mp.getGame());
+            ////            new RegionPage(p.getCurrentRegion(), p, bruh);
             mp.updateStats();
         });
     }
