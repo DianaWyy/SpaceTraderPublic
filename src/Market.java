@@ -43,4 +43,9 @@ public class Market {
     public void buy(Item item) {
 
     }
+
+    public void refuel(Ship ship) {
+        int price = effectiveItems.get(0).getPrice();
+        p.setCredits(p.getCredits() - price);
+    }
 }
