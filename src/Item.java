@@ -4,6 +4,7 @@ public enum Item {
 
 
     //PREAG
+    PREAGFUEL("Preag Fuel", 10, TechLevel.PREAG),
     STONE("Stone", 5, TechLevel.PREAG),
     PLANT("Plant", 7, TechLevel.PREAG),
     PUREWATER("Pure Water", 10, TechLevel.PREAG),
@@ -11,11 +12,11 @@ public enum Item {
     EARTH("Earth", 1, TechLevel.PREAG),
     INSECT("Insect", 6, TechLevel.PREAG),
     FUNGI("Fungi", 2, TechLevel.PREAG),
-    PREAGFUEL("Preag Fuel", 10, TechLevel.PREAG),
     PREAGTAPE("Preag Tape", 10, TechLevel.PREAG),
     STEAK("Steak", 15, TechLevel.PREAG),
     PORK("Pork", 12, TechLevel.PREAG),
     //AGRICULTURE
+    ARGFUEL("Agriculture Fuel", 30, TechLevel.AGRICULTURE),
     RICE("Rice", 20, TechLevel.AGRICULTURE),
     FLOUR("Flour", 20, TechLevel.AGRICULTURE),
     WOOD("Wood", 30, TechLevel.AGRICULTURE),
@@ -25,9 +26,9 @@ public enum Item {
     EGG("Egg", 25, TechLevel.AGRICULTURE),
     HOGS("Hogs", 25, TechLevel.AGRICULTURE),
     TURKEYS("Turkeys", 27, TechLevel.AGRICULTURE),
-    ARGFUEL("Agriculture Fuel", 30, TechLevel.AGRICULTURE),
     ARGTAPE("Agriculture Tape", 30, TechLevel.AGRICULTURE),
     //MEDIEVAL
+    MEDFUEL("Medieval Fuel", 120, TechLevel.MEDIEVAL),
     PAPER("Paper", 50, TechLevel.MEDIEVAL),
     TEA("Tea", 70, TechLevel.MEDIEVAL),
     MEDICINE("Medicine", 90, TechLevel.MEDIEVAL),
@@ -36,18 +37,18 @@ public enum Item {
     MINE("Mine", 100, TechLevel.MEDIEVAL),
     PETROLEUM(" Petroleum", 110, TechLevel.MEDIEVAL),
     STEEL("Steel", 100, TechLevel.MEDIEVAL),
-    MEDFUEL("Medieval Fuel", 120, TechLevel.MEDIEVAL),
     MEDTAPE("Medieval Tape", 120, TechLevel.MEDIEVAL),
     //RENAISSANCE
+    RENFUEL("Renaissance Fuel", 200, TechLevel.RENAISSANCE),
     PAINTING("Painting", 120, TechLevel.RENAISSANCE),
     BIBLE("Bible", 150, TechLevel.RENAISSANCE),
     POETRY("Poetry", 120, TechLevel.RENAISSANCE),
     BRUSH("Brush", 130, TechLevel.RENAISSANCE),
     HAMLET("Hamlet", 130, TechLevel.RENAISSANCE),
     MACBETH("Macbeth", 120, TechLevel.RENAISSANCE),
-    RENFUEL("Renaissance Fuel", 200, TechLevel.RENAISSANCE),
     RENTAPE("Renaissance Tape", 200, TechLevel.RENAISSANCE),
     //INDUSTRIAL
+    INDUSFUEL("Industrial Fuel", 600, TechLevel.INDUSTRIAL),
     COMPASS("Compass", 300, TechLevel.INDUSTRIAL),
     BOMB("Bomb", 400, TechLevel.INDUSTRIAL),
     WEAPON("Weapon", 500, TechLevel.INDUSTRIAL),
@@ -56,9 +57,9 @@ public enum Item {
     WRENCH("Wrench", 550, TechLevel.INDUSTRIAL),
     OPENER("Opener", 420, TechLevel.INDUSTRIAL),
     STRING("String", 500, TechLevel.INDUSTRIAL),
-    INDUSFUEL("Industrial Fuel", 600, TechLevel.INDUSTRIAL),
     INDUSTAPE("Industrial Tape", 600, TechLevel.INDUSTRIAL),
     //MODERN
+    MODFUEL("Modern Fuel", 3000, TechLevel.MODERN),
     SMARTPHONE("Smart Phone", 800, TechLevel.MODERN),
     COMPUTERS("Computers", 1500, TechLevel.MODERN),
     PAD("Pad", 2500, TechLevel.MODERN),
@@ -67,12 +68,11 @@ public enum Item {
     SWITCH("Switch", 1900, TechLevel.MODERN),
     CAMARA("Camera", 2900, TechLevel.MODERN),
     MICROPHONE("Microphone", 2900, TechLevel.MODERN),
-    MODFUEL("Modern Fuel", 3000, TechLevel.MODERN),
     MODTAPE("Modern Tape", 3000, TechLevel.MODERN),
     //FUTURISTIC
+    FUFUEL("Futuristic Fuel", 5000, TechLevel.FUTURISTIC),
     DORAEMON("Doraemon", 5000, TechLevel.FUTURISTIC),
     GLASSSCREEN("GlassScreen", 5000, TechLevel.FUTURISTIC),
-    FUFUEL("Futuristic Fuel", 5000, TechLevel.FUTURISTIC),
     FUTAPE("Futuristic Tape", 5000, TechLevel.FUTURISTIC),
     SUPERMAN("Superman", 5500, TechLevel.FUTURISTIC),
     BATMAN("Batman", 6000, TechLevel.FUTURISTIC),
