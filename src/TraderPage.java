@@ -74,6 +74,7 @@ public class TraderPage {
             frame.add(leave, BorderLayout.SOUTH);
             p.setCurrentRegion(selected);
             s.decreaseCurrFuelCapacity(fuel);
+            Market.setNoNPC(true);
         });
         ignore.addActionListener(l -> {
             message.setText("You decline the offer!");
@@ -84,6 +85,7 @@ public class TraderPage {
             frame.add(leave, BorderLayout.SOUTH);
             p.setCurrentRegion(selected);
             s.decreaseCurrFuelCapacity(fuel);
+            Market.setNoNPC(true);
         });
         rob.addActionListener(l -> {
             if (p.getFighterSkill() / 20.0 > Math.random()) {
@@ -113,6 +115,7 @@ public class TraderPage {
                 p.setCurrentRegion(selected);
                 s.decreaseCurrFuelCapacity(fuel);
             }
+            Market.setNoNPC(true);
         });
         negotiate.addActionListener(l -> {
             if (p.getMerchantSkill() / 20.0 > Math.random()) {
@@ -131,12 +134,14 @@ public class TraderPage {
                 message4.setText("");
                 negotiate.setEnabled(false);
             }
+            Market.setNoNPC(true);
         });
         leave.addActionListener(l -> {
             frame.dispose();
             //            MapPage bruh = new MapPage(mp.getRegions(), p, mp.getGame());
             ////            new RegionPage(p.getCurrentRegion(), p, bruh);
             mp.updateStats();
+            Market.setNoNPC(true);
         });
     }
 }
