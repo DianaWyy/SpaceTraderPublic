@@ -94,6 +94,7 @@ public class BanditPage extends JFrame {
                 p.setCurrentRegion(selected);
                 s.decreaseCurrFuelCapacity(fuel);
             }
+            Market.setNoNPC(true);
         });
         flee.addActionListener(l -> {
             if (p.getPilotSkill() / 20.0 > Math.random()) {
@@ -118,6 +119,7 @@ public class BanditPage extends JFrame {
                 frame.remove(jp);
                 frame.add(leave, BorderLayout.SOUTH);
             }
+            Market.setNoNPC(true);
         });
         fight.addActionListener(l -> {
             if (p.getFighterSkill() / 20.0 > Math.random()) {
@@ -147,12 +149,14 @@ public class BanditPage extends JFrame {
                 frame.remove(jp);
                 frame.add(leave, BorderLayout.SOUTH);
             }
+            Market.setNoNPC(true);
         });
         leave.addActionListener(l -> {
             frame.dispose();
             //            MapPage bruh = new MapPage(mp.getRegions(), p, mp.getGame());
             //            new RegionPage(p.getCurrentRegion(), p, bruh);
             mp.updateStats();
+            Market.setNoNPC(true);
         });
     }
 }
