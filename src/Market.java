@@ -41,7 +41,9 @@ public class Market {
     }
 
     public void buy(Item item) {
-
+        if (item.equals(effectiveItems.get(0))) {
+            refuel(p.getShip());
+        }
     }
 
     public void refuel(Ship ship) {
