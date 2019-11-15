@@ -67,6 +67,7 @@ public class PolicePage {
             frame.add(leave, BorderLayout.SOUTH);
             p.setCurrentRegion(selected);
             s.decreaseCurrFuelCapacity(fuel);
+            Market.setNoNPC(true);
         });
         flee.addActionListener(l -> {
             if (p.getPilotSkill() / 20.0 > Math.random()) {
@@ -96,6 +97,7 @@ public class PolicePage {
                 frame.remove(jp);
                 frame.add(leave, BorderLayout.SOUTH);
             }
+            Market.setNoNPC(true);
         });
         fight.addActionListener(l -> {
             if (p.getFighterSkill() / 20.0 > Math.random()) {
@@ -128,12 +130,14 @@ public class PolicePage {
                 frame.remove(jp);
                 frame.add(leave, BorderLayout.SOUTH);
             }
+            Market.setNoNPC(true);
         });
         leave.addActionListener(l -> {
             frame.dispose();
             //            MapPage bruh = new MapPage(mp.getRegions(), p, mp.getGame());
             //            new RegionPage(p.getCurrentRegion(), p, bruh);
             mp.updateStats();
+            Market.setNoNPC(true);
         });
     }
 }
