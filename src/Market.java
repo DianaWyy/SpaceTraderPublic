@@ -6,6 +6,7 @@ public class Market {
     private ArrayList<Item> effectiveItems = new ArrayList<>();
     private TechLevel techLevel;
     private Player p;
+    private static boolean noNPC = true;
 
     private static Random r = new Random();
 
@@ -41,9 +42,9 @@ public class Market {
     }
 
     public void buy(Item item) {
-        if (item.equals(effectiveItems.get(0))) {
+        if (item.equals(effectiveItems.get(0)) && noNPC) {
             refuel(p.getShip());
-        } else if (item.equals(effectiveItems.get(1))) {
+        } else if (item.equals(effectiveItems.get(1)) && noNPC) {
             gainHealth(p.getShip());
         }
     }
@@ -53,5 +54,11 @@ public class Market {
     private void gainHealth(Ship ship) {
         int price = (int) (effectiveItems.get(1).getPrice() * (1 - p.getEngineerSkill() * 0.05));
         effectiveItems.get(1).setPrice(price);
+    }
+    public static boolean getNoNPC() {
+        return noNPC;
+    }
+    public static void setNoNPC(boolean bool) {
+        noNPC = bool;
     }
 }
