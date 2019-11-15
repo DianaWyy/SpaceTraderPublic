@@ -10,6 +10,7 @@ public class TraderPage {
     public TraderPage(Player p, Ship s, Region selected, double fuel, MapPage mp) {
         this.p = p;
         this.s = s;
+        Market.setNoNPC(false);
         JFrame frame = new JFrame("Trader Encountered!");
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         frame.setSize(screenSize.width / 3, screenSize.height / 3);

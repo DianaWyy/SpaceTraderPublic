@@ -168,6 +168,7 @@ public class MapPage extends JFrame {
                     } else { //no encounter
                         p.setCurrentRegion(selected);
                         s.decreaseCurrFuelCapacity(fuel);
+                        Market.setNoNPC(true);
                         warning.setText("");
                         new RegionPage(selected, p, mp);
                         updateStats();

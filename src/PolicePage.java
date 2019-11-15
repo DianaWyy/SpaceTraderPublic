@@ -12,6 +12,7 @@ public class PolicePage {
     public PolicePage(Player p, Ship s, Region selected, double fuel, MapPage mp, int numCargo) {
         this.p = p;
         this.s = s;
+        Market.setNoNPC(false);
         Item[] stolen = new Item[numCargo];
         Collections.shuffle(s.getCargoList());
         for (int i = 0; i < numCargo; i++) {
