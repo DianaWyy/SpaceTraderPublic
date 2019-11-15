@@ -43,11 +43,15 @@ public class Market {
     public void buy(Item item) {
         if (item.equals(effectiveItems.get(0))) {
             refuel(p.getShip());
+        } else if (item.equals(effectiveItems.get(1))) {
+            gainHealth(p.getShip());
         }
     }
-
-    public void refuel(Ship ship) {
+    private void refuel(Ship ship) {
         int price = effectiveItems.get(0).getPrice();
-        p.setCredits(p.getCredits() - price);
+    }
+    private void gainHealth(Ship ship) {
+        int price = (int) (effectiveItems.get(1).getPrice() * (1 - p.getEngineerSkill() * 0.05));
+        effectiveItems.get(1).setPrice(price);
     }
 }
