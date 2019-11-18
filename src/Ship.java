@@ -119,6 +119,10 @@ public class Ship {
         return this.currFuelCapacity;
     }
 
+    public void setCurrFuelCapacity(double cfc) {
+        this.currFuelCapacity = cfc;
+    }
+
     public void setHealth(int health) {
         this.health = health;
     }

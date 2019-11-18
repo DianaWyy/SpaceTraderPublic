@@ -104,7 +104,9 @@ public class RegionPage extends JFrame {
                 if (!Market.getNoNPC() && selectedItem.getName().contains("HEALTH")) {
                     message.setText("You cannot gain health when encountering NPC.");
                 }
-                ship.addCargo(selectedItem);
+                if (!selectedItem.getName().contains("fuel") && !selectedItem.getName().contains("health")) {
+                    ship.addCargo(selectedItem);
+                }
                 p.setCredits(p.getCredits() - selectedItem.getPrice());
                 message.setText("Thanks for purchasing:)");
                 showCredits.setText("Credits： " + p.getCredits());
