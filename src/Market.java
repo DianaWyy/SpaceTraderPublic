@@ -47,6 +47,7 @@ public class Market {
         } else if (item.getName().toLowerCase().contains("health") && noNPC) {
             gainHealth(this.p.getShip(), item);
         }
+        p.setCredits(p.getCredits() - item.getPrice());
     }
     private void refuel(Ship ship) {
         ship.setCurrFuelCapacity(ship.getFuelCapacity());

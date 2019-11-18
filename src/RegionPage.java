@@ -108,7 +108,7 @@ public class RegionPage extends JFrame {
                         && !selectedItem.getName().toLowerCase().contains("health")) {
                     ship.addCargo(selectedItem);
                 }
-                p.setCredits(p.getCredits() - selectedItem.getPrice());
+                market.buy(selectedItem);
                 message.setText("Thanks for purchasing:)");
                 showCredits.setText("Credits： " + p.getCredits());
                 showCargoSpace.setText(String.format("Cargo Space: %d/%d",
