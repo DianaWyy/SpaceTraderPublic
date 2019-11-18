@@ -45,16 +45,15 @@ public class Market {
         if (item.getName().toLowerCase().contains("fuel") && noNPC) {
             refuel(this.p.getShip());
         } else if (item.getName().toLowerCase().contains("health") && noNPC) {
-            gainHealth(this.p.getShip());
+            gainHealth(this.p.getShip(), item);
         }
     }
     private void refuel(Ship ship) {
-        int price = effectiveItems.get(0).getPrice();
         ship.setCurrFuelCapacity(ship.getFuelCapacity());
     }
-    private void gainHealth(Ship ship) {
-        int price = (int) (effectiveItems.get(1).getPrice() * (1 - p.getEngineerSkill() * 0.05));
-        effectiveItems.get(1).setPrice(price);
+    private void gainHealth(Ship ship, Item item) {
+        int price = (int) (item.getPrice() * (1 - p.getEngineerSkill() * 0.05));
+        item.setPrice(price);
         ship.setCurrHealth(ship.getHealth());
     }
     public static boolean getNoNPC() {
