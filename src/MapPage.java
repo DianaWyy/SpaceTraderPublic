@@ -130,9 +130,9 @@ public class MapPage extends JFrame {
                             && g.getDiffLevel() * Math.random() > 0.5) {
                         double trash = Math.random();
                         if (trash < 0.33) {
-                            new BanditPage(p, s, selected, fuel, mp); // bandit encounter
+                            new BanditPage(p, s, selected, fuel, mp, regList); // bandit encounter
                         } else if (trash > 0.66) {
-                            new TraderPage(p, s, selected, fuel, mp);
+                            new TraderPage(p, s, selected, fuel, mp, regList);
                         } else {
                             int numItems = s.getCurrCargoSpace();
                             Random rand = new Random();
@@ -150,7 +150,7 @@ public class MapPage extends JFrame {
                             } else {
                                 int selectedItem = rand.nextInt(numItems);
                                 if (selectedItem != 0) {
-                                    new PolicePage(p, s, selected, fuel, mp, selectedItem);
+                                    new PolicePage(p, s, selected, fuel, mp, selectedItem, regList);
                                 } else { // Continue along way
                                     p.setCurrentRegion(selected);
                                     s.decreaseCurrFuelCapacity(fuel);
@@ -280,6 +280,7 @@ public class MapPage extends JFrame {
         }
 
         showCredits.setText("Credits： " + p.getCredits());
+        f.repaint();
 
     }
 

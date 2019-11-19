@@ -104,19 +104,20 @@ public class RegionPage extends JFrame {
                 if (!Market.getNoNPC() && selectedItem.getName().contains("HEALTH")) {
                     message.setText("You cannot gain health when encountering NPC.");
                 }
-                if (!selectedItem.getName().toLowerCase().contains("fuel")
-                        && !selectedItem.getName().toLowerCase().contains("health")) {
-                    ship.addCargo(selectedItem);
-                }
                 market.buy(selectedItem);
                 message.setText("Thanks for purchasing:)");
                 showCredits.setText("Credits： " + p.getCredits());
                 showCargoSpace.setText(String.format("Cargo Space: %d/%d",
                         ship.getCurrCargoSpace(), ship.getCargoSpace()));
-                sellDD.setModel(new DefaultComboBoxModel(ship.getCargoNameList().toArray()));
-                ItemEvent event = new ItemEvent(sellDD, 0, null, ItemEvent.SELECTED);
-                ItemListener l = sellDD.getItemListeners()[0];
-                l.itemStateChanged(event);
+
+                if (!selectedItem.getName().toLowerCase().contains("fuel")
+                        && !selectedItem.getName().toLowerCase().contains("health")) {
+                    ship.addCargo(selectedItem);
+                    sellDD.setModel(new DefaultComboBoxModel(ship.getCargoNameList().toArray()));
+                    ItemEvent event = new ItemEvent(sellDD, 0, null, ItemEvent.SELECTED);
+                    ItemListener l = sellDD.getItemListeners()[0];
+                    l.itemStateChanged(event);
+                }
             }
         });
         sellDD = new JComboBox(ship.getCargoNameList().toArray());

@@ -52,6 +52,16 @@ public class Ship {
         return ships[0];
     }
 
+    // Gets New Basic Ship
+    public static Ship getNewBasicShip() {
+        Ship s = getBasicShip();
+        s.currCargoSpace = 0;
+        s.currFuelCapacity = s.fuelCapacity;
+        s.currHealth = s.health;
+        s.cargoList.clear();
+        return s;
+    }
+
     //Gets Basic Ship
     public static Ship getBattleShip() {
         return ships[1];
@@ -132,6 +142,10 @@ public class Ship {
     }
 
     public void setCurrHealth(int currHealth) {
+
+        if(currHealth == 0) {
+            new GameOverPage();
+        }
         this.currHealth = currHealth;
     }
 

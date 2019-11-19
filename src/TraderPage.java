@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 public class TraderPage {
     private Player p;
@@ -7,7 +9,7 @@ public class TraderPage {
     private int price;
 
 
-    public TraderPage(Player p, Ship s, Region selected, double fuel, MapPage mp) {
+    public TraderPage(Player p, Ship s, Region selected, double fuel, MapPage mp, JComboBox regList) {
         this.p = p;
         this.s = s;
         Market.setNoNPC(false);
@@ -29,7 +31,7 @@ public class TraderPage {
                 "He wants to sell you " + num + " " + item.getName() + ".");
         JLabel message3 = new JLabel("He demands a price of " + price);
         JLabel message4 = new JLabel();
-        JLabel banditIcon = new JLabel(new ImageIcon("pic/trader.png"));
+        JLabel banditIcon = new JLabel(new ImageIcon("pic/trader.jpg"));
         JButton buy = new JButton("BUY");
         JButton ignore = new JButton("IGNORE");
         JButton rob = new JButton("ROB");
@@ -141,6 +143,10 @@ public class TraderPage {
             //            MapPage bruh = new MapPage(mp.getRegions(), p, mp.getGame());
             ////            new RegionPage(p.getCurrentRegion(), p, bruh);
             mp.updateStats();
+            ItemEvent event =
+                    new ItemEvent(regList, 0, null, ItemEvent.SELECTED);
+            ItemListener yeet = regList.getItemListeners()[0];
+            yeet.itemStateChanged(event);
             Market.setNoNPC(true);
         });
     }
