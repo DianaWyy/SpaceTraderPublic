@@ -98,10 +98,10 @@ public class RegionPage extends JFrame {
                     message.setText("your ship is too sMaLl");
                     return;
                 }
-                if (!Market.getNoNPC() && selectedItem.getName().contains("FUEL")) {
+                if (!Market.getNoNPC() && selectedItem.getName().toLowerCase().contains("fuel")) {
                     message.setText("You cannot refuel when encountering NPC.");
                 }
-                if (!Market.getNoNPC() && selectedItem.getName().contains("HEALTH")) {
+                if (!Market.getNoNPC() && selectedItem.getName().toLowerCase().contains("health")) {
                     message.setText("You cannot gain health when encountering NPC.");
                 }
                 market.buy(selectedItem);
