@@ -28,6 +28,9 @@ public class Market {
             }
         }
     }
+    public void addItem(Item item) {
+        effectiveItems.add(item);
+    }
 
     public ArrayList<Item> getItemList() {
         return effectiveItems;
@@ -44,19 +47,18 @@ public class Market {
     public void buy(Item item) {
         if (item.getName().toLowerCase().contains("fuel") && noNPC) {
             refuel(this.p.getShip());
-            return;
-        } else if (item.getName().toLowerCase().contains("health") && noNPC) {
-            gainHealth(this.p, item);
+        } else if (item.getName().toLowerCase().contains("duct tape") && noNPC) {
+            gainHealth(this.p.getShip(), item);
         }
         p.setCredits(p.getCredits() - item.getPrice());
     }
     private void refuel(Ship ship) {
         ship.setCurrFuelCapacity(ship.getFuelCapacity());
     }
-    private void gainHealth(Player p, Item item) {
+    private void gainHealth(Ship ship, Item item) {
         int price = (int) (item.getPrice() * (1 - p.getEngineerSkill() * 0.05));
-        p.setCredits(p.getCredits() - price);
-        p.getShip().setCurrHealth(p.getShip().getHealth());
+        item.setPrice(price);
+        ship.setCurrHealth(ship.getHealth());
     }
     public static boolean getNoNPC() {
         return noNPC;
