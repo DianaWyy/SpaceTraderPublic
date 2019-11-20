@@ -106,7 +106,7 @@ public class RegionPage extends JFrame {
                 if (!Market.getNoNPC() && selectedItem.getName().toLowerCase().contains("fuel")) {
                     message.setText("You cannot refuel when encountering NPC.");
                 }
-                if (!Market.getNoNPC() && selectedItem.getName().toLowerCase().contains("health")) {
+                if (!Market.getNoNPC() && selectedItem.getName().toLowerCase().contains("duct tape")) {
                     message.setText("You cannot gain health when encountering NPC.");
                 }
                 market.buy(selectedItem);
@@ -116,7 +116,7 @@ public class RegionPage extends JFrame {
                         ship.getCurrCargoSpace(), ship.getCargoSpace()));
 
                 if (!selectedItem.getName().toLowerCase().contains("fuel")
-                        && !selectedItem.getName().toLowerCase().contains("health")) {
+                        && !selectedItem.getName().toLowerCase().contains("duct tape")) {
                     ship.addCargo(selectedItem);
                     sellDD.setModel(new DefaultComboBoxModel(ship.getCargoNameList().toArray()));
                     ItemEvent event = new ItemEvent(sellDD, 0, null, ItemEvent.SELECTED);
