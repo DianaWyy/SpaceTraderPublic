@@ -252,7 +252,7 @@ public class MapPage extends JFrame {
     }
 
     public void updateStats() {
-        if (s.getHealth() == 0 || (p.getCredits() == 0 && s.getCurrCargoSpace() == 0)) {
+        if (s.getHealth() == 0) {
             new GameOverPage(false);
             f.dispose();
         }else if (s.getCargoList().contains(Item.WINGAME)) {
