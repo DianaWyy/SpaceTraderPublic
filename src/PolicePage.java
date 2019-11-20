@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.Collections;
 
 public class PolicePage {
@@ -9,7 +11,7 @@ public class PolicePage {
     private String stolenList = "";
 
 
-    public PolicePage(Player p, Ship s, Region selected, double fuel, MapPage mp, int numCargo) {
+    public PolicePage(Player p, Ship s, Region selected, double fuel, MapPage mp, int numCargo, JComboBox regList) {
         this.p = p;
         this.s = s;
         Market.setNoNPC(false);
@@ -34,7 +36,7 @@ public class PolicePage {
         JLabel message2 = new JLabel("The chief demands you hand over some stolen goods");
         JLabel message3 = new JLabel("The following goods are marked as stolen: ");
         JLabel message4 = new JLabel(stolenList);
-        JLabel banditIcon = new JLabel(new ImageIcon("pic/police.png"));
+        JLabel banditIcon = new JLabel(new ImageIcon("pic/police.jpg"));
         JButton forfeit = new JButton("FORFEIT");
         JButton flee = new JButton("FLEE");
         JButton fight = new JButton("FIGHT");
@@ -137,6 +139,10 @@ public class PolicePage {
             //            MapPage bruh = new MapPage(mp.getRegions(), p, mp.getGame());
             //            new RegionPage(p.getCurrentRegion(), p, bruh);
             mp.updateStats();
+            ItemEvent event =
+                    new ItemEvent(regList, 0, null, ItemEvent.SELECTED);
+            ItemListener yeet = regList.getItemListeners()[0];
+            yeet.itemStateChanged(event);
             Market.setNoNPC(true);
         });
     }
