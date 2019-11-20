@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
 public class BanditPage extends JFrame {
@@ -9,7 +7,7 @@ public class BanditPage extends JFrame {
     private Ship s;
 
 
-    public BanditPage(Player p, Ship s, Region selected, double fuel, MapPage mp, JComboBox regList) {
+    public BanditPage(Player p, Ship s, Region selected, double fuel, MapPage mp) {
         this.p = p;
         this.s = s;
         Market.setNoNPC(false);
@@ -158,10 +156,6 @@ public class BanditPage extends JFrame {
             //            MapPage bruh = new MapPage(mp.getRegions(), p, mp.getGame());
             //            new RegionPage(p.getCurrentRegion(), p, bruh);
             mp.updateStats();
-            ItemEvent event =
-                    new ItemEvent(regList, 0, null, ItemEvent.SELECTED);
-            ItemListener yeet = regList.getItemListeners()[0];
-            yeet.itemStateChanged(event);
             Market.setNoNPC(true);
         });
     }

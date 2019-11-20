@@ -2,8 +2,7 @@ import java.util.Random;
 
 public enum Item {
 
-    //WINGAME
-    WINGAME(null, 1000, null),
+
     //PREAG
     PREAGFUEL("Preag Fuel", 10, TechLevel.PREAG),
     PREHEALTH("Preag Health", 10, TechLevel.PREAG),
@@ -93,13 +92,10 @@ public enum Item {
     private int price;
     private TechLevel techlevel;
 
-    Item(String name, int price, TechLevel techlevel) {
+    private Item(String name, int price, TechLevel techlevel) {
         this.name = name;
         this.price = price;
         this.techlevel = techlevel;
-    }
-    public Item getWinGameItem() {
-        return WINGAME;
     }
 
     public TechLevel getTechlevel() {
@@ -127,11 +123,11 @@ public enum Item {
     }
 
     public static Item getRandomItem() {
+        Item[] items = Item.values();
+
+        int num = items.length;
         Random rand = new Random();
-        Item i;
-        do {
-            i = Item.values()[rand.nextInt(Item.values().length)];
-        } while (i != WINGAME);
-        return i;
+
+        return items[rand.nextInt(num)];
     }
 }

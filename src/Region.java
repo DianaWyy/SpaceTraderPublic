@@ -5,7 +5,6 @@ public class Region {
     private TechLevel techlevel;
     private String name;
     private Market market;
-    private boolean winGame;
 
     public Region(int x, int y, String n) {
         xCoordinate = x;
@@ -13,10 +12,6 @@ public class Region {
         techlevel = TechLevel.getRandomTechLevel();
         name = n;
     }
-
-    public void setWinGame() {winGame = true;}
-
-    public boolean isWinGame() {return winGame;}
 
     public double computeDistance(Region r) {
         return Math.pow(Math.pow(this.getXCoordinate() - r.getXCoordinate(), 2)

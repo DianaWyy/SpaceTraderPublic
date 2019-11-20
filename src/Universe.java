@@ -43,7 +43,7 @@ public class Universe {
         if (onlyUniverse == null) {
             onlyUniverse = new Universe(regionNames);
         }
-        return new Universe(regionNames);
+        return onlyUniverse;
     }
 
     public ArrayList<Region> getRegions() {
