@@ -47,7 +47,7 @@ public class Market {
     public void buy(Item item) {
         if (item.getName().toLowerCase().contains("fuel") && noNPC) {
             refuel(this.p.getShip());
-        } else if (item.getName().toLowerCase().contains("health") && noNPC) {
+        } else if (item.getName().toLowerCase().contains("duct tape") && noNPC) {
             gainHealth(this.p.getShip(), item);
         }
         p.setCredits(p.getCredits() - item.getPrice());
