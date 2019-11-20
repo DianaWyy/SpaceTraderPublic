@@ -252,6 +252,13 @@ public class MapPage extends JFrame {
     }
 
     public void updateStats() {
+        if (s.getHealth() == 0) {
+            new GameOverPage(false);
+            f.dispose();
+        }else if (s.getCargoList().contains(Item.WINGAME)) {
+            new GameOverPage(true);
+            f.dispose();
+        }
         shipType.setText("Type: " + s.getType());
         shipSpace.setText("Cargo Space: " + s.getCurrCargoSpace() + "/" + s.getCargoSpace());
         shipFuel.setText(String.format("Fuel: %.2f/ %.2f",

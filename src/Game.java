@@ -10,8 +10,6 @@ public class Game {
                 int fighterSkill, int merchantSkill, int engineerSkill, int credits) {
         startGame(difficulty, userName, pilotSkill, fighterSkill,
                 merchantSkill, engineerSkill, credits);
-
-
     }
 
 
@@ -22,6 +20,12 @@ public class Game {
         u = Universe.createUniverse(names);
         // Create Player Object with random location
         Region r = u.getRandomRegion();
+        Region winGame = u.getRandomRegion();
+        while (r.equals(winGame)) {
+            winGame = u.getRandomRegion();
+        }
+        winGame.setWinGame();
+        System.out.println("wingame: " +winGame.getName());
         p = new Player(name, pilotSkill, fighterSkill, merchantSkill, engineerSkill, r, credits);
 
         // changes difficulty into int

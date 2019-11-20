@@ -8,7 +8,7 @@ import java.awt.event.*;
 
 public class  GameOverPage extends JFrame {
 
-    public GameOverPage() {
+    public GameOverPage(boolean winGame) {
 
         JFrame f = new JFrame();
 
@@ -28,14 +28,16 @@ public class  GameOverPage extends JFrame {
 
         // adding created component to the JFrame using my Backimage class
 
-
-
-
-
         JLabel l1;
         l1 = new JLabel("Game Over :(");
-        l1.setBounds(width / 2 - 225, height / 2 - 200, 500, 100);
-        l1.setFont(new Font("Serif", Font.BOLD, 80));
+        if (winGame) {
+            l1.setText("Congrats! You bought the universe my boi!");
+        } else {
+            l1.setText("Sorry you dead boi ;(");
+        }
+        l1.setBounds(width / 2 - 225, height / 2 - 200, 1000, 100);
+        l1.setAlignmentX(Component.CENTER_ALIGNMENT);
+        l1.setFont(new Font("Serif", Font.BOLD, 40));
         l1.setForeground(Color.white);
 
         f.add(l1);
@@ -69,12 +71,12 @@ public class  GameOverPage extends JFrame {
 
 
     }
-
-    public static void main(String[] args) throws IOException {
-        WelcomePage mg = new WelcomePage();
-
-
-    }
+//
+//    public static void main(String[] args) throws IOException {
+//        WelcomePage mg = new WelcomePage();
+//
+//
+//    }
 
 
 

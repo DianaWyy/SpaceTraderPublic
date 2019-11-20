@@ -28,6 +28,9 @@ public class Market {
             }
         }
     }
+    public void addItem(Item item) {
+        effectiveItems.add(item);
+    }
 
     public ArrayList<Item> getItemList() {
         return effectiveItems;

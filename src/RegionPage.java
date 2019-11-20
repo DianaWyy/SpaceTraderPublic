@@ -26,6 +26,11 @@ public class RegionPage extends JFrame {
         ship = p.getShip();
         JFrame f = new JFrame("Region");
         Market market = new Market(r.getTechlevel(), p);
+        if (r.isWinGame()) {
+            Item i = Item.WINGAME;
+            i.setName(String.format("%s's Universe", p.getUsername()));
+            market.addItem(i);
+        }
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int width = screenSize.width;
         int height = screenSize.height;

@@ -142,10 +142,6 @@ public class Ship {
     }
 
     public void setCurrHealth(int currHealth) {
-
-        if(currHealth == 0) {
-            new GameOverPage();
-        }
         this.currHealth = currHealth;
     }
 
