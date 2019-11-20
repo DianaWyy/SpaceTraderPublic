@@ -130,9 +130,9 @@ public class MapPage extends JFrame {
                             && g.getDiffLevel() * Math.random() > 0.5) {
                         double trash = Math.random();
                         if (trash < 0.33) {
-                            new BanditPage(p, s, selected, fuel, mp, regList); // bandit encounter
+                            new BanditPage(p, s, selected, fuel, mp); // bandit encounter
                         } else if (trash > 0.66) {
-                            new TraderPage(p, s, selected, fuel, mp, regList);
+                            new TraderPage(p, s, selected, fuel, mp);
                         } else {
                             int numItems = s.getCurrCargoSpace();
                             Random rand = new Random();
@@ -150,7 +150,7 @@ public class MapPage extends JFrame {
                             } else {
                                 int selectedItem = rand.nextInt(numItems);
                                 if (selectedItem != 0) {
-                                    new PolicePage(p, s, selected, fuel, mp, selectedItem, regList);
+                                    new PolicePage(p, s, selected, fuel, mp, selectedItem);
                                 } else { // Continue along way
                                     p.setCurrentRegion(selected);
                                     s.decreaseCurrFuelCapacity(fuel);
@@ -252,13 +252,6 @@ public class MapPage extends JFrame {
     }
 
     public void updateStats() {
-        if (s.getHealth() == 0 || (p.getCredits() == 0 && s.getCurrCargoSpace() == 0)) {
-            new GameOverPage(false);
-            f.dispose();
-        }else if (s.getCargoList().contains(Item.WINGAME)) {
-            new GameOverPage(true);
-            f.dispose();
-        }
         shipType.setText("Type: " + s.getType());
         shipSpace.setText("Cargo Space: " + s.getCurrCargoSpace() + "/" + s.getCargoSpace());
         shipFuel.setText(String.format("Fuel: %.2f/ %.2f",
@@ -287,7 +280,6 @@ public class MapPage extends JFrame {
         }
 
         showCredits.setText("Credits： " + p.getCredits());
-        f.repaint();
 
     }
 

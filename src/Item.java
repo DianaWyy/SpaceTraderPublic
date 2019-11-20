@@ -2,105 +2,100 @@ import java.util.Random;
 
 public enum Item {
 
-    //WINGAME
-    WINGAME(null, 1000, null),
 
-    //PREAG(5-20)
-    PREAGFUEL("Preag Fuel", 5, TechLevel.PREAG),
-    PREAGTAPE("Preag Duct Tape", 5, TechLevel.PREAG),
-    STONE("Stone", 10, TechLevel.PREAG),
-    PLANT("Plant", 17, TechLevel.PREAG),
-    PUREWATER("Pure Water", 20, TechLevel.PREAG),
-    LEAF("Leaf", 13, TechLevel.PREAG),
-    EARTH("Earth", 11, TechLevel.PREAG),
-    INSECT("Insect", 16, TechLevel.PREAG),
-    FUNGI("Fungi", 12, TechLevel.PREAG),
+    //PREAG
+    PREAGFUEL("Preag Fuel", 10, TechLevel.PREAG),
+    PREHEALTH("Preag Health", 10, TechLevel.PREAG),
+    STONE("Stone", 5, TechLevel.PREAG),
+    PLANT("Plant", 7, TechLevel.PREAG),
+    PUREWATER("Pure Water", 10, TechLevel.PREAG),
+    LEAF("Leaf", 3, TechLevel.PREAG),
+    EARTH("Earth", 1, TechLevel.PREAG),
+    INSECT("Insect", 6, TechLevel.PREAG),
+    FUNGI("Fungi", 2, TechLevel.PREAG),
+    PREAGTAPE("Preag Tape", 10, TechLevel.PREAG),
     STEAK("Steak", 15, TechLevel.PREAG),
     PORK("Pork", 12, TechLevel.PREAG),
-
-    //AGRICULTURE(20-50)
-    ARGFUEL("Agriculture Fuel", 20, TechLevel.AGRICULTURE),
-    ARGTAPE("Agriculture Duct Tape", 20, TechLevel.AGRICULTURE),
+    //AGRICULTURE
+    ARGFUEL("Agriculture Fuel", 30, TechLevel.AGRICULTURE),
+    ARGHEALTH("Agriculture Health", 30, TechLevel.AGRICULTURE),
     RICE("Rice", 20, TechLevel.AGRICULTURE),
     FLOUR("Flour", 20, TechLevel.AGRICULTURE),
     WOOD("Wood", 30, TechLevel.AGRICULTURE),
     PLOW("Plow", 25, TechLevel.AGRICULTURE),
     SOYBEANS("Soybeans", 22, TechLevel.AGRICULTURE),
-    CORN("Corn", 33, TechLevel.AGRICULTURE),
+    CORN("Corn", 23, TechLevel.AGRICULTURE),
     EGG("Egg", 25, TechLevel.AGRICULTURE),
-    HOGS("Hogs", 35, TechLevel.AGRICULTURE),
-    TURKEYS("Turkeys", 50, TechLevel.AGRICULTURE),
-
-    //MEDIEVAL(50-100)
-    MEDFUEL("Medieval Fuel", 50, TechLevel.MEDIEVAL),
-    MEDTAPE("Medieval Duct Tape", 50, TechLevel.MEDIEVAL),
+    HOGS("Hogs", 25, TechLevel.AGRICULTURE),
+    TURKEYS("Turkeys", 27, TechLevel.AGRICULTURE),
+    ARGTAPE("Agriculture Tape", 30, TechLevel.AGRICULTURE),
+    //MEDIEVAL
+    MEDFUEL("Medieval Fuel", 120, TechLevel.MEDIEVAL),
+    MEDHEALTH("Medieval Health", 120, TechLevel.MEDIEVAL),
     PAPER("Paper", 50, TechLevel.MEDIEVAL),
     TEA("Tea", 70, TechLevel.MEDIEVAL),
     MEDICINE("Medicine", 90, TechLevel.MEDIEVAL),
-    GOLD("Gold", 90, TechLevel.MEDIEVAL),
+    GOLD("Gold", 100, TechLevel.MEDIEVAL),
     SILVER("Silver", 90, TechLevel.MEDIEVAL),
-    MINE("Mine", 80, TechLevel.MEDIEVAL),
-    PETROLEUM(" Petroleum", 100, TechLevel.MEDIEVAL),
-    STEEL("Steel", 80, TechLevel.MEDIEVAL),
-
-    //RENAISSANCE(100-300)
-    RENFUEL("Renaissance Fuel", 100, TechLevel.RENAISSANCE),
-    RENTAPE("Renaissance Duct Tape", 100, TechLevel.RENAISSANCE),
+    MINE("Mine", 100, TechLevel.MEDIEVAL),
+    PETROLEUM(" Petroleum", 110, TechLevel.MEDIEVAL),
+    STEEL("Steel", 100, TechLevel.MEDIEVAL),
+    MEDTAPE("Medieval Tape", 120, TechLevel.MEDIEVAL),
+    //RENAISSANCE
+    RENFUEL("Renaissance Fuel", 200, TechLevel.RENAISSANCE),
+    RENHEALTH("Renaissance Health", 200, TechLevel.RENAISSANCE),
     PAINTING("Painting", 120, TechLevel.RENAISSANCE),
-    BIBLE("Bible", 300, TechLevel.RENAISSANCE),
-    POETRY("Poetry", 220, TechLevel.RENAISSANCE),
+    BIBLE("Bible", 150, TechLevel.RENAISSANCE),
+    POETRY("Poetry", 120, TechLevel.RENAISSANCE),
     BRUSH("Brush", 130, TechLevel.RENAISSANCE),
-    HAMLET("Hamlet", 230, TechLevel.RENAISSANCE),
+    HAMLET("Hamlet", 130, TechLevel.RENAISSANCE),
     MACBETH("Macbeth", 120, TechLevel.RENAISSANCE),
-
-    //INDUSTRIAL(300-500)
-    INDUSFUEL("Industrial Fuel", 300, TechLevel.INDUSTRIAL),
-    INDUSTAPE("Industrial Duct Tape", 300, TechLevel.INDUSTRIAL),
-    COMPASS("Compass", 370, TechLevel.INDUSTRIAL),
-    BOMB("Bomb", 340, TechLevel.INDUSTRIAL),
+    RENTAPE("Renaissance Tape", 200, TechLevel.RENAISSANCE),
+    //INDUSTRIAL
+    INDUSFUEL("Industrial Fuel", 600, TechLevel.INDUSTRIAL),
+    INDUSHEALTH("Industrial Health", 600, TechLevel.INDUSTRIAL),
+    COMPASS("Compass", 300, TechLevel.INDUSTRIAL),
+    BOMB("Bomb", 400, TechLevel.INDUSTRIAL),
     WEAPON("Weapon", 500, TechLevel.INDUSTRIAL),
-    KNIFE("Knife", 345, TechLevel.INDUSTRIAL),
-    SCREW("Screw", 450, TechLevel.INDUSTRIAL),
-    WRENCH("Wrench", 455, TechLevel.INDUSTRIAL),
-    OPENER("Opener", 345, TechLevel.INDUSTRIAL),
-    STRING("String", 450, TechLevel.INDUSTRIAL),
-
-
-    //MODERN (500-700)
-    MODFUEL("Modern Fuel", 500, TechLevel.MODERN),
-    MODTAPE("Modern Duct Tape", 500, TechLevel.MODERN),
-    SMARTPHONE("Smart Phone", 500, TechLevel.MODERN),
-    COMPUTERS("Computers", 550, TechLevel.MODERN),
-    PAD("Pad", 550, TechLevel.MODERN),
-    MP3("MP3", 580, TechLevel.MODERN),
-    PS4("PS4", 590, TechLevel.MODERN),
-    SWITCH("Switch", 600, TechLevel.MODERN),
-    CAMARA("Camera", 640, TechLevel.MODERN),
-    MICROPHONE("Microphone", 700, TechLevel.MODERN),
-
-    //FUTURISTIC (700-1000)
-    FUFUEL("Futuristic Fuel", 700, TechLevel.FUTURISTIC),
-    FUTAPE("Futuristic Duct Tape", 700, TechLevel.FUTURISTIC),
-    DORAEMON("Doraemon", 750, TechLevel.FUTURISTIC),
-    GLASSSCREEN("GlassScreen", 700, TechLevel.FUTURISTIC),
-    SUPERMAN("Superman", 760, TechLevel.FUTURISTIC),
-    BATMAN("Batman", 750, TechLevel.FUTURISTIC),
-    IRONMAN("Ironman", 780, TechLevel.FUTURISTIC),
-    THOR("Thor", 850, TechLevel.FUTURISTIC),
-    THANOS("Thanos", 900, TechLevel.FUTURISTIC),
-    EXAM("Exam", 1000, TechLevel.FUTURISTIC);
+    KNIFE("Knife", 450, TechLevel.INDUSTRIAL),
+    SCREW("Screw", 500, TechLevel.INDUSTRIAL),
+    WRENCH("Wrench", 550, TechLevel.INDUSTRIAL),
+    OPENER("Opener", 420, TechLevel.INDUSTRIAL),
+    STRING("String", 500, TechLevel.INDUSTRIAL),
+    INDUSTAPE("Industrial Tape", 600, TechLevel.INDUSTRIAL),
+    //MODERN
+    MODFUEL("Modern Fuel", 3000, TechLevel.MODERN),
+    MODHEALTH("Modern Health", 3000, TechLevel.MODERN),
+    SMARTPHONE("Smart Phone", 800, TechLevel.MODERN),
+    COMPUTERS("Computers", 1500, TechLevel.MODERN),
+    PAD("Pad", 2500, TechLevel.MODERN),
+    MP3("MP3", 2800, TechLevel.MODERN),
+    PS4("PS4", 2900, TechLevel.MODERN),
+    SWITCH("Switch", 1900, TechLevel.MODERN),
+    CAMARA("Camera", 2900, TechLevel.MODERN),
+    MICROPHONE("Microphone", 2900, TechLevel.MODERN),
+    MODTAPE("Modern Tape", 3000, TechLevel.MODERN),
+    //FUTURISTIC
+    FUFUEL("Futuristic Fuel", 5000, TechLevel.FUTURISTIC),
+    FUHEALTH("Futuristic Health", 5000, TechLevel.FUTURISTIC),
+    DORAEMON("Doraemon", 5000, TechLevel.FUTURISTIC),
+    GLASSSCREEN("GlassScreen", 5000, TechLevel.FUTURISTIC),
+    FUTAPE("Futuristic Tape", 5000, TechLevel.FUTURISTIC),
+    SUPERMAN("Superman", 5500, TechLevel.FUTURISTIC),
+    BATMAN("Batman", 6000, TechLevel.FUTURISTIC),
+    IRONMAN("Ironman", 6000, TechLevel.FUTURISTIC),
+    THOR("Thor", 7000, TechLevel.FUTURISTIC),
+    THANOS("Thanos", 8000, TechLevel.FUTURISTIC),
+    EXAM("Exam", 10000, TechLevel.FUTURISTIC);
 
     private String name;
     private int price;
     private TechLevel techlevel;
 
-    Item(String name, int price, TechLevel techlevel) {
+    private Item(String name, int price, TechLevel techlevel) {
         this.name = name;
         this.price = price;
         this.techlevel = techlevel;
-    }
-    public Item getWinGameItem() {
-        return WINGAME;
     }
 
     public TechLevel getTechlevel() {
@@ -128,11 +123,11 @@ public enum Item {
     }
 
     public static Item getRandomItem() {
+        Item[] items = Item.values();
+
+        int num = items.length;
         Random rand = new Random();
-        Item i;
-        do {
-            i = Item.values()[rand.nextInt(Item.values().length)];
-        } while (i != WINGAME);
-        return i;
+
+        return items[rand.nextInt(num)];
     }
 }
