@@ -20,7 +20,7 @@ public class Player {
         fullSkills.put("Engineer", engineerSkill);
         currentRegion = r;
         this.credits = credits;
-        this.playerShip = Ship.getBasicShip();
+        this.playerShip = Ship.getNewBasicShip();
     }
 
     public double calcTravelCost(double distance) {

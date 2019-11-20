@@ -26,6 +26,11 @@ public class RegionPage extends JFrame {
         ship = p.getShip();
         JFrame f = new JFrame("Region");
         Market market = new Market(r.getTechlevel(), p);
+        if (r.isWinGame()) {
+            Item i = Item.WINGAME;
+            i.setName(String.format("%s's Universe", p.getUsername()));
+            market.addItem(i);
+        }
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int width = screenSize.width;
         int height = screenSize.height;
@@ -101,22 +106,23 @@ public class RegionPage extends JFrame {
                 if (!Market.getNoNPC() && selectedItem.getName().toLowerCase().contains("fuel")) {
                     message.setText("You cannot refuel when encountering NPC.");
                 }
-                if (!Market.getNoNPC() && selectedItem.getName().toLowerCase().contains("health")) {
+                if (!Market.getNoNPC() && selectedItem.getName().toLowerCase().contains("duct tape")) {
                     message.setText("You cannot gain health when encountering NPC.");
-                }
-                if (!selectedItem.getName().toLowerCase().contains("fuel")
-                        && !selectedItem.getName().toLowerCase().contains("health")) {
-                    ship.addCargo(selectedItem);
                 }
                 market.buy(selectedItem);
                 message.setText("Thanks for purchasing:)");
                 showCredits.setText("Credits： " + p.getCredits());
                 showCargoSpace.setText(String.format("Cargo Space: %d/%d",
                         ship.getCurrCargoSpace(), ship.getCargoSpace()));
-                sellDD.setModel(new DefaultComboBoxModel(ship.getCargoNameList().toArray()));
-                ItemEvent event = new ItemEvent(sellDD, 0, null, ItemEvent.SELECTED);
-                ItemListener l = sellDD.getItemListeners()[0];
-                l.itemStateChanged(event);
+
+                if (!selectedItem.getName().toLowerCase().contains("fuel")
+                        && !selectedItem.getName().toLowerCase().contains("duct tape")) {
+                    ship.addCargo(selectedItem);
+                    sellDD.setModel(new DefaultComboBoxModel(ship.getCargoNameList().toArray()));
+                    ItemEvent event = new ItemEvent(sellDD, 0, null, ItemEvent.SELECTED);
+                    ItemListener l = sellDD.getItemListeners()[0];
+                    l.itemStateChanged(event);
+                }
             }
         });
         sellDD = new JComboBox(ship.getCargoNameList().toArray());
