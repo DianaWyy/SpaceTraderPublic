@@ -4,7 +4,7 @@ public class Region {
     private int yCoordinate;
     private TechLevel techlevel;
     private String name;
-    private Market market;
+//    private Market market;
     private boolean winGame;
 
     public Region(int x, int y, String n) {
@@ -32,25 +32,25 @@ public class Region {
                 || Math.abs(yCoordinate - r.getYCoordinate()) < 5);
     }
 
-    public void setxCoordinate(int x) {
-        xCoordinate = x;
-    }
+//    public void setxCoordinate(int x) {
+//        xCoordinate = x;
+//    }
 
     public int getXCoordinate() {
         return xCoordinate;
     }
 
-    public void setyCoordinate(int y) {
-        yCoordinate = y;
-    }
+//    public void setyCoordinate(int y) {
+//        yCoordinate = y;
+//    }
 
     public int getYCoordinate() {
         return yCoordinate;
     }
 
-    public void setName(String n) {
-        name = n;
-    }
+//    public void setName(String n) {
+//        name = n;
+//    }
 
     public String getName() {
         return name;
@@ -59,14 +59,14 @@ public class Region {
     public TechLevel getTechlevel() {
         return techlevel;
     }
-
-    public int priceCalculator(Item item) {
-        return (int) (item.getPrice() * techlevel.getLevel() * 0.25);
-    }
-
-    public Market getMarket() {
-        return market;
-    }
+//
+//    public int priceCalculator(Item item) {
+//        return (int) (item.getPrice() * techlevel.getLevel() * 0.25);
+//    }
+//
+//    public Market getMarket() {
+//        return market;
+//    }
 
 
 }

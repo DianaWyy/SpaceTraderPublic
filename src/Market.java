@@ -4,7 +4,7 @@ import java.util.Random;
 public class Market {
     private Item[] allItems = Item.values();
     private ArrayList<Item> effectiveItems = new ArrayList<>();
-    private TechLevel techLevel;
+//    private TechLevel techLevel;
     private Player p;
     private static boolean noNPC = true;
 
