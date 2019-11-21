@@ -6,7 +6,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class  GameOverPage extends JFrame {
+public class GameOverPage extends JFrame {
 
     public GameOverPage(boolean winGame) {
 
@@ -22,7 +22,7 @@ public class  GameOverPage extends JFrame {
         try {
             BufferedImage bf = ImageIO.read(new File("pic/welcomepig.png"));
             f.setContentPane(new Backimage(bf));
-        } catch(IOException e) {
+        } catch (IOException e) {
             System.out.println("Something happened with picture");
         }
 
@@ -77,7 +77,6 @@ public class  GameOverPage extends JFrame {
 //
 //
 //    }
-
 
 
 }

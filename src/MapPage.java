@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+
 public class MapPage extends JFrame {
     private Region selected;
     private Region currRegion;
@@ -19,12 +20,15 @@ public class MapPage extends JFrame {
     private JFrame f;
     private Player p;
     private Ship s;
+
     public ArrayList<Region> getRegions() {
         return regions;
     }
+
     public Game getGame() {
         return game;
     }
+
     private ArrayList<Region> regions;
     private Game game;
     private JLabel shipType;
@@ -39,6 +43,7 @@ public class MapPage extends JFrame {
     private MapPage mp = this;
     private JButton travel;
     private JButton shipFact;
+
     public MapPage(ArrayList<Region> regions, Player p, Game g) {
         this.regions = regions;
         this.game = g;
@@ -48,7 +53,6 @@ public class MapPage extends JFrame {
         ArrayList<String> regNames = new ArrayList<>();
         stars = new HashMap<>();
         currRegion = p.getCurrentRegion();
-        RegionPage currRegPage;
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         width = screenSize.width;
         height = screenSize.height;
@@ -190,6 +194,7 @@ public class MapPage extends JFrame {
             }
         });
     }
+
     public void displayStats(JFrame f, Player p) {
         JLabel shipStats = new JLabel("Ship Stats:");
         shipStats.setBounds(200, 125, 400, 25);
@@ -255,7 +260,7 @@ public class MapPage extends JFrame {
         if (s.getHealth() == 0 || (p.getCredits() == 0 && s.getCurrCargoSpace() == 0)) {
             new GameOverPage(false);
             f.dispose();
-        }else if (s.getCargoList().contains(Item.WINGAME)) {
+        } else if (s.getCargoList().contains(Item.WINGAME)) {
             new GameOverPage(true);
             f.dispose();
         }

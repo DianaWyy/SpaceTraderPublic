@@ -14,9 +14,13 @@ public class Region {
         name = n;
     }
 
-    public void setWinGame() {winGame = true;}
+    public void setWinGame() {
+        winGame = true;
+    }
 
-    public boolean isWinGame() {return winGame;}
+    public boolean isWinGame() {
+        return winGame;
+    }
 
     public double computeDistance(Region r) {
         return Math.pow(Math.pow(this.getXCoordinate() - r.getXCoordinate(), 2)

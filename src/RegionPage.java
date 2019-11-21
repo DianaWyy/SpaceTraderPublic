@@ -106,7 +106,8 @@ public class RegionPage extends JFrame {
                 if (!Market.getNoNPC() && selectedItem.getName().toLowerCase().contains("fuel")) {
                     message.setText("You cannot refuel when encountering NPC.");
                 }
-                if (!Market.getNoNPC() && selectedItem.getName().toLowerCase().contains("duct tape")) {
+                if (!Market.getNoNPC()
+                        && selectedItem.getName().toLowerCase().contains("duct tape")) {
                     message.setText("You cannot gain health when encountering NPC.");
                 }
                 market.buy(selectedItem);

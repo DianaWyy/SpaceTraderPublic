@@ -9,7 +9,8 @@ public class TraderPage {
     private int price;
 
 
-    public TraderPage(Player p, Ship s, Region selected, double fuel, MapPage mp, JComboBox regList) {
+    public TraderPage(Player p, Ship s, Region selected,
+                      double fuel, MapPage mp, JComboBox regList) {
         this.p = p;
         this.s = s;
         Market.setNoNPC(false);

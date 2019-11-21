@@ -9,7 +9,8 @@ public class BanditPage extends JFrame {
     private Ship s;
 
 
-    public BanditPage(Player p, Ship s, Region selected, double fuel, MapPage mp, JComboBox regList) {
+    public BanditPage(Player p, Ship s, Region selected,
+                      double fuel, MapPage mp, JComboBox regList) {
         this.p = p;
         this.s = s;
         Market.setNoNPC(false);
@@ -19,8 +20,6 @@ public class BanditPage extends JFrame {
         frame.setLayout(new BorderLayout());
         frame.setLocation(screenSize.width / 2 - frame.getWidth() / 2,
                 screenSize.height / 2 - frame.getHeight() / 2);
-        //        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        //        frame.setUndecorated(true); // full screen
         JPanel jp = new JPanel();
         int demand = (int) (Math.random() * 900 + 100);  //Somewhere between 100 and 1000 credits
         Box b = new Box(BoxLayout.Y_AXIS);
@@ -51,25 +50,20 @@ public class BanditPage extends JFrame {
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         pay.addActionListener(l -> {
             if (p.getCredits() < demand) {
+                int beforeCredits = p.getCredits();
                 if (s.getCargoList().size() == 0) {
                     int beforeHealth = s.getCurrHealth();
                     s.setCurrHealth(Math.max(s.getCurrHealth() - 20, 0));
                     int afterHealth = s.getCurrHealth();
-                    int beforeCredits = p.getCredits();
                     p.setCredits(0);
                     message.setText("You don't have enough money or any cargo!");
                     message2.setText(
                             "The robbers took your credits and damaged your ship in anger!");
                     message3.setText("Credits: " + beforeCredits + " -----> " + 0);
                     message4.setText("Health: " + beforeHealth + " -----> " + afterHealth);
-                    frame.remove(jp);
-                    frame.add(leave, BorderLayout.SOUTH);
-                    p.setCurrentRegion(selected);
-                    s.decreaseCurrFuelCapacity(fuel);
                 } else {
                     ArrayList<Item> cargo = s.getCargoList();
                     s.clearCargo();
-                    int beforeCredits = p.getCredits();
                     p.setCredits(0);
                     message.setText(
                             "You don't have enough money! The robbers took all your inventory!");
@@ -80,11 +74,11 @@ public class BanditPage extends JFrame {
                         items += item.getName() + ", ";
                     }
                     message4.setText(items);
-                    frame.remove(jp);
-                    frame.add(leave, BorderLayout.SOUTH);
-                    p.setCurrentRegion(selected);
-                    s.decreaseCurrFuelCapacity(fuel);
                 }
+                frame.remove(jp);
+                frame.add(leave, BorderLayout.SOUTH);
+                p.setCurrentRegion(selected);
+                s.decreaseCurrFuelCapacity(fuel);
             } else {
                 int before = p.getCredits();
                 p.setCredits(p.getCredits() - demand);
@@ -155,8 +149,6 @@ public class BanditPage extends JFrame {
         });
         leave.addActionListener(l -> {
             frame.dispose();
-            //            MapPage bruh = new MapPage(mp.getRegions(), p, mp.getGame());
-            //            new RegionPage(p.getCurrentRegion(), p, bruh);
             mp.updateStats();
             ItemEvent event =
                     new ItemEvent(regList, 0, null, ItemEvent.SELECTED);

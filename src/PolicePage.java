@@ -11,7 +11,8 @@ public class PolicePage {
     private String stolenList = "";
 
 
-    public PolicePage(Player p, Ship s, Region selected, double fuel, MapPage mp, int numCargo, JComboBox regList) {
+    public PolicePage(Player p, Ship s, Region selected,
+                      double fuel, MapPage mp, int numCargo, JComboBox regList) {
         this.p = p;
         this.s = s;
         Market.setNoNPC(false);

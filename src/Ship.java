@@ -25,10 +25,10 @@ public class Ship {
     private int currHealth;
 
     private static Ship[] ships = {
-            new Ship("Basic", 15, 20, 50),
-            new Ship("Battle", 15, 20, 100),
-            new Ship("Explorer", 15, 40, 50),
-            new Ship("Trade", 30, 20, 50)
+        new Ship("Basic", 15, 20, 50),
+        new Ship("Battle", 15, 20, 100),
+        new Ship("Explorer", 15, 40, 50),
+        new Ship("Trade", 30, 20, 50)
     };
 
 
