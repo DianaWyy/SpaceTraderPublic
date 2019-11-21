@@ -75,17 +75,11 @@ public class RegionPage extends JFrame {
         buyDD = new JComboBox(market.getItemNameList().toArray());
         buyDD.setSelectedIndex(0);
         selectedItem = market.getItemList().get(buyDD.getSelectedIndex());
-        buyDD.addItemListener(
-                new ItemListener() {
-                    @Override
-                    public void itemStateChanged(ItemEvent e) {
-                        if (e.getStateChange() == ItemEvent.SELECTED) {
-                            // Update Selection
-                            selectedItem = market.getItemList().get(buyDD.getSelectedIndex());
-                        }
-                    }
-                }
-        );
+        buyDD.addItemListener(e -> {
+            if (e.getStateChange() == ItemEvent.SELECTED) {
+                selectedItem = market.getItemList().get(buyDD.getSelectedIndex());
+            }
+        });
         buyDD.setBounds(width / 2 - 100, height / 6 + 200, 250, 25);
         f.add(buyDD);
         buy = new JButton("Buy");
@@ -131,17 +125,13 @@ public class RegionPage extends JFrame {
             sellDD.setSelectedIndex(0);
             selectedCargo = ship.getCargoList().get(sellDD.getSelectedIndex());
         }
-        sellDD.addItemListener(
-                new ItemListener() {
-                    @Override
-                    public void itemStateChanged(ItemEvent e) {
-                        if (e.getStateChange() == ItemEvent.SELECTED) {
-                            // Update Selection
-                            selectedCargo = ship.getCargoList().get(sellDD.getSelectedIndex());
-                        }
-                    }
-                }
-        );
+        sellDD.addItemListener(e -> {
+            if (e.getStateChange() == ItemEvent.SELECTED) {
+                // Update Selection
+                selectedCargo = ship.getCargoList().get(sellDD.getSelectedIndex());
+            }
+
+        });
         sellDD.setBounds(width / 2 - 100, height / 6 + 300, 250, 25);
         f.add(sellDD);
 
