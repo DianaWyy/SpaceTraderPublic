@@ -132,7 +132,7 @@ public enum Item {
         Item i;
         do {
             i = Item.values()[rand.nextInt(Item.values().length)];
-        } while (i != WINGAME);
+        } while (i == WINGAME);
         return i;
     }
 }
